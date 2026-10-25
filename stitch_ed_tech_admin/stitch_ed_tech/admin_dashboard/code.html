@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Expert Console - Admin Dashboard</title>
+<!-- Fonts -->
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@600;700;800&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<!-- Material Symbols -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "error": "#ba1a1a",
+              "surface-tint": "#3755c3",
+              "on-surface-variant": "#444653",
+              "inverse-surface": "#2d3133",
+              "primary": "#00288e",
+              "surface-container-low": "#f2f4f6",
+              "on-secondary-fixed": "#0d1c2e",
+              "error-container": "#ffdad6",
+              "on-background": "#191c1e",
+              "inverse-on-surface": "#eff1f3",
+              "on-error-container": "#93000a",
+              "surface-container": "#eceef0",
+              "on-secondary-container": "#57657a",
+              "primary-fixed-dim": "#b8c4ff",
+              "on-surface": "#191c1e",
+              "outline-variant": "#c4c5d5",
+              "secondary": "#515f74",
+              "on-primary-container": "#a8b8ff",
+              "on-secondary-fixed-variant": "#3a485b",
+              "secondary-fixed": "#d5e3fc",
+              "outline": "#757684",
+              "secondary-fixed-dim": "#b9c7df",
+              "on-secondary": "#ffffff",
+              "on-error": "#ffffff",
+              "surface-variant": "#e0e3e5",
+              "surface-dim": "#d8dadc",
+              "tertiary": "#611e00",
+              "surface": "#f7f9fb",
+              "inverse-primary": "#b8c4ff",
+              "on-primary-fixed-variant": "#173bab",
+              "on-primary": "#ffffff",
+              "surface-container-lowest": "#ffffff",
+              "tertiary-fixed-dim": "#ffb59a",
+              "tertiary-fixed": "#ffdbce",
+              "primary-fixed": "#dde1ff",
+              "on-tertiary": "#ffffff",
+              "tertiary-container": "#872d00",
+              "on-tertiary-container": "#ffa583",
+              "surface-bright": "#f7f9fb",
+              "surface-container-high": "#e6e8ea",
+              "on-tertiary-fixed-variant": "#802a00",
+              "on-primary-fixed": "#001453",
+              "primary-container": "#1e40af",
+              "secondary-container": "#d5e3fc",
+              "surface-container-highest": "#e0e3e5",
+              "background": "#f7f9fb",
+              "on-tertiary-fixed": "#380d00"
+            },
+            fontFamily: {
+              "headline": ["Manrope"],
+              "body": ["Inter"],
+              "label": ["Inter"]
+            },
+            borderRadius: {"DEFAULT": "0.125rem", "lg": "0.25rem", "xl": "0.5rem", "full": "0.75rem"},
+          },
+        },
+      }
+    </script>
+<style>
+      .material-symbols-outlined {
+        font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+      }
+      body {
+        font-family: 'Inter', sans-serif;
+        background-color: #f7f9fb;
+        color: #191c1e;
+      }
+      h1, h2, h3 {
+        font-family: 'Manrope', sans-serif;
+      }
+      .glass-header {
+        background: rgba(255, 255, 255, 0.8);
+        backdrop-filter: blur(12px);
+      }
+      .metric-gradient {
+        background: linear-gradient(135deg, #00288e 0%, #1e40af 100%);
+      }
+    </style>
+</head>
+<body class="bg-surface">
+<!-- SideNavBar Component -->
+<aside class="bg-slate-900 dark:bg-slate-950 h-screen w-64 fixed left-0 top-0 flex flex-col py-6 z-[60]">
+<div class="px-6 mb-10">
+<h1 class="text-xl font-bold tracking-tight text-white uppercase tracking-widest">Expert Console</h1>
+<p class="text-xs text-slate-400 font-medium">Ed-Tech Admin</p>
+</div>
+<nav class="flex-1 space-y-1 px-3">
+<a class="flex items-center gap-3 px-3 py-2.5 text-indigo-200 font-semibold border-l-4 border-indigo-400 bg-slate-800/50 translate-x-1 transition-transform" href="#">
+<span class="material-symbols-outlined" data-icon="dashboard">dashboard</span>
+<span class="font-medium text-sm">Dashboard</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2.5 text-slate-400 hover:text-slate-100 hover:bg-slate-800/80 transition-colors duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="group">group</span>
+<span class="font-medium text-sm">Users</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2.5 text-slate-400 hover:text-slate-100 hover:bg-slate-800/80 transition-colors duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="school">school</span>
+<span class="font-medium text-sm">Courses</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2.5 text-slate-400 hover:text-slate-100 hover:bg-slate-800/80 transition-colors duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="layers">layers</span>
+<span class="font-medium text-sm">Batches</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2.5 text-slate-400 hover:text-slate-100 hover:bg-slate-800/80 transition-colors duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="assignment">assignment</span>
+<span class="font-medium text-sm">Assignments</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2.5 text-slate-400 hover:text-slate-100 hover:bg-slate-800/80 transition-colors duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="verified">verified</span>
+<span class="font-medium text-sm">Certifications</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2.5 text-slate-400 hover:text-slate-100 hover:bg-slate-800/80 transition-colors duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="analytics">analytics</span>
+<span class="font-medium text-sm">Analytics</span>
+</a>
+</nav>
+<div class="px-3 pt-6 border-t border-slate-800">
+<a class="flex items-center gap-3 px-3 py-2.5 text-slate-400 hover:text-slate-100 hover:bg-slate-800/80 transition-colors duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="settings">settings</span>
+<span class="font-medium text-sm">Settings</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2.5 text-slate-400 hover:text-slate-100 hover:bg-slate-800/80 transition-colors duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="account_circle">account_circle</span>
+<span class="font-medium text-sm">Profile</span>
+</a>
+</div>
+</aside>
+<!-- TopNavBar Component -->
+<header class="fixed top-0 right-0 w-[calc(100%-16rem)] glass-header flex justify-between items-center h-16 px-8 z-50">
+<div class="flex items-center gap-4 flex-1">
+<div class="relative w-full max-w-md">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-slate-400 text-lg">search</span>
+<input class="w-full bg-surface-container-highest border-none rounded-lg pl-10 pr-4 py-2 text-sm focus:ring-2 focus:ring-indigo-500/20 outline-none transition-all" placeholder="Search analytics, students, or reports..." type="text"/>
+</div>
+</div>
+<div class="flex items-center gap-6">
+<div class="flex items-center gap-4 text-slate-500">
+<button class="hover:text-indigo-600 transition-colors">
+<span class="material-symbols-outlined" data-icon="notifications">notifications</span>
+</button>
+<button class="hover:text-indigo-600 transition-colors">
+<span class="material-symbols-outlined" data-icon="help_outline">help_outline</span>
+</button>
+</div>
+<div class="h-8 w-[1px] bg-outline-variant/30"></div>
+<div class="flex items-center gap-3">
+<div class="text-right">
+<p class="text-sm font-bold text-slate-900 leading-none">Admin User</p>
+<p class="text-[10px] text-slate-500 font-medium uppercase tracking-tighter">System Administrator</p>
+</div>
+<img alt="Admin User Avatar" class="w-10 h-10 rounded-full object-cover shadow-sm ring-2 ring-white" data-alt="professional headshot of a senior administrator in a light blue shirt with a neutral grey background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDtNVKlspyIYQL9nqRClieNRbsmySwueeqyQiTt7Oua87t7ku6ldFtYSfC2Fo8RTYF_LbG23JgWhb_Ov1ixkKPRDvEPjvQx3lSrV1v_-hWX9eK9JBHSsvbu9yE-2BxD58xclYLfl3_fHLvHvpoXvQxOm_-Yfp7MHAgjPRrFMR8wvaOm3XuZDAKvmqFkxmzSmz6Iv7_p396LU1iE-30kloL4A9yLmros469b-G_uRCkViXmtmdCCY3rpH8jD0t14uhheT23hbtc6de8"/>
+</div>
+</div>
+</header>
+<!-- Main Content Canvas -->
+<main class="ml-64 pt-24 px-8 pb-12 min-h-screen">
+<!-- Header Section -->
+<div class="mb-8">
+<h2 class="text-3xl font-extrabold text-on-surface tracking-tight">Main Control Panel</h2>
+<p class="text-secondary font-medium mt-1">Real-time overview of institutional performance and student engagement.</p>
+</div>
+<!-- Top Metrics Cards (Asymmetric Grid) -->
+<div class="grid grid-cols-1 md:grid-cols-5 gap-6 mb-10">
+<!-- Featured Metric -->
+<div class="md:col-span-2 metric-gradient rounded-xl p-6 text-white shadow-lg flex flex-col justify-between overflow-hidden relative group">
+<div class="relative z-10">
+<p class="label-md uppercase tracking-[0.1em] text-white/70 font-semibold text-xs mb-1">Total Students</p>
+<h3 class="text-5xl font-extrabold tracking-tighter">25,482</h3>
+</div>
+<div class="flex items-center gap-2 text-white/80 text-sm mt-4 relative z-10">
+<span class="material-symbols-outlined text-sm" data-icon="trending_up">trending_up</span>
+<span>12% increase from last quarter</span>
+</div>
+<!-- Abstract Grain/Texture Overlay -->
+<div class="absolute inset-0 opacity-10 pointer-events-none mix-blend-overlay">
+<div class="absolute -right-10 -bottom-10 w-48 h-48 bg-white rounded-full blur-3xl"></div>
+</div>
+</div>
+<!-- Standard Metrics -->
+<div class="bg-surface-container-lowest p-6 rounded-xl shadow-[0px_4px_20px_rgba(25,28,30,0.04)]">
+<p class="text-secondary label-sm text-[11px] font-bold uppercase tracking-wider mb-3">Active Courses</p>
+<div class="flex items-end justify-between">
+<h3 class="text-3xl font-bold text-on-surface">150</h3>
+<div class="bg-primary/5 p-2 rounded-lg">
+<span class="material-symbols-outlined text-primary" data-icon="school">school</span>
+</div>
+</div>
+</div>
+<div class="bg-surface-container-lowest p-6 rounded-xl shadow-[0px_4px_20px_rgba(25,28,30,0.04)]">
+<p class="text-secondary label-sm text-[11px] font-bold uppercase tracking-wider mb-3">Active Batches</p>
+<div class="flex items-end justify-between">
+<h3 class="text-3xl font-bold text-on-surface">420</h3>
+<div class="bg-primary/5 p-2 rounded-lg">
+<span class="material-symbols-outlined text-primary" data-icon="layers">layers</span>
+</div>
+</div>
+</div>
+<div class="bg-surface-container-lowest p-6 rounded-xl shadow-[0px_4px_20px_rgba(25,28,30,0.04)]">
+<p class="text-secondary label-sm text-[11px] font-bold uppercase tracking-wider mb-3">Instructors</p>
+<div class="flex items-end justify-between">
+<h3 class="text-3xl font-bold text-on-surface">84</h3>
+<div class="bg-primary/5 p-2 rounded-lg">
+<span class="material-symbols-outlined text-primary" data-icon="group">group</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Analytics Bento Section -->
+<div class="grid grid-cols-12 gap-8 mb-10">
+<!-- Enrollment Trends (Line Chart Placeholder) -->
+<div class="col-span-12 lg:col-span-8 bg-surface-container-lowest p-8 rounded-xl shadow-[0px_4px_20px_rgba(25,28,30,0.04)]">
+<div class="flex justify-between items-center mb-8">
+<div>
+<h4 class="text-lg font-bold text-on-surface">Enrollment Trends</h4>
+<p class="text-sm text-secondary">Monthly student onboarding data</p>
+</div>
+<select class="bg-surface-container-low border-none rounded-lg text-xs font-semibold py-1.5 px-3 focus:ring-1 focus:ring-primary/20">
+<option>Last 12 Months</option>
+<option>Last 6 Months</option>
+</select>
+</div>
+<!-- Mock Chart -->
+<div class="h-64 flex items-end gap-2 px-2">
+<div class="flex-1 bg-primary/10 rounded-t-sm h-[30%] hover:bg-primary/20 transition-colors"></div>
+<div class="flex-1 bg-primary/10 rounded-t-sm h-[45%] hover:bg-primary/20 transition-colors"></div>
+<div class="flex-1 bg-primary/10 rounded-t-sm h-[40%] hover:bg-primary/20 transition-colors"></div>
+<div class="flex-1 bg-primary/20 rounded-t-sm h-[60%] hover:bg-primary/30 transition-colors relative">
+<div class="absolute -top-8 left-1/2 -translate-x-1/2 bg-on-surface text-white text-[10px] py-1 px-2 rounded">2.4k</div>
+</div>
+<div class="flex-1 bg-primary/10 rounded-t-sm h-[55%] hover:bg-primary/20 transition-colors"></div>
+<div class="flex-1 bg-primary/10 rounded-t-sm h-[70%] hover:bg-primary/20 transition-colors"></div>
+<div class="flex-1 bg-primary/10 rounded-t-sm h-[65%] hover:bg-primary/20 transition-colors"></div>
+<div class="flex-1 bg-primary/10 rounded-t-sm h-[85%] hover:bg-primary/20 transition-colors"></div>
+<div class="flex-1 bg-primary/10 rounded-t-sm h-[80%] hover:bg-primary/20 transition-colors"></div>
+<div class="flex-1 bg-primary/10 rounded-t-sm h-[95%] hover:bg-primary/20 transition-colors"></div>
+<div class="flex-1 bg-primary-container/80 rounded-t-sm h-[100%]"></div>
+<div class="flex-1 bg-primary/10 rounded-t-sm h-[90%] hover:bg-primary/20 transition-colors"></div>
+</div>
+<div class="flex justify-between mt-4 text-[10px] text-secondary font-medium uppercase tracking-wider">
+<span>Jan</span><span>Feb</span><span>Mar</span><span>Apr</span><span>May</span><span>Jun</span><span>Jul</span><span>Aug</span><span>Sep</span><span>Oct</span><span>Nov</span><span>Dec</span>
+</div>
+</div>
+<!-- Completion Rate (Radial/Circular Highlight) -->
+<div class="col-span-12 lg:col-span-4 bg-surface-container-lowest p-8 rounded-xl shadow-[0px_4px_20px_rgba(25,28,30,0.04)] flex flex-col items-center justify-center relative overflow-hidden">
+<div class="absolute top-6 left-6">
+<h4 class="text-lg font-bold text-on-surface">Completion Rate</h4>
+<p class="text-sm text-secondary">Institutional target: 80%</p>
+</div>
+<div class="relative w-48 h-48 flex items-center justify-center mt-10">
+<svg class="w-full h-full transform -rotate-90">
+<circle class="text-surface-container-low" cx="96" cy="96" fill="transparent" r="88" stroke="currentColor" stroke-width="12"></circle>
+<circle class="text-primary" cx="96" cy="96" fill="transparent" r="88" stroke="currentColor" stroke-dasharray="552.92" stroke-dashoffset="152.6" stroke-width="12"></circle>
+</svg>
+<div class="absolute flex flex-col items-center">
+<span class="text-4xl font-extrabold text-on-surface">72.4%</span>
+<span class="text-[10px] font-bold text-secondary uppercase tracking-widest">Overall</span>
+</div>
+</div>
+<div class="mt-8 flex gap-6 w-full">
+<div class="flex-1">
+<div class="flex items-center gap-2 mb-1">
+<div class="w-2 h-2 rounded-full bg-primary"></div>
+<span class="text-[10px] font-bold text-secondary uppercase">Completed</span>
+</div>
+<p class="text-lg font-bold">18,449</p>
+</div>
+<div class="flex-1">
+<div class="flex items-center gap-2 mb-1">
+<div class="w-2 h-2 rounded-full bg-surface-container-highest"></div>
+<span class="text-[10px] font-bold text-secondary uppercase">In-Progress</span>
+</div>
+<p class="text-lg font-bold">7,033</p>
+</div>
+</div>
+</div>
+</div>
+<!-- Bottom Contextual Section -->
+<div class="grid grid-cols-12 gap-8">
+<!-- Course Performance (Table) -->
+<div class="col-span-12 lg:col-span-7 bg-surface-container-lowest rounded-xl shadow-[0px_4px_20px_rgba(25,28,30,0.04)] overflow-hidden">
+<div class="p-6">
+<h4 class="text-lg font-bold text-on-surface">Course Performance</h4>
+<p class="text-sm text-secondary">Top performing courses by enrollment and feedback.</p>
+</div>
+<table class="w-full text-left">
+<thead>
+<tr class="bg-surface-container-low/50">
+<th class="px-6 py-3 text-[10px] font-bold uppercase tracking-widest text-on-surface-variant">Course Title</th>
+<th class="px-6 py-3 text-[10px] font-bold uppercase tracking-widest text-on-surface-variant">Instructor</th>
+<th class="px-6 py-3 text-[10px] font-bold uppercase tracking-widest text-on-surface-variant">Enrolled</th>
+<th class="px-6 py-3 text-[10px] font-bold uppercase tracking-widest text-on-surface-variant">Rating</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-outline-variant/10">
+<tr class="hover:bg-surface-container-low transition-colors group">
+<td class="px-6 py-4">
+<p class="text-sm font-semibold text-on-surface">Advanced UX Frameworks</p>
+<p class="text-xs text-secondary">Design Dept.</p>
+</td>
+<td class="px-6 py-4 text-sm">Dr. Sarah Jenkins</td>
+<td class="px-6 py-4 text-sm font-medium">4,201</td>
+<td class="px-6 py-4">
+<div class="flex items-center gap-1">
+<span class="text-sm font-bold">4.9</span>
+<span class="material-symbols-outlined text-xs text-tertiary-container" data-icon="star" data-weight="fill" style="font-variation-settings: 'FILL' 1;">star</span>
+</div>
+</td>
+</tr>
+<tr class="hover:bg-surface-container-low transition-colors group">
+<td class="px-6 py-4">
+<p class="text-sm font-semibold text-on-surface">Full-Stack Architecture</p>
+<p class="text-xs text-secondary">Engineering</p>
+</td>
+<td class="px-6 py-4 text-sm">Marcus Thorne</td>
+<td class="px-6 py-4 text-sm font-medium">3,850</td>
+<td class="px-6 py-4">
+<div class="flex items-center gap-1">
+<span class="text-sm font-bold">4.8</span>
+<span class="material-symbols-outlined text-xs text-tertiary-container" data-icon="star" data-weight="fill" style="font-variation-settings: 'FILL' 1;">star</span>
+</div>
+</td>
+</tr>
+<tr class="hover:bg-surface-container-low transition-colors group">
+<td class="px-6 py-4">
+<p class="text-sm font-semibold text-on-surface">Data Science Mastery</p>
+<p class="text-xs text-secondary">Analytics</p>
+</td>
+<td class="px-6 py-4 text-sm">Li Wei</td>
+<td class="px-6 py-4 text-sm font-medium">3,120</td>
+<td class="px-6 py-4">
+<div class="flex items-center gap-1">
+<span class="text-sm font-bold">4.7</span>
+<span class="material-symbols-outlined text-xs text-tertiary-container" data-icon="star" data-weight="fill" style="font-variation-settings: 'FILL' 1;">star</span>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+<div class="p-4 bg-surface-container-low/20 text-center">
+<button class="text-xs font-bold text-primary uppercase tracking-widest hover:underline">View All Courses</button>
+</div>
+</div>
+<!-- Alerts & Actions Panel -->
+<div class="col-span-12 lg:col-span-5 flex flex-col gap-8">
+<!-- Alerts Panel -->
+<div class="bg-surface-container-lowest p-6 rounded-xl shadow-[0px_4px_20px_rgba(25,28,30,0.04)]">
+<div class="flex items-center justify-between mb-6">
+<h4 class="text-lg font-bold text-on-surface">Critical Alerts</h4>
+<span class="bg-error-container text-on-error-container text-[10px] font-bold px-2 py-0.5 rounded-full uppercase">3 New</span>
+</div>
+<div class="space-y-4">
+<div class="flex gap-4 p-3 rounded-lg bg-surface-container-low/50">
+<div class="shrink-0 text-error mt-0.5">
+<span class="material-symbols-outlined" data-icon="warning">warning</span>
+</div>
+<div>
+<p class="text-sm font-bold text-on-surface">Low Performing Batch (B-42)</p>
+<p class="text-xs text-secondary leading-relaxed">Engagement dropped by 34% in the last 7 days. Action required.</p>
+</div>
+</div>
+<div class="flex gap-4 p-3 rounded-lg bg-surface-container-low/50">
+<div class="shrink-0 text-primary mt-0.5">
+<span class="material-symbols-outlined" data-icon="person_alert">person_alert</span>
+</div>
+<div>
+<p class="text-sm font-bold text-on-surface">High Dropout Risk</p>
+<p class="text-xs text-secondary leading-relaxed">12 students in 'Cloud Computing 101' haven't logged in for 10 days.</p>
+</div>
+</div>
+</div>
+</div>
+<!-- Engagement Insights -->
+<div class="bg-surface-container-lowest p-6 rounded-xl shadow-[0px_4px_20px_rgba(25,28,30,0.04)] flex-1">
+<h4 class="text-lg font-bold text-on-surface mb-6">Engagement Insights</h4>
+<div class="space-y-6">
+<div>
+<div class="flex justify-between text-xs font-bold mb-2">
+<span class="text-secondary uppercase">Average Attendance</span>
+<span class="text-on-surface">88%</span>
+</div>
+<div class="h-2 w-full bg-surface-container-low rounded-full overflow-hidden">
+<div class="h-full bg-primary rounded-full w-[88%]"></div>
+</div>
+</div>
+<div>
+<div class="flex justify-between text-xs font-bold mb-2">
+<span class="text-secondary uppercase">Assignment Completion</span>
+<span class="text-on-surface">64%</span>
+</div>
+<div class="h-2 w-full bg-surface-container-low rounded-full overflow-hidden">
+<div class="h-full bg-primary-container rounded-full w-[64%]"></div>
+</div>
+</div>
+</div>
+<div class="mt-8 pt-6 border-t border-outline-variant/10">
+<div class="flex items-center justify-between">
+<div class="flex -space-x-2">
+<img alt="Student" class="w-8 h-8 rounded-full border-2 border-white object-cover" data-alt="portrait of a young smiling woman with curly hair" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDC9n-SyWF7g3Kvws6VFT393f7uFdWpwijEMbXw3439lOggRYRT0dTxZeR8mc5kmGEcx-Qb94yIMzTnGSvtQsAn9p6eFlVfXo5YCzeN4iWvT-smOE4HX--co6Qi8J04RGDjlUb56CpR1VGDDf5rYIBtwRXgG99jNgG1CJ3zH5vt_c3TgoqrqaIsu01Q-7mSGNqVt1C6jaOTSF4ppUhPRp9qBDqdi2BKgDkt2D6XDXAsBZzeza_D9rkQlEIVRtSTtmGu7f0uQg8iJoA"/>
+<img alt="Student" class="w-8 h-8 rounded-full border-2 border-white object-cover" data-alt="profile of a woman looking sideways with soft lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCMcm0BlPueEaBLamARX22Q_fKOW-Z1cddwt4AzU0KtKz37taurBe4j5TAAyDt2R3yfloOKQBeoZ5BoqLYhXz9d6OyxfqLEVu2k1uP59491zdTABayhvJrJgC7stFNX9_sXKoKuDWc1AxHsmyS5_xkLSRH9oveCplLi7eDIvzs_u3o0UJyAqe2NEQmTU8Q0pPlMh-MKKMiGXIg3cD0r5VN2e0kuTZG2PJcmQYyYlC3oqZo11mVa5j5j5gDNz5pre0QhoYunYwwB_3s"/>
+<img alt="Student" class="w-8 h-8 rounded-full border-2 border-white object-cover" data-alt="close up headshot of a man with short hair and glasses" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCiS68EcGY9zju3dv7q5IHw0x_XnW998ZuCt-9UdFvE8PgG0WN7ypEIZt1AVd67tq_gqbfMbolCeF4DJ3CC0tZxy4JUE5wyrefVBTHa6qmX6OygkayLB033DK0mjDZC0GkT38p4x_KbDRgPsYfUo5bVtnBIn-8pk7PVEE8fjeiTOFbEn_HSxLOoLYQKOlvJXhz5FQztsrvyNFNSnkLaj89gBw7SVOU1PzlTswchGJy9EI1ps_nBUJ3dAOkBU0cGWndWPLqebb58ovM"/>
+<div class="w-8 h-8 rounded-full bg-surface-container border-2 border-white flex items-center justify-center text-[10px] font-bold text-secondary">+12</div>
+</div>
+<p class="text-xs text-secondary font-medium">New enrollments today</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</main>
+<!-- Floating Action Button (Supressed on Dashboards usually, but added for "Expert's Console" utility) -->
+<button class="fixed bottom-8 right-8 w-14 h-14 metric-gradient text-white rounded-full shadow-xl flex items-center justify-center hover:scale-110 transition-transform z-50">
+<span class="material-symbols-outlined" data-icon="add">add</span>
+</button>
+</body></html>

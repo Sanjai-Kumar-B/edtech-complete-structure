@@ -1,0 +1,11 @@
+
+{
+  "name": "junospace",
+  "private": true,
+  "workspaces": [
+    "packages/*",
+    "edtech-admin",
+    "edtech-instructor",
+    "ed-tech-student"
+  ]
+}

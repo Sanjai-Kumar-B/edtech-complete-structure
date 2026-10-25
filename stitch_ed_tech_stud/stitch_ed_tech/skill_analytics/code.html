@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Skill Analytics | Atelier Academy</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700;800&amp;family=Inter:wght@400;500;600&amp;family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "background": "#faf8ff",
+              "inverse-on-surface": "#eef0ff",
+              "inverse-surface": "#283044",
+              "tertiary": "#943700",
+              "on-surface": "#131b2e",
+              "surface-container-high": "#e2e7ff",
+              "secondary": "#006b5f",
+              "outline": "#737686",
+              "inverse-primary": "#b4c5ff",
+              "error-container": "#ffdad6",
+              "on-error-container": "#93000a",
+              "secondary-fixed": "#71f8e4",
+              "surface-tint": "#0053db",
+              "surface": "#faf8ff",
+              "surface-variant": "#dae2fd",
+              "secondary-fixed-dim": "#4fdbc8",
+              "on-surface-variant": "#434655",
+              "on-primary-container": "#eeefff",
+              "on-secondary-fixed": "#00201c",
+              "on-error": "#ffffff",
+              "tertiary-container": "#bc4800",
+              "on-tertiary": "#ffffff",
+              "on-secondary": "#ffffff",
+              "tertiary-fixed-dim": "#ffb596",
+              "on-primary-fixed": "#00174b",
+              "on-tertiary-fixed": "#360f00",
+              "on-background": "#131b2e",
+              "primary-container": "#2563eb",
+              "on-primary": "#ffffff",
+              "on-secondary-container": "#006f64",
+              "surface-dim": "#d2d9f4",
+              "error": "#ba1a1a",
+              "primary": "#004ac6",
+              "surface-container-low": "#f2f3ff",
+              "surface-bright": "#faf8ff",
+              "on-primary-fixed-variant": "#003ea8",
+              "primary-fixed-dim": "#b4c5ff",
+              "surface-container": "#eaedff",
+              "on-secondary-fixed-variant": "#005048",
+              "tertiary-fixed": "#ffdbcd",
+              "on-tertiary-fixed-variant": "#7d2d00",
+              "surface-container-highest": "#dae2fd",
+              "outline-variant": "#c3c6d7",
+              "secondary-container": "#6df5e1",
+              "surface-container-lowest": "#ffffff",
+              "on-tertiary-container": "#ffede6",
+              "primary-fixed": "#dbe1ff"
+            },
+            fontFamily: {
+              "headline": ["Manrope"],
+              "body": ["Inter"],
+              "label": ["Inter"]
+            },
+            borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .radar-grid {
+            clip-path: polygon(50% 0%, 100% 38%, 82% 100%, 18% 100%, 0% 38%);
+        }
+    </style>
+</head>
+<body class="bg-background text-on-surface font-body">
+<!-- SideNavBar -->
+<aside class="h-screen w-64 fixed left-0 top-0 bg-slate-50 dark:bg-slate-950 flex flex-col py-8 z-50">
+<div class="px-6 mb-10">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 bg-primary-container flex items-center justify-center rounded-lg shadow-sm">
+<span class="material-symbols-outlined text-on-primary-container" style="font-variation-settings: 'FILL' 1;">school</span>
+</div>
+<div>
+<h1 class="text-xl font-extrabold text-blue-700 dark:text-blue-400 font-headline tracking-tight">Atelier Academy</h1>
+<p class="text-[11px] font-headline font-bold uppercase tracking-widest text-slate-500">Graduate Program</p>
+</div>
+</div>
+</div>
+<nav class="flex-1 px-4 space-y-1">
+<p class="px-4 text-[11px] font-bold uppercase tracking-widest text-slate-400 mb-2">Main Menu</p>
+<a class="flex items-center gap-3 px-4 py-3 text-slate-500 dark:text-slate-400 hover:text-blue-600 hover:bg-blue-50 dark:hover:bg-blue-900/20 transition-colors rounded-lg group scale-95 active:duration-150" href="#">
+<span class="material-symbols-outlined">dashboard</span>
+<span class="font-manrope font-semibold text-sm">Dashboard</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-slate-500 dark:text-slate-400 hover:text-blue-600 hover:bg-blue-50 dark:hover:bg-blue-900/20 transition-colors rounded-lg group scale-95 active:duration-150" href="#">
+<span class="material-symbols-outlined">school</span>
+<span class="font-manrope font-semibold text-sm">My Courses</span>
+</a>
+<!-- Active State: Skill Analytics -->
+<a class="flex items-center gap-3 px-4 py-3 text-blue-700 dark:text-blue-400 font-bold border-r-4 border-blue-700 bg-blue-50/50 dark:bg-blue-900/10 rounded-l-lg group scale-95 active:duration-150" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">leaderboard</span>
+<span class="font-manrope font-semibold text-sm">Skill Analytics</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-slate-500 dark:text-slate-400 hover:text-blue-600 hover:bg-blue-50 dark:hover:bg-blue-900/20 transition-colors rounded-lg group scale-95 active:duration-150" href="#">
+<span class="material-symbols-outlined">psychology</span>
+<span class="font-manrope font-semibold text-sm">AI Roadmap</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-slate-500 dark:text-slate-400 hover:text-blue-600 hover:bg-blue-50 dark:hover:bg-blue-900/20 transition-colors rounded-lg group scale-95 active:duration-150" href="#">
+<span class="material-symbols-outlined">work</span>
+<span class="font-manrope font-semibold text-sm">Career Track</span>
+</a>
+</nav>
+<div class="px-4 mt-auto pt-8">
+<button class="w-full bg-primary-container text-on-primary py-3 rounded-xl font-headline font-bold text-sm shadow-lg shadow-primary/20 hover:opacity-90 transition-all active:scale-95 mb-8">
+                Upgrade Plan
+            </button>
+<div class="space-y-1">
+<a class="flex items-center gap-3 px-4 py-2 text-slate-500 hover:text-blue-600 transition-colors text-sm font-semibold" href="#">
+<span class="material-symbols-outlined text-lg">help</span> Support
+                </a>
+<a class="flex items-center gap-3 px-4 py-2 text-slate-500 hover:text-blue-600 transition-colors text-sm font-semibold" href="#">
+<span class="material-symbols-outlined text-lg">settings</span> Settings
+                </a>
+</div>
+</div>
+</aside>
+<!-- TopAppBar -->
+<header class="fixed top-0 right-0 w-[calc(100%-16rem)] h-16 bg-white/80 dark:bg-slate-900/80 backdrop-blur-xl z-40 border-b border-slate-200/15 shadow-sm flex justify-between items-center px-8">
+<div class="flex items-center flex-1">
+<div class="relative w-64 group">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-slate-400 text-xl group-focus-within:text-primary transition-colors">search</span>
+<input class="w-full bg-surface-container-low border-none rounded-full py-2 pl-10 pr-4 text-sm focus:ring-2 focus:ring-primary/20 focus:bg-white transition-all" placeholder="Search analytics..." type="text"/>
+</div>
+</div>
+<div class="flex items-center gap-6">
+<div class="flex items-center gap-2">
+<button class="p-2 text-slate-600 hover:text-primary transition-all relative">
+<span class="material-symbols-outlined">notifications</span>
+<span class="absolute top-2 right-2 w-2 h-2 bg-error rounded-full border-2 border-white"></span>
+</button>
+<button class="p-2 text-slate-600 hover:text-primary transition-all">
+<span class="material-symbols-outlined">settings</span>
+</button>
+</div>
+<div class="h-8 w-[1px] bg-outline-variant/30"></div>
+<div class="flex items-center gap-4">
+<button class="text-primary font-manrope font-semibold text-sm hover:opacity-80 transition-all active:scale-98">View Assignments</button>
+<button class="bg-primary text-on-primary px-5 py-2 rounded-full font-manrope font-semibold text-sm hover:opacity-90 active:scale-95 transition-all shadow-md shadow-primary/10">Join Class</button>
+<div class="w-10 h-10 rounded-full overflow-hidden border-2 border-primary/10">
+<img alt="Student Profile Photo" class="w-full h-full object-cover" data-alt="Close-up portrait of a professional student with soft studio lighting and clean minimalist background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAiM8xBXKW12VYC9DcgKp-tcv883EfJ80uuFwZpNpmhAwaq4TGztdkxAQT1ptoHUL_CtakXEvzzjqHm4dxI_tEMaDSN6CJrjXFQSvhGDIUcVOKdTitryPtUPkpxpLENNZWTf3_wacnuTtZoA9eptdZeiBEjCCeb5kjqu-8lKEkmO4dirjbeiY_FJpPwJGPwxQFiRZQHDr_kQOYtL3xKCjP-3EZEO6SMVFLI8-DqxVT4OR7naddlDTA8KN3hBwW9-PeI0tpfz7OChfQ"/>
+</div>
+</div>
+</div>
+</header>
+<!-- Main Content Canvas -->
+<main class="ml-64 pt-24 pb-12 px-10 min-h-screen">
+<div class="max-w-7xl mx-auto">
+<!-- Page Header -->
+<div class="mb-10 flex justify-between items-end">
+<div>
+<h2 class="text-3xl font-extrabold font-headline tracking-tight text-on-surface mb-2">Skill Analytics</h2>
+<p class="text-on-surface-variant font-body">Deep performance metrics across your technical stack and soft skill domains.</p>
+</div>
+<div class="flex gap-3">
+<button class="flex items-center gap-2 px-4 py-2 rounded-lg bg-surface-container-high text-primary font-semibold text-sm hover:opacity-80 transition-all">
+<span class="material-symbols-outlined text-lg">download</span> Export Report
+                    </button>
+<button class="flex items-center gap-2 px-4 py-2 rounded-lg bg-primary-container text-on-primary font-semibold text-sm hover:opacity-90 transition-all">
+<span class="material-symbols-outlined text-lg">refresh</span> Update Scan
+                    </button>
+</div>
+</div>
+<!-- Dashboard Grid -->
+<div class="grid grid-cols-12 gap-8">
+<!-- Radar Chart Section (Core Skills) -->
+<div class="col-span-12 lg:col-span-8 space-y-8">
+<div class="bg-surface-container-lowest rounded-xl p-8 shadow-sm">
+<div class="flex justify-between items-center mb-8">
+<h3 class="text-lg font-bold font-headline">Core Proficiency Matrix</h3>
+<div class="flex items-center gap-4 text-xs font-bold uppercase tracking-widest text-on-surface-variant">
+<span class="flex items-center gap-2"><span class="w-3 h-3 rounded-full bg-primary"></span> Current</span>
+<span class="flex items-center gap-2"><span class="w-3 h-3 rounded-full bg-outline-variant/40"></span> Industry Bench</span>
+</div>
+</div>
+<!-- Abstract Radar Chart Representation -->
+<div class="relative aspect-square max-w-md mx-auto flex items-center justify-center">
+<!-- Background Circles/Shapes -->
+<div class="absolute inset-0 border border-outline-variant/10 rounded-full"></div>
+<div class="absolute inset-[15%] border border-outline-variant/10 rounded-full"></div>
+<div class="absolute inset-[30%] border border-outline-variant/10 rounded-full"></div>
+<div class="absolute inset-[45%] border border-outline-variant/10 rounded-full"></div>
+<!-- Radar Web Lines -->
+<div class="absolute inset-0 flex items-center justify-center">
+<div class="w-full h-[1px] bg-outline-variant/10 rotate-0"></div>
+<div class="w-full h-[1px] bg-outline-variant/10 rotate-[72deg]"></div>
+<div class="w-full h-[1px] bg-outline-variant/10 rotate-[144deg]"></div>
+<div class="w-full h-[1px] bg-outline-variant/10 rotate-[216deg]"></div>
+<div class="w-full h-[1px] bg-outline-variant/10 rotate-[288deg]"></div>
+</div>
+<!-- Radar PolyFill (Visual only) -->
+<svg class="absolute inset-0 w-full h-full drop-shadow-xl" viewbox="0 0 100 100">
+<polygon fill="rgba(37, 99, 235, 0.1)" points="50,5 95,40 80,90 20,90 5,40" stroke="#004ac6" stroke-width="2"></polygon>
+<circle cx="50" cy="5" fill="#004ac6" r="3"></circle>
+<circle cx="95" cy="40" fill="#004ac6" r="3"></circle>
+<circle cx="80" cy="90" fill="#004ac6" r="3"></circle>
+<circle cx="20" cy="90" fill="#004ac6" r="3"></circle>
+<circle cx="5" cy="40" fill="#004ac6" r="3"></circle>
+</svg>
+<!-- Axis Labels -->
+<div class="absolute -top-6 left-1/2 -translate-x-1/2 font-bold text-[10px] uppercase tracking-tighter bg-surface-container text-primary px-3 py-1 rounded-full">Architecture</div>
+<div class="absolute top-[35%] -right-12 font-bold text-[10px] uppercase tracking-tighter bg-surface-container text-primary px-3 py-1 rounded-full">Frontend</div>
+<div class="absolute bottom-0 right-4 font-bold text-[10px] uppercase tracking-tighter bg-surface-container text-primary px-3 py-1 rounded-full">Backend</div>
+<div class="absolute bottom-0 left-4 font-bold text-[10px] uppercase tracking-tighter bg-surface-container text-primary px-3 py-1 rounded-full">DevOps</div>
+<div class="absolute top-[35%] -left-12 font-bold text-[10px] uppercase tracking-tighter bg-surface-container text-primary px-3 py-1 rounded-full">Soft Skills</div>
+</div>
+</div>
+<!-- Sub-skills Grid -->
+<div class="space-y-6">
+<h3 class="text-lg font-bold font-headline">Sub-skill Breakdown</h3>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+<!-- Progress Cards -->
+<div class="bg-surface-container-lowest p-6 rounded-xl shadow-sm border border-outline-variant/5">
+<div class="flex justify-between items-center mb-4">
+<span class="font-manrope font-bold text-sm">React Hooks</span>
+<span class="text-xs font-bold text-secondary">80%</span>
+</div>
+<div class="w-full h-2 bg-secondary-container/20 rounded-full overflow-hidden">
+<div class="h-full bg-secondary transition-all" style="width: 80%"></div>
+</div>
+<p class="mt-3 text-[10px] uppercase tracking-widest text-on-surface-variant font-bold">Status: Advanced</p>
+</div>
+<div class="bg-surface-container-lowest p-6 rounded-xl shadow-sm border border-outline-variant/5">
+<div class="flex justify-between items-center mb-4">
+<span class="font-manrope font-bold text-sm">Node.js API</span>
+<span class="text-xs font-bold text-secondary">65%</span>
+</div>
+<div class="w-full h-2 bg-secondary-container/20 rounded-full overflow-hidden">
+<div class="h-full bg-secondary transition-all" style="width: 65%"></div>
+</div>
+<p class="mt-3 text-[10px] uppercase tracking-widest text-on-surface-variant font-bold">Status: Intermediate</p>
+</div>
+<div class="bg-surface-container-lowest p-6 rounded-xl shadow-sm border border-outline-variant/5">
+<div class="flex justify-between items-center mb-4">
+<span class="font-manrope font-bold text-sm">PostgreSQL</span>
+<span class="text-xs font-bold text-secondary">40%</span>
+</div>
+<div class="w-full h-2 bg-secondary-container/20 rounded-full overflow-hidden">
+<div class="h-full bg-secondary transition-all" style="width: 40%"></div>
+</div>
+<p class="mt-3 text-[10px] uppercase tracking-widest text-on-surface-variant font-bold">Status: Developing</p>
+</div>
+<div class="bg-surface-container-lowest p-6 rounded-xl shadow-sm border border-outline-variant/5">
+<div class="flex justify-between items-center mb-4">
+<span class="font-manrope font-bold text-sm">Tailwind CSS</span>
+<span class="text-xs font-bold text-secondary">92%</span>
+</div>
+<div class="w-full h-2 bg-secondary-container/20 rounded-full overflow-hidden">
+<div class="h-full bg-secondary transition-all" style="width: 92%"></div>
+</div>
+<p class="mt-3 text-[10px] uppercase tracking-widest text-on-surface-variant font-bold">Status: Expert</p>
+</div>
+</div>
+</div>
+</div>
+<!-- Side Panel: Improvement Suggestions -->
+<div class="col-span-12 lg:col-span-4 space-y-8">
+<div class="bg-surface-container-low rounded-xl p-8">
+<div class="flex items-center gap-3 mb-6">
+<span class="material-symbols-outlined text-primary" style="font-variation-settings: 'FILL' 1;">auto_awesome</span>
+<h3 class="text-lg font-bold font-headline">Improvement Suggestions</h3>
+</div>
+<div class="space-y-4">
+<!-- Action Item -->
+<div class="bg-white/60 backdrop-blur-sm p-4 rounded-lg border-l-4 border-primary group hover:bg-white transition-all">
+<p class="text-sm font-semibold mb-2">Knowledge Gap: SQL Optimization</p>
+<p class="text-xs text-on-surface-variant mb-4">Your PostgreSQL score is below the target 60% for Senior Engineer track.</p>
+<a class="inline-flex items-center gap-2 text-primary text-xs font-bold uppercase tracking-widest hover:underline" href="#">
+                                    Take Advanced SQL Quiz
+                                    <span class="material-symbols-outlined text-sm">arrow_forward</span>
+</a>
+</div>
+<!-- Action Item -->
+<div class="bg-white/60 backdrop-blur-sm p-4 rounded-lg border-l-4 border-tertiary-container group hover:bg-white transition-all">
+<p class="text-sm font-semibold mb-2">Structural Foundation</p>
+<p class="text-xs text-on-surface-variant mb-4">Review relational patterns to improve architectural flexibility.</p>
+<a class="inline-flex items-center gap-2 text-primary text-xs font-bold uppercase tracking-widest hover:underline" href="#">
+                                    Review Data Normalization
+                                    <span class="material-symbols-outlined text-sm">arrow_forward</span>
+</a>
+</div>
+<!-- Action Item -->
+<div class="bg-white/60 backdrop-blur-sm p-4 rounded-lg border-l-4 border-secondary group hover:bg-white transition-all">
+<p class="text-sm font-semibold mb-2">Micro-Interaction Lab</p>
+<p class="text-xs text-on-surface-variant mb-4">Practice custom hook orchestration for complex state transitions.</p>
+<a class="inline-flex items-center gap-2 text-primary text-xs font-bold uppercase tracking-widest hover:underline" href="#">
+                                    Join Hooks Workshop
+                                    <span class="material-symbols-outlined text-sm">arrow_forward</span>
+</a>
+</div>
+</div>
+<div class="mt-10 p-6 bg-primary rounded-xl text-on-primary">
+<h4 class="font-headline font-bold mb-2">Career Projection</h4>
+<p class="text-xs opacity-90 leading-relaxed mb-6">Based on your current skill velocity, you are 3 months ahead of the Lead Architect milestone.</p>
+<div class="flex items-center gap-2">
+<div class="flex -space-x-2">
+<div class="w-8 h-8 rounded-full border-2 border-primary bg-primary-fixed-dim"></div>
+<div class="w-8 h-8 rounded-full border-2 border-primary bg-secondary-fixed"></div>
+<div class="w-8 h-8 rounded-full border-2 border-primary bg-tertiary-fixed"></div>
+</div>
+<span class="text-[10px] font-bold uppercase tracking-widest">Compare with Mentors</span>
+</div>
+</div>
+</div>
+<!-- Growth Analytics Card -->
+<div class="bg-surface-container-highest/40 rounded-xl p-8 border border-outline-variant/10">
+<h3 class="text-sm font-bold font-headline uppercase tracking-widest text-on-surface-variant mb-6">Skill Velocity (MoM)</h3>
+<div class="flex items-end justify-between h-32 gap-2">
+<div class="flex-1 bg-primary/20 rounded-t-sm h-[30%]"></div>
+<div class="flex-1 bg-primary/30 rounded-t-sm h-[45%]"></div>
+<div class="flex-1 bg-primary/40 rounded-t-sm h-[60%]"></div>
+<div class="flex-1 bg-primary/50 rounded-t-sm h-[55%]"></div>
+<div class="flex-1 bg-primary/70 rounded-t-sm h-[80%]"></div>
+<div class="flex-1 bg-primary rounded-t-sm h-[100%]"></div>
+</div>
+<div class="mt-4 flex justify-between text-[10px] font-bold uppercase text-on-surface-variant">
+<span>JAN</span>
+<span>FEB</span>
+<span>MAR</span>
+<span>APR</span>
+<span>MAY</span>
+<span>JUN</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</main>
+<!-- Contextual FAB (Only on analytics home) -->
+<button class="fixed bottom-8 right-8 w-14 h-14 bg-primary text-on-primary rounded-full shadow-2xl flex items-center justify-center hover:scale-110 active:scale-95 transition-all z-50">
+<span class="material-symbols-outlined text-2xl" style="font-variation-settings: 'FILL' 1;">add</span>
+</button>
+</body></html>

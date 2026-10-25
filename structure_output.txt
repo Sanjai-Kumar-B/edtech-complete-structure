@@ -1,0 +1,166 @@
+
+📁 edtech-admin
+├── .env
+├── .env.example
+├── .gitignore
+├── eslint.config.js
+├── index.html
+├── package-lock.json
+├── package.json
+├── postcss.config.js
+├── public
+│   ├── favicon.svg
+│   └── icons.svg
+├── README.md
+├── src
+│   ├── App.css
+│   ├── App.jsx
+│   ├── assets
+│   │   ├── hero.png
+│   │   ├── react.svg
+│   │   └── vite.svg
+│   ├── components
+│   │   ├── AdminSideNav.jsx
+│   │   ├── AdminTopBar.jsx
+│   │   └── ProtectedRoute.jsx
+│   ├── context
+│   │   └── AuthContext.jsx
+│   ├── index.css
+│   ├── layouts
+│   │   └── AdminLayout.jsx
+│   ├── lib
+│   │   ├── mockData.js
+│   │   └── supabase.js
+│   ├── main.jsx
+│   └── pages
+│       ├── AdminAnalytics.jsx
+│       ├── AdminDashboard.jsx
+│       ├── AdminProfile.jsx
+│       ├── AdminReporting.jsx
+│       ├── BatchesManagement.jsx
+│       ├── CertificationDesk.jsx
+│       ├── CoursesPage.jsx
+│       ├── LoginPage.jsx
+│       ├── SystemSettings.jsx
+│       ├── UnauthorizedPage.jsx
+│       └── UserManagement.jsx
+├── tailwind.config.js
+└── vite.config.js
+
+📁 edtech-instructor
+├── .env
+├── .env.example
+├── .gitignore
+├── eslint.config.js
+├── index.html
+├── package-lock.json
+├── package.json
+├── postcss.config.js
+├── public
+│   ├── favicon.svg
+│   └── icons.svg
+├── README.md
+├── src
+│   ├── App.jsx
+│   ├── assets
+│   │   ├── hero.png
+│   │   └── vite.svg
+│   ├── components
+│   │   ├── InstructorSideNavBar.jsx
+│   │   ├── InstructorTopAppBar.jsx
+│   │   └── ProtectedRoute.jsx
+│   ├── context
+│   │   └── AuthContext.jsx
+│   ├── index.css
+│   ├── layouts
+│   │   └── InstructorLayout.jsx
+│   ├── lib
+│   │   ├── mockData.js
+│   │   ├── sharedMockData.js
+│   │   └── supabase.js
+│   ├── main.jsx
+│   └── pages
+│       ├── AssessmentCreator.jsx
+│       ├── AssignmentReview.jsx
+│       ├── BatchDetail.jsx
+│       ├── GlobalAttendance.jsx
+│       ├── InstructorAnalytics.jsx
+│       ├── InstructorDashboard.jsx
+│       ├── InstructorProfile.jsx
+│       ├── LoginPage.jsx
+│       ├── StudentProfileNotes.jsx
+│       ├── StudentsGlobalList.jsx
+│       └── UnauthorizedPage.jsx
+├── tailwind.config.js
+└── vite.config.js
+
+📁 ed-tech-main
+├── .gitignore
+├── ai_tutor_hub.html
+├── analytics.html
+├── analytics_page_dark_mode
+│   ├── code.html
+│   └── screen.png
+├── assessments_light_mode
+│   ├── code.html
+│   └── screen.png
+├── assignments.html
+├── assignments_library
+│   ├── code.html
+│   └── screen.png
+├── celestial_roadmap_dark_mode
+│   ├── code.html
+│   └── screen.png
+├── certifications.html
+├── course-detail.html
+├── courses.html
+├── course_detail_page
+│   ├── code.html
+│   └── screen.png
+├── dashboard.html
+├── dashboard_content.txt
+├── env.example.js
+├── env.js
+├── global_leaderboard_2
+│   ├── code.html
+│   └── screen.png
+├── guilds.html
+├── index.html
+├── js
+│   ├── analytics.js
+│   ├── assessment.js
+│   ├── assignments.js
+│   ├── auth.js
+│   ├── course-detail.js
+│   ├── courses.js
+│   ├── dashboard.js
+│   ├── leaderboard.js
+│   ├── login.js
+│   ├── my-courses.js
+│   └── profile.js
+├── leaderboard.html
+├── learning_materials_light_mode
+│   ├── code.html
+│   └── screen.png
+├── login_security
+│   ├── code.html
+│   └── screen.png
+├── logo.png
+├── mobile_preview.html
+├── performance_analytics
+│   ├── code.html
+│   └── screen.png
+├── profile.html
+├── student_dashboard_dark_mode
+│   ├── code.html
+│   └── screen.png
+├── student_profile
+│   ├── code.html
+│   └── screen.png
+├── text_me_dark_mode
+│   ├── code.html
+│   └── screen.png
+├── theme-bg.png
+└── weekly_assessment
+    ├── code.html
+    └── screen.png

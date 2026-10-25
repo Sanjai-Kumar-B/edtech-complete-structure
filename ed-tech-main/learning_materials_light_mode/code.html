@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Junospace Portal</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        body { font-family: 'Inter', sans-serif; font-weight: 300; }
+        h1, h2, h3, h4, .font-headline { font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 900; }
+        
+        /* Premium Dark Mode Overrides */
+        .dark body { background-color: #020617; color: #ffffff; }
+        .dark .bg-white { background-color: #0f172a !important; }
+        .dark .text-slate-800, .dark .text-slate-700 { color: #f1f5f9 !important; }
+        .dark .text-slate-600 { color: #cbd5e1 !important; }
+        .dark .text-slate-500 { color: #94a3b8 !important; }
+        .dark .text-slate-400 { color: #cbd5e1 !important; }
+        .dark .border-slate-100, .dark .border-violet-100 { border-color: rgba(139, 92, 246, 0.2) !important; }
+        .dark .border-violet-300 { border-color: rgba(139, 92, 246, 0.4) !important; }
+        .dark .bg-slate-50 { background-color: #1e293b !important; }
+        .dark .shadow-sm { box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.4) !important; }
+        
+        /* Theme Utilities */
+        :root { --on-background: #1e293b; --outline: #94a3b8; }
+        .dark { --on-background: #f1f5f9; --outline: #64748b; }
+        .text-on-background { color: var(--on-background) !important; }
+        .text-outline { color: var(--outline) !important; }
+    </style>
+    <script>
+        function applyTheme() {
+            const theme = localStorage.getItem('junospace-theme') || 'light';
+            document.documentElement.classList.toggle('dark', theme === 'dark');
+        }
+        window.addEventListener('storage', applyTheme);
+        window.addEventListener('message', (e) => {
+            if (e.data.action === 'themeUpdate') applyTheme();
+        });
+        applyTheme();
+    </script>
+</head>
+<script>/* In-frame sidebar suppression */
+(function(){
+  if(window.self!==window.top){
+    document.documentElement.classList.add('in-frame');
+    // inject override styles immediately
+    var s=document.createElement('style');
+    s.textContent='html.in-frame aside,html.in-frame [class*="w-64"][class*="fixed"],html.in-frame [class*="w-72"][class*="fixed"]{display:none!important;}html.in-frame main,[class*="ml-64"],[class*="ml-72"]{margin-left:0!important;}html.in-frame header,html.in-frame .fixed.top-0{display:none!important;}html.in-frame [class*="md:pl-"]{padding-left:1.5rem!important;}html.in-frame [class*="md:ml-"]{margin-left:0!important;}html.in-frame nav.fixed.bottom-0, html.in-frame button.fixed.bottom-8, html.in-frame nav.md\\:hidden{display:none!important;}html.in-frame [class*="pt-"]{padding-top:1.5rem!important;}';
+    document.head.appendChild(s);
+  }
+})();
+</script>
+<body class="flex min-h-screen overflow-x-hidden bg-white text-slate-800">
+<!-- SideNavBar -->
+<aside class="fixed left-0 top-0 h-screen w-72 bg-slate-50  flex flex-col py-8 px-4 space-y-2 rounded-r-[2rem] z-50">
+<div class="px-4 mb-8">
+<div class="flex items-center gap-3"><img src="../logo.png" class="w-8 h-8 object-contain drop-shadow-md" alt="Junospace Logo" /><h1 class="text-xl font-bold text-violet-700  tracking-tighter">Junospace</h1></div>
+<p class="text-xs font-['Plus_Jakarta_Sans'] font-semibold tracking-tight text-slate-500 mt-1 uppercase">Command Center</p>
+</div>
+<nav class="flex-1 space-y-1">
+<a class="flex items-center gap-3 px-4 py-3 rounded-xl text-slate-500  hover:text-violet-600 hover:bg-slate-200/50 transition-all duration-200 group" href="#">
+<span class="material-symbols-outlined">dashboard</span>
+<span class="font-['Plus_Jakarta_Sans'] font-semibold tracking-tight text-sm">Dashboard</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 rounded-xl text-slate-500  hover:text-violet-600 hover:bg-slate-200/50 transition-all duration-200 group" href="#">
+<span class="material-symbols-outlined">school</span>
+<span class="font-['Plus_Jakarta_Sans'] font-semibold tracking-tight text-sm">My Courses</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 rounded-xl text-slate-500  hover:text-violet-600 hover:bg-slate-200/50 transition-all duration-200 group" href="#">
+<span class="material-symbols-outlined">map</span>
+<span class="font-['Plus_Jakarta_Sans'] font-semibold tracking-tight text-sm">Roadmap</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 rounded-xl text-violet-700  font-bold border-r-4 border-violet-600  bg-violet-50/50  transition-all duration-200 group" href="#">
+<span class="material-symbols-outlined">auto_stories</span>
+<span class="font-['Plus_Jakarta_Sans'] font-semibold tracking-tight text-sm">Library</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 rounded-xl text-slate-500  hover:text-violet-600 hover:bg-slate-200/50 transition-all duration-200 group" href="#">
+<span class="material-symbols-outlined">upload_file</span>
+<span class="font-['Plus_Jakarta_Sans'] font-semibold tracking-tight text-sm">Assignment Submission</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 rounded-xl text-slate-500  hover:text-violet-600 hover:bg-slate-200/50 transition-all duration-200 group" href="#">
+<span class="material-symbols-outlined">quiz</span>
+<span class="font-['Plus_Jakarta_Sans'] font-semibold tracking-tight text-sm">Assessments</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 rounded-xl text-slate-500  hover:text-violet-600 hover:bg-slate-200/50 transition-all duration-200 group" href="#">
+<span class="material-symbols-outlined">lightbulb</span>
+<span class="font-['Plus_Jakarta_Sans'] font-semibold tracking-tight text-sm">Innovation Board</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 rounded-xl text-slate-500  hover:text-violet-600 hover:bg-slate-200/50 transition-all duration-200 group" href="#">
+<span class="material-symbols-outlined">analytics</span>
+<span class="font-['Plus_Jakarta_Sans'] font-semibold tracking-tight text-sm">Analytics</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 rounded-xl text-slate-500  hover:text-violet-600 hover:bg-slate-200/50 transition-all duration-200 group" href="#">
+<span class="material-symbols-outlined">chat</span>
+<span class="font-['Plus_Jakarta_Sans'] font-semibold tracking-tight text-sm">Text Me</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 rounded-xl text-slate-500  hover:text-violet-600 hover:bg-slate-200/50 transition-all duration-200 group" href="#">
+<span class="material-symbols-outlined">person</span>
+<span class="font-['Plus_Jakarta_Sans'] font-semibold tracking-tight text-sm">Profile</span>
+</a>
+</nav>
+<div class="mt-auto pt-6 border-t border-violet-300 shadow-sm shadow-violet-100 px-4">
+<div class="flex items-center gap-3">
+<img alt="Student Profile Avatar" class="w-10 h-10 rounded-full object-cover" data-alt="Close-up portrait of a young male student with glasses looking thoughtfully at a screen, soft library lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBK1CfTYm01PxaKXnoeAmucuMrTTr909zCitkTttqBGLMZyBaHZkTq_MeU4CyxkL0TCOlvN1fX8XZ73LdB6VjrxsNeQ0u_-j6-z_n1Ae0v8C--2b9FcA18M-lU6blCDDnYHCz-PamdMZW3v5n_Jlk5Ino-hJ7Akf6arigxv-MhFapSpvrmuMDFQwUTMAV4UZkqQ9fCF-ALp81IsVc995kx48Q_b1jK-l5F_G8yz8Roaalyf5cy6rRQhVSY_BuSEc8TwUtWU1QesIKc"/>
+<div>
+<p class="text-xs font-bold text-slate-900">Julian Pierce</p>
+<p class="text-[10px] text-slate-500 uppercase tracking-widest">Master Student</p>
+</div>
+</div>
+</div>
+</aside>
+<!-- Main Content Canvas -->
+<main class="flex-1 ml-72">
+<!-- TopNavBar -->
+<header class="fixed top-0 right-0 left-72 z-40 flex items-center justify-between px-8 w-full h-16 bg-white/80 backdrop-blur-xl border-b border-violet-300 shadow-sm shadow-violet-100">
+<div class="flex-1 max-w-xl">
+<div class="relative group">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-outline">search</span>
+<input class="w-full bg-slate-50 border-none rounded-full py-2 pl-10 pr-4 text-sm focus:ring-2 focus:ring-primary/20 transition-all" placeholder="Search across all modules..." type="text"/>
+</div>
+</div>
+<div class="flex items-center gap-4 ml-8">
+<button class="w-10 h-10 flex items-center justify-center rounded-full text-slate-600 hover:bg-slate-100 transition-colors">
+<span class="material-symbols-outlined">notifications</span>
+</button>
+<button class="w-10 h-10 flex items-center justify-center rounded-full text-slate-600 hover:bg-slate-100 transition-colors">
+<span class="material-symbols-outlined">settings</span>
+</button>
+<div class="w-8 h-8 rounded-full overflow-hidden ml-2 bg-violet-600">
+<img alt="User profile" class="w-full h-full object-cover" data-alt="high quality student avatar photo, professional lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCsTYNQ_Fv87Afp7VKrJK49pSA913AZyvtsayyBvBM35AkNmber63-wSM78KHTZywPGrtyok8Bug2_4oBiG5UN3rE04LEkJ0phESvSyUriJ-jp-JSiW4YAViA5Z_jOP2eTEtNiJxdJ4Egl0xcwJ89FN-TASkj0fv_ztC_3MUXOj5qiobS95CWJH5HOdzydCtVj1oTgrRHObTZIKyuFfW2QPyRcTk_i4f8NNxB-QLWo15bd1QGQRGK9orkTvpUPmkGJmtUGmby11qTE"/>
+</div>
+</div>
+</header>
+<div class="pt-24 px-10 pb-12">
+<div class="flex flex-col md:flex-row justify-between items-center gap-6 mb-8 bg-white p-8 rounded-2xl shadow-sm border border-slate-100">
+    <div>
+        <span class="inline-flex items-center px-3 py-1 rounded-full bg-violet-100 text-violet-700 text-[10px] font-bold uppercase tracking-wider mb-3 font-headline">
+            <span class="material-symbols-outlined text-[14px] mr-1">auto_stories</span>
+            248 Resources Available
+        </span>
+        <h2 class="text-4xl font-black tracking-tight text-on-background">Library</h2>
+        <p class="text-slate-500 mt-2 max-w-lg text-sm font-light">Access over two hundred academic assets, research datasets, and reference materials curated for your current semester.</p>
+    </div>
+    <div class="flex items-center gap-3">
+        <!-- Unified Filter Controls at top -->
+        <div class="flex p-1 bg-slate-100 rounded-xl gap-1">
+            <button class="px-4 py-2 bg-white shadow-sm text-violet-600 font-medium rounded-lg text-xs transition-all">All</button>
+            <button class="px-4 py-2 text-slate-500 font-light rounded-lg text-xs hover:bg-white transition-all">PDFs</button>
+            <button class="px-4 py-2 text-slate-500 font-light rounded-lg text-xs hover:bg-white transition-all">Videos</button>
+            <button class="px-4 py-2 text-slate-500 font-light rounded-lg text-xs hover:bg-white transition-all">Datasets</button>
+        </div>
+        <button class="flex items-center gap-2 px-6 py-3 bg-violet-600 text-white font-black rounded-full text-xs shadow-lg shadow-violet-200 hover:scale-105 active:scale-95 transition-all">
+            <span class="material-symbols-outlined text-[18px]">filter_list</span>
+            FILTER BY TYPE
+        </button>
+    </div>
+</div>
+<!-- Bento Layout Content -->
+<div class="grid grid-cols-12 gap-6">
+<!-- Active Module Focus (Bento Large) -->
+<div class="col-span-12 lg:col-span-8 space-y-6">
+<!-- Material Header: Module Overview -->
+<div class="relative overflow-hidden rounded-2xl bg-gradient-to-br from-violet-600 to-indigo-700 p-8 text-white mb-8 border border-white/10 shadow-xl">
+    <div class="absolute top-0 right-0 p-4 opacity-10">
+        <span class="material-symbols-outlined text-[120px]">psychology</span>
+    </div>
+    <div class="relative z-10 flex flex-col md:flex-row md:items-center justify-between gap-6">
+        <div class="flex items-center gap-4">
+            <div class="p-3 bg-white/10 backdrop-blur-md rounded-xl border border-white/20">
+                <span class="material-symbols-outlined text-white text-3xl">psychology</span>
+            </div>
+            <div>
+                <h3 class="text-2xl font-bold tracking-tight">Advanced Neural Architectures</h3>
+                <p class="text-violet-100/70 text-sm font-medium">Module CS-402 • Semester 2</p>
+            </div>
+        </div>
+        <div class="flex flex-wrap gap-2">
+            <div class="bg-white/10 backdrop-blur-sm px-4 py-2 rounded-xl border border-white/10 flex flex-col items-center">
+                <span class="font-bold text-lg">05</span>
+                <span class="text-[9px] uppercase font-bold text-violet-200">Books</span>
+            </div>
+            <div class="bg-white/10 backdrop-blur-sm px-4 py-2 rounded-xl border border-white/10 flex flex-col items-center">
+                <span class="font-bold text-lg">08</span>
+                <span class="text-[9px] uppercase font-bold text-violet-200">Notes</span>
+            </div>
+            <div class="bg-white/10 backdrop-blur-sm px-4 py-2 rounded-xl border border-white/10 flex flex-col items-center">
+                <span class="font-bold text-lg">12</span>
+                <span class="text-[9px] uppercase font-bold text-violet-200">Datasets</span>
+            </div>
+            <div class="bg-white/10 backdrop-blur-sm px-4 py-2 rounded-xl border border-white/10 flex flex-col items-center">
+                <span class="font-bold text-lg">09</span>
+                <span class="text-[9px] uppercase font-bold text-violet-200">Links</span>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Material Cards List -->
+<div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+<!-- Card 1: PDF Notes -->
+<div class="group bg-white p-5 rounded-lg shadow-sm hover:shadow-lg transition-all border border-transparent hover:border-violet-600/10 active:scale-[0.98]">
+<div class="flex justify-between items-center mb-4">
+<div class="w-12 h-12 bg-blue-50 text-blue-600 rounded-xl flex items-center justify-center">
+<span class="material-symbols-outlined">description</span>
+</div>
+<button class="bg-violet-600 hover:bg-violet-700 text-white text-[10px] font-bold px-4 py-2 rounded-full shadow-sm shadow-violet-200 transition-all flex items-center gap-1">
+    DOWNLOAD <span class="material-symbols-outlined text-[14px]">download</span>
+</button>
+</div>
+<h4 class="font-bold text-on-background group-hover:text-violet-600 transition-colors">Lecture Notes: Optimization Theory</h4>
+<p class="text-sm text-slate-500 mt-2 line-clamp-2">Comprehensive notes covering stochastic gradient descent and momentum variations.</p>
+<div class="mt-6 pt-4 border-t border-surface-container flex items-center gap-4">
+<span class="text-[10px] font-medium text-outline flex items-center gap-1 uppercase tracking-widest">
+<span class="material-symbols-outlined text-[14px]">save</span> 4.2 MB
+</span>
+</div>
+</div>
+<!-- Card 2: Research Paper -->
+<div class="group bg-white p-5 rounded-lg shadow-sm hover:shadow-lg transition-all border border-transparent hover:border-violet-600/10 active:scale-[0.98]">
+<div class="flex justify-between items-center mb-4">
+<div class="w-12 h-12 bg-blue-50 text-blue-600 rounded-xl flex items-center justify-center">
+<span class="material-symbols-outlined">article</span>
+</div>
+<button class="bg-violet-600 hover:bg-violet-700 text-white text-[10px] font-bold px-4 py-2 rounded-full shadow-sm shadow-violet-200 transition-all flex items-center gap-1">
+    READ NOW <span class="material-symbols-outlined text-[14px]">open_in_new</span>
+</button>
+</div>
+<h4 class="font-bold text-on-background group-hover:text-violet-600 transition-colors">Stochastic Gradient Descent Refined</h4>
+<p class="text-sm text-slate-500 mt-2 line-clamp-2">Foundational paper on efficient training of large-scale neural architectures.</p>
+<div class="mt-6 pt-4 border-t border-surface-container flex items-center gap-4">
+<span class="text-[10px] font-medium text-outline flex items-center gap-1 uppercase tracking-widest">
+<span class="material-symbols-outlined text-[14px]">text_snippet</span> 14 Pages
+</span>
+</div>
+</div>
+<!-- Card 3: Dataset -->
+<div class="group bg-white p-5 rounded-lg shadow-sm hover:shadow-lg transition-all border border-transparent hover:border-violet-600/10 active:scale-[0.98]">
+<div class="flex justify-between items-center mb-4">
+<div class="w-12 h-12 bg-green-50 text-green-600 rounded-xl flex items-center justify-center">
+<span class="material-symbols-outlined">data_object</span>
+</div>
+<button class="bg-violet-600 hover:bg-violet-700 text-white text-[10px] font-bold px-4 py-2 rounded-full shadow-sm shadow-violet-200 transition-all flex items-center gap-1">
+    OPEN DATA <span class="material-symbols-outlined text-[14px]">database</span>
+</button>
+</div>
+<h4 class="font-bold text-on-background group-hover:text-violet-600 transition-colors">MNIST Extended Dataset</h4>
+<p class="text-sm text-slate-500 mt-2 line-clamp-2">Compressed dataset for architectural validation in Week 4 tasks.</p>
+<div class="mt-6 pt-4 border-t border-surface-container flex items-center gap-4">
+<span class="text-[10px] font-medium text-outline flex items-center gap-1 uppercase tracking-widest">
+<span class="material-symbols-outlined text-[14px]">link</span> External Zip
+</span>
+</div>
+</div>
+<!-- Card 4: Documentation -->
+<div class="group bg-white p-5 rounded-lg shadow-sm hover:shadow-lg transition-all border border-transparent hover:border-violet-600/10 active:scale-[0.98]">
+<div class="flex justify-between items-center mb-4">
+<div class="w-12 h-12 bg-slate-50 text-slate-600 rounded-xl flex items-center justify-center">
+<span class="material-symbols-outlined">description</span>
+</div>
+<button class="bg-violet-600 hover:bg-violet-700 text-white text-[10px] font-bold px-4 py-2 rounded-full shadow-sm shadow-violet-200 transition-all flex items-center gap-1">
+    VIEW DOC <span class="material-symbols-outlined text-[14px]">find_in_page</span>
+</button>
+</div>
+<h4 class="font-bold text-on-background group-hover:text-violet-600 transition-colors">Neural Network Paradigms .docx</h4>
+<p class="text-sm text-slate-500 mt-2 line-clamp-2">Detailed documentation on the various paradigms discussed in the seminars.</p>
+<div class="mt-6 pt-4 border-t border-surface-container flex items-center gap-4">
+<span class="text-[10px] font-medium text-outline flex items-center gap-1 uppercase tracking-widest">
+<span class="material-symbols-outlined text-[14px]">article</span> 2.1 MB
+</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Sidebar Content (Bento Side) -->
+<div class="col-span-12 lg:col-span-4 space-y-6">
+<!-- My Bookmarks -->
+<div class="bg-white rounded-lg p-6 shadow-sm">
+<div class="flex items-center justify-between mb-6">
+<h3 class="text-lg font-bold">Referred Today</h3>
+<button class="text-xs text-violet-600 font-bold">View History</button>
+</div>
+<div class="space-y-4">
+<div class="flex items-center gap-4 group cursor-pointer">
+<div class="w-10 h-10 bg-slate-100 rounded-lg flex items-center justify-center group-hover:bg-violet-600/10 transition-colors">
+<span class="material-symbols-outlined text-violet-600 text-[20px]">description</span>
+</div>
+<div class="flex-1 overflow-hidden">
+<p class="text-sm font-semibold truncate">Linear Algebra Recap.pdf</p>
+<p class="text-[10px] text-outline italic text-violet-400 font-bold">Just Now</p>
+</div>
+</div>
+<div class="flex items-center gap-4 group cursor-pointer">
+<div class="w-10 h-10 bg-slate-100 rounded-lg flex items-center justify-center group-hover:bg-violet-600/10 transition-colors">
+<span class="material-symbols-outlined text-violet-600 text-[20px]">link</span>
+</div>
+<div class="flex-1 overflow-hidden">
+<p class="text-sm font-semibold truncate">Transformer Reference Docs</p>
+<p class="text-[10px] text-outline">Opened 2h ago</p>
+</div>
+</div>
+<div class="flex items-center gap-4 group cursor-pointer">
+<div class="w-10 h-10 bg-slate-100 rounded-lg flex items-center justify-center group-hover:bg-violet-600/10 transition-colors">
+<span class="material-symbols-outlined text-violet-600 text-[20px]">history_edu</span>
+</div>
+<div class="flex-1 overflow-hidden">
+<p class="text-sm font-semibold truncate">Research Template.docx</p>
+<p class="text-[10px] text-outline">Referred 4h ago</p>
+</div>
+</div>
+</div>
+</div>
+<!-- Category Filter -->
+<div class="bg-white rounded-2xl p-6 shadow-sm border border-slate-100">
+    <h3 class="text-lg font-bold mb-4">Filter by Type</h3>
+    <div class="flex flex-wrap gap-2">
+        <button class="px-4 py-2 bg-violet-600 text-white rounded-full text-[10px] font-bold uppercase tracking-wider">All</button>
+        <button class="px-4 py-2 bg-slate-50 text-slate-600 rounded-full text-[10px] font-bold uppercase tracking-wider hover:bg-violet-50 hover:text-violet-600 transition-all">PDFs</button>
+        <button class="px-4 py-2 bg-slate-50 text-slate-600 rounded-full text-[10px] font-bold uppercase tracking-wider hover:bg-violet-50 hover:text-violet-600 transition-all">Links</button>
+        <button class="px-4 py-2 bg-slate-50 text-slate-600 rounded-full text-[10px] font-bold uppercase tracking-wider hover:bg-violet-50 hover:text-violet-600 transition-all">Docs</button>
+    </div>
+</div>
+
+<!-- Support Sections -->
+<div class="space-y-4">
+    <div class="bg-white p-4 rounded-2xl shadow-sm border border-slate-100 flex items-center gap-4">
+        <div class="w-10 h-10 bg-blue-50 text-blue-600 rounded-xl flex items-center justify-center shrink-0">
+            <span class="material-symbols-outlined text-lg">local_library</span>
+        </div>
+        <div>
+            <h4 class="text-sm font-bold">Physical Library</h4>
+            <p class="text-[10px] text-slate-500">Reserve textbooks & pods</p>
+        </div>
+    </div>
+    <div class="bg-white p-4 rounded-2xl shadow-sm border border-slate-100 flex items-center gap-4">
+        <div class="w-10 h-10 bg-orange-50 text-orange-600 rounded-xl flex items-center justify-center shrink-0">
+            <span class="material-symbols-outlined text-lg">sync_problem</span>
+        </div>
+        <div>
+            <h4 class="text-sm font-bold">Report Broken Link</h4>
+            <p class="text-[10px] text-slate-500">Fast tracking resolve</p>
+        </div>
+    </div>
+</div>
+
+<!-- Weekly Digest (Promo) -->
+<div class="bg-violet-600 rounded-2xl p-6 text-white overflow-hidden relative shadow-lg">
+    <div class="absolute -right-4 -bottom-4 opacity-10">
+        <span class="material-symbols-outlined text-[100px]">menu_book</span>
+    </div>
+    <h3 class="text-lg font-bold mb-1">Weekly Digest</h3>
+    <p class="text-xs text-violet-100 mb-6">Curated articles for this week</p>
+    <button class="w-full py-2 bg-white/10 hover:bg-white/20 backdrop-blur-sm rounded-xl text-xs font-bold transition-all border border-white/10">Read Digest</button>
+</div>
+</div>
+
+</div>
+</div>
+</main>
+
+
+<script src="../env.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script>
+  const { createClient } = supabase
+  const db = createClient(ENV.SUPABASE_URL, ENV.SUPABASE_ANON_KEY)
+  window.db = db
+</script>
+<script src="../js/auth.js"></script>
+</body></html>
+
+
+
+

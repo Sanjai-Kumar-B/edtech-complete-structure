@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Advanced Machine Learning | Atelier Academy</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700;800&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "background": "#faf8ff",
+                        "inverse-on-surface": "#eef0ff",
+                        "inverse-surface": "#283044",
+                        "tertiary": "#943700",
+                        "on-surface": "#131b2e",
+                        "surface-container-high": "#e2e7ff",
+                        "secondary": "#006b5f",
+                        "outline": "#737686",
+                        "inverse-primary": "#b4c5ff",
+                        "error-container": "#ffdad6",
+                        "on-error-container": "#93000a",
+                        "secondary-fixed": "#71f8e4",
+                        "surface-tint": "#0053db",
+                        "surface": "#faf8ff",
+                        "surface-variant": "#dae2fd",
+                        "secondary-fixed-dim": "#4fdbc8",
+                        "on-surface-variant": "#434655",
+                        "on-primary-container": "#eeefff",
+                        "on-secondary-fixed": "#00201c",
+                        "on-error": "#ffffff",
+                        "tertiary-container": "#bc4800",
+                        "on-tertiary": "#ffffff",
+                        "on-secondary": "#ffffff",
+                        "tertiary-fixed-dim": "#ffb596",
+                        "on-primary-fixed": "#00174b",
+                        "on-tertiary-fixed": "#360f00",
+                        "on-background": "#131b2e",
+                        "primary-container": "#2563eb",
+                        "on-primary": "#ffffff",
+                        "on-secondary-container": "#006f64",
+                        "surface-dim": "#d2d9f4",
+                        "error": "#ba1a1a",
+                        "primary": "#004ac6",
+                        "surface-container-low": "#f2f3ff",
+                        "surface-bright": "#faf8ff",
+                        "on-primary-fixed-variant": "#003ea8",
+                        "primary-fixed-dim": "#b4c5ff",
+                        "surface-container": "#eaedff",
+                        "on-secondary-fixed-variant": "#005048",
+                        "tertiary-fixed": "#ffdbcd",
+                        "on-tertiary-fixed-variant": "#7d2d00",
+                        "surface-container-highest": "#dae2fd",
+                        "outline-variant": "#c3c6d7",
+                        "secondary-container": "#6df5e1",
+                        "surface-container-lowest": "#ffffff",
+                        "on-tertiary-container": "#ffede6",
+                        "primary-fixed": "#dbe1ff"
+                    },
+                    fontFamily: {
+                        "headline": ["Manrope"],
+                        "body": ["Inter"],
+                        "label": ["Inter"]
+                    },
+                    borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            vertical-align: middle;
+        }
+        body { font-family: 'Inter', sans-serif; }
+        h1, h2, h3, h4 { font-family: 'Manrope', sans-serif; }
+        .editorial-gap { gap: 1.5rem; }
+    </style>
+</head>
+<body class="bg-background text-on-surface">
+<!-- SideNavBar Component -->
+<aside class="h-screen w-64 fixed left-0 top-0 border-r-0 bg-slate-50 flex flex-col py-8 z-50">
+<div class="px-6 mb-10">
+<h1 class="text-xl font-extrabold text-blue-700 tracking-tight">Atelier Academy</h1>
+<p class="text-[11px] uppercase tracking-widest text-slate-500 mt-1">Graduate Program</p>
+</div>
+<nav class="flex-1 px-4 space-y-1">
+<a class="flex items-center px-4 py-3 rounded-lg text-slate-500 hover:bg-blue-50 hover:text-blue-600 transition-colors group" href="#">
+<span class="material-symbols-outlined mr-3">dashboard</span>
+<span class="text-sm font-medium">Dashboard</span>
+</a>
+<a class="flex items-center px-4 py-3 rounded-lg text-blue-700 font-bold border-r-4 border-blue-700 bg-blue-50/50 transition-colors" href="#">
+<span class="material-symbols-outlined mr-3">school</span>
+<span class="text-sm font-medium">My Courses</span>
+</a>
+<a class="flex items-center px-4 py-3 rounded-lg text-slate-500 hover:bg-blue-50 hover:text-blue-600 transition-colors group" href="#">
+<span class="material-symbols-outlined mr-3">assignment</span>
+<span class="text-sm font-medium">Assignments</span>
+</a>
+<a class="flex items-center px-4 py-3 rounded-lg text-slate-500 hover:bg-blue-50 hover:text-blue-600 transition-colors group" href="#">
+<span class="material-symbols-outlined mr-3">menu_book</span>
+<span class="text-sm font-medium">Learning Materials</span>
+</a>
+<a class="flex items-center px-4 py-3 rounded-lg text-slate-500 hover:bg-blue-50 hover:text-blue-600 transition-colors group" href="#">
+<span class="material-symbols-outlined mr-3">psychology</span>
+<span class="text-sm font-medium">AI Roadmap</span>
+</a>
+<a class="flex items-center px-4 py-3 rounded-lg text-slate-500 hover:bg-blue-50 hover:text-blue-600 transition-colors group" href="#">
+<span class="material-symbols-outlined mr-3">leaderboard</span>
+<span class="text-sm font-medium">Skill Analytics</span>
+</a>
+<div class="pt-6 pb-2 px-4">
+<p class="text-[10px] uppercase tracking-[0.2em] text-slate-400 font-bold">Account</p>
+</div>
+<a class="flex items-center px-4 py-3 rounded-lg text-slate-500 hover:bg-blue-50 hover:text-blue-600 transition-colors group" href="#">
+<span class="material-symbols-outlined mr-3">help</span>
+<span class="text-sm font-medium">Support</span>
+</a>
+<a class="flex items-center px-4 py-3 rounded-lg text-slate-500 hover:bg-blue-50 hover:text-blue-600 transition-colors group" href="#">
+<span class="material-symbols-outlined mr-3">settings</span>
+<span class="text-sm font-medium">Settings</span>
+</a>
+</nav>
+<div class="px-4 mt-auto">
+<button class="w-full bg-gradient-to-br from-primary to-primary-container text-white py-3 rounded-full text-sm font-bold shadow-lg shadow-blue-200 hover:opacity-90 transition-all">
+                Upgrade Plan
+            </button>
+</div>
+</aside>
+<!-- TopAppBar Component -->
+<header class="fixed top-0 right-0 w-[calc(100%-16rem)] h-16 bg-white/80 backdrop-blur-xl z-40 flex justify-between items-center px-8 border-b border-slate-200/15 shadow-sm ml-64">
+<div class="flex items-center space-x-4">
+<div class="relative">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-slate-400 text-lg">search</span>
+<input class="pl-10 pr-4 py-2 bg-surface-container-low border-none rounded-full text-sm focus:ring-2 focus:ring-primary/20 w-64 transition-all" placeholder="Search lessons, files..." type="text"/>
+</div>
+</div>
+<div class="flex items-center space-x-6">
+<div class="flex items-center space-x-2">
+<button class="px-4 py-2 text-slate-600 font-manrope font-semibold text-sm hover:text-blue-600 transition-all">View Assignments</button>
+<button class="px-6 py-2 bg-primary text-white font-manrope font-semibold text-sm rounded-full hover:opacity-80 active:scale-98 transition-all">Join Class</button>
+</div>
+<div class="flex items-center space-x-3 border-l border-slate-200 pl-6">
+<button class="material-symbols-outlined text-slate-500 hover:text-primary transition-colors">notifications</button>
+<div class="w-8 h-8 rounded-full bg-slate-200 overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="Close-up professional headshot of a student for profile avatar in a clean minimalist style" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDFRceM7UGMoUhkNutVHwSitrZpO8ZtW0gIcAa-GpVtB-epY_UEq4w_cRufqDJkWyA-EkCKreuTSdz4PGNcBzIzPoYwofHrkbrXyPJER7ptuoDSqA_pC-Vu3-ulBORIPf8d51ble2pPT9Qij2-OMWm56MUk0i5-OaBv0A8meu8fJ1eWxHJmbiffirU2DOYuie8iLj0zyQhAhPiVhIRdYmnqgl75vG0HphQSVfxcoJdioEsru4dehTzvICLN2nyf8CgIE8fCshR3ZJc"/>
+</div>
+</div>
+</div>
+</header>
+<!-- Main Content Stage -->
+<main class="ml-64 pt-16 min-h-screen bg-background pb-20">
+<!-- Course Header Section -->
+<section class="px-10 py-12 flex flex-col lg:flex-row editorial-gap items-start">
+<div class="flex-1 space-y-6">
+<div class="inline-flex items-center space-x-2 text-primary font-bold text-xs uppercase tracking-widest">
+<span class="material-symbols-outlined text-sm">school</span>
+<span>Engineering Faculty</span>
+</div>
+<h1 class="text-5xl font-extrabold text-on-surface tracking-tight leading-tight">Advanced Machine Learning</h1>
+<p class="text-lg text-on-surface-variant max-w-2xl font-body leading-relaxed">
+                    Master the complexities of deep learning architectures, reinforcement learning paradigms, and the mathematical foundations of large-scale neural systems. This course bridges academic theory with industry-scale implementation.
+                </p>
+<div class="flex flex-wrap gap-2 pt-2">
+<span class="px-4 py-1.5 bg-surface-container text-primary font-manrope font-semibold text-xs rounded-full">Neural Networks</span>
+<span class="px-4 py-1.5 bg-surface-container text-primary font-manrope font-semibold text-xs rounded-full">PyTorch</span>
+<span class="px-4 py-1.5 bg-surface-container text-primary font-manrope font-semibold text-xs rounded-full">Linear Algebra</span>
+</div>
+</div>
+<div class="w-full lg:w-80 bg-surface-container-lowest p-6 rounded-xl shadow-sm border border-outline-variant/10">
+<div class="flex items-center space-x-4 mb-6">
+<div class="w-14 h-14 rounded-full overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="Professional portrait of Dr. Emily Chen, a senior female professor in a modern academic setting with soft natural light" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCHf9apLJjB-DSxoZoZKR4iU-wuGcnChNsTs0oznVK7coi68frKOA139-GzWXHHwFshcUOewnhs1kIewuFWEXxAfBIEowIL-JulwMnWoFnIMlSAr2Ei4m4Jumwq6pjx_qy4J7uEBOw3u3YVDohG7-d6u6QnAHefoJ_7xsRYC41fxfEzeVAsvM9AgNyhdQIGeJl1gRYob6T_wXOKnOAily6II9U3B-aBrO432fdjzXtiCmqlqqw7-5XMq7CvvHL00XjEdkjUbdSbO_g"/>
+</div>
+<div>
+<h4 class="font-bold text-on-surface">Dr. Emily Chen</h4>
+<p class="text-xs text-on-surface-variant uppercase tracking-wider">Course Instructor</p>
+</div>
+</div>
+<div class="space-y-4">
+<div class="flex justify-between text-sm">
+<span class="text-on-surface-variant">Class Capacity</span>
+<span class="font-bold">45 / 50</span>
+</div>
+<div class="w-full h-2 bg-surface-container-low rounded-full overflow-hidden">
+<div class="h-full bg-secondary w-[90%] rounded-full"></div>
+</div>
+<button class="w-full py-3 border border-primary text-primary font-bold rounded-lg hover:bg-primary/5 transition-colors">
+                        View Profile
+                    </button>
+</div>
+</div>
+</section>
+<!-- Tabs Navigation -->
+<section class="px-10 border-b border-outline-variant/15">
+<div class="flex space-x-10">
+<button class="pb-4 border-b-2 border-primary text-primary font-bold text-sm tracking-wide">Live Classes</button>
+<button class="pb-4 border-b-2 border-transparent text-on-surface-variant hover:text-primary font-semibold text-sm tracking-wide transition-all">Assignments</button>
+<button class="pb-4 border-b-2 border-transparent text-on-surface-variant hover:text-primary font-semibold text-sm tracking-wide transition-all">Materials</button>
+<button class="pb-4 border-b-2 border-transparent text-on-surface-variant hover:text-primary font-semibold text-sm tracking-wide transition-all">Roadmap</button>
+</div>
+</section>
+<!-- Tab Content: Live Classes & Materials Bento -->
+<section class="px-10 py-10 grid grid-cols-12 gap-8">
+<!-- Left Column: Timeline -->
+<div class="col-span-12 lg:col-span-8 space-y-8">
+<div class="flex items-center justify-between">
+<h3 class="text-xl font-extrabold tracking-tight">Upcoming Schedule</h3>
+<div class="flex space-x-2">
+<button class="p-2 bg-surface-container rounded-lg hover:bg-surface-container-high transition-colors">
+<span class="material-symbols-outlined">chevron_left</span>
+</button>
+<button class="p-2 bg-surface-container rounded-lg hover:bg-surface-container-high transition-colors">
+<span class="material-symbols-outlined">chevron_right</span>
+</button>
+</div>
+</div>
+<!-- Timeline Element -->
+<div class="relative space-y-6 before:absolute before:left-[11px] before:top-2 before:bottom-2 before:w-[2px] before:bg-outline-variant/20">
+<!-- Event 1 -->
+<div class="relative pl-10">
+<div class="absolute left-0 top-1.5 w-6 h-6 rounded-full bg-primary flex items-center justify-center border-4 border-background">
+<span class="w-1.5 h-1.5 rounded-full bg-white"></span>
+</div>
+<div class="bg-surface-container-lowest p-6 rounded-xl shadow-sm border border-outline-variant/5 flex items-center justify-between">
+<div>
+<p class="text-xs font-bold text-primary uppercase tracking-widest mb-1">Today • 14:00 PM</p>
+<h4 class="text-lg font-bold text-on-surface">Convolutional Architectures in Practice</h4>
+<p class="text-sm text-on-surface-variant mt-1">Deep dive into ResNet and EfficientNet implementations.</p>
+</div>
+<button class="px-6 py-2.5 bg-primary text-white font-bold rounded-full shadow-md shadow-primary/20 hover:-translate-y-0.5 transition-all">
+                                Join Now
+                            </button>
+</div>
+</div>
+<!-- Event 2 -->
+<div class="relative pl-10">
+<div class="absolute left-0 top-1.5 w-6 h-6 rounded-full bg-outline-variant/40 flex items-center justify-center border-4 border-background">
+<span class="w-1.5 h-1.5 rounded-full bg-white"></span>
+</div>
+<div class="bg-surface-container-lowest p-6 rounded-xl shadow-sm border border-outline-variant/5 flex items-center justify-between opacity-80">
+<div>
+<p class="text-xs font-bold text-on-surface-variant uppercase tracking-widest mb-1">Tomorrow • 10:00 AM</p>
+<h4 class="text-lg font-bold text-on-surface">Recurrent Units &amp; LSTMs</h4>
+<p class="text-sm text-on-surface-variant mt-1">Foundational sequences for NLP and time-series data.</p>
+</div>
+<button class="px-6 py-2.5 bg-surface-container-high text-on-surface-variant font-bold rounded-full cursor-not-allowed">
+                                Locked
+                            </button>
+</div>
+</div>
+</div>
+<!-- Assignments Status Section -->
+<div class="pt-10">
+<h3 class="text-xl font-extrabold tracking-tight mb-6">Recent Assignments</h3>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+<div class="bg-surface-container-lowest p-5 rounded-xl border-l-4 border-error shadow-sm">
+<p class="text-[10px] uppercase font-bold text-error tracking-widest mb-2">Pending</p>
+<h5 class="font-bold text-sm">Gradient Descent Lab</h5>
+<p class="text-xs text-on-surface-variant mt-2">Due in 2 days</p>
+</div>
+<div class="bg-surface-container-lowest p-5 rounded-xl border-l-4 border-secondary shadow-sm">
+<p class="text-[10px] uppercase font-bold text-secondary tracking-widest mb-2">Submitted</p>
+<h5 class="font-bold text-sm">Linear Algebra Review</h5>
+<p class="text-xs text-on-surface-variant mt-2">Under review</p>
+</div>
+<div class="bg-surface-container-lowest p-5 rounded-xl border-l-4 border-primary shadow-sm">
+<p class="text-[10px] uppercase font-bold text-primary tracking-widest mb-2">Reviewed</p>
+<h5 class="font-bold text-sm">Calculus for ML</h5>
+<p class="text-xs text-on-surface-variant mt-2">Score: 98/100</p>
+</div>
+</div>
+</div>
+</div>
+<!-- Right Column: Materials & Roadmap -->
+<div class="col-span-12 lg:col-span-4 space-y-8">
+<div class="bg-inverse-surface p-8 rounded-2xl text-white">
+<h3 class="text-xl font-bold mb-4">AI Roadmap</h3>
+<p class="text-sm text-slate-300 mb-6 font-body">Your personalized path to mastering the Advanced curriculum.</p>
+<div class="space-y-6">
+<div class="flex items-start space-x-4">
+<div class="w-8 h-8 rounded-full bg-secondary flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1;">check</span>
+</div>
+<div>
+<h5 class="text-sm font-bold">Foundations</h5>
+<p class="text-xs text-slate-400 mt-1">Linear algebra and basic statistics</p>
+</div>
+</div>
+<div class="flex items-start space-x-4">
+<div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-sm">play_arrow</span>
+</div>
+<div>
+<h5 class="text-sm font-bold">Deep Learning Core</h5>
+<p class="text-xs text-slate-400 mt-1">Backpropagation and MLP</p>
+</div>
+</div>
+<div class="flex items-start space-x-4">
+<div class="w-8 h-8 rounded-full border border-slate-600 flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-sm text-slate-600">lock</span>
+</div>
+<div>
+<h5 class="text-sm font-bold text-slate-500">Transformers &amp; Attention</h5>
+<p class="text-xs text-slate-600 mt-1">Advanced sequence modeling</p>
+</div>
+</div>
+</div>
+</div>
+<div>
+<h3 class="text-xl font-extrabold tracking-tight mb-6">Learning Materials</h3>
+<div class="space-y-4">
+<!-- Resource Card -->
+<div class="group bg-surface-container-low p-4 rounded-xl flex items-center space-x-4 hover:bg-surface-container transition-all cursor-pointer">
+<div class="w-12 h-12 rounded-lg bg-red-100 flex items-center justify-center text-red-600">
+<span class="material-symbols-outlined">play_circle</span>
+</div>
+<div class="flex-1">
+<h5 class="text-sm font-bold">Lec 04: ConvNets</h5>
+<p class="text-xs text-on-surface-variant">Video • 45 mins</p>
+</div>
+<span class="material-symbols-outlined text-slate-400 group-hover:text-primary transition-colors">download</span>
+</div>
+<!-- Resource Card -->
+<div class="group bg-surface-container-low p-4 rounded-xl flex items-center space-x-4 hover:bg-surface-container transition-all cursor-pointer">
+<div class="w-12 h-12 rounded-lg bg-slate-200 flex items-center justify-center text-slate-800">
+<span class="material-symbols-outlined">code</span>
+</div>
+<div class="flex-1">
+<h5 class="text-sm font-bold">GitHub Repo: PyTorch</h5>
+<p class="text-xs text-on-surface-variant">Code • Updated 2h ago</p>
+</div>
+<span class="material-symbols-outlined text-slate-400 group-hover:text-primary transition-colors">open_in_new</span>
+</div>
+<!-- Resource Card -->
+<div class="group bg-surface-container-low p-4 rounded-xl flex items-center space-x-4 hover:bg-surface-container transition-all cursor-pointer">
+<div class="w-12 h-12 rounded-lg bg-blue-100 flex items-center justify-center text-blue-600">
+<span class="material-symbols-outlined">article</span>
+</div>
+<div class="flex-1">
+<h5 class="text-sm font-bold">Paper: ResNet Origins</h5>
+<p class="text-xs text-on-surface-variant">Blog/PDF • 12 pages</p>
+</div>
+<span class="material-symbols-outlined text-slate-400 group-hover:text-primary transition-colors">bookmark</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+</main>
+</body></html>

@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html class="light" lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Junospace - certification Desk</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;family=Inter:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+
+<style>
+    body { font-family: 'Inter', sans-serif; font-weight: 400; overflow-x: hidden; }
+    h1, h2, h3, h4, .font-headline { font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 900; }
+    .material-symbols-outlined { font-variation-settings: 'FILL' 1, 'wght' 400, 'GRAD' 0, 'opsz' 24; }
+
+    /* Theme Support */
+    .dark body { background-color: #020617; color: #f8fafc; }
+    .dark .bg-white { background-color: #0f172a !important; border-color: rgba(255,255,255,0.05) !important; }
+    .dark .bg-slate-50 { background-color: #020617 !important; }
+
+    .cert-card {
+        opacity: 0;
+        transform: scale(0.95);
+        animation: cert-reveal 0.8s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+    }
+    @keyframes cert-reveal {
+        to { opacity: 1; transform: scale(1); }
+    }
+
+    .certificate-preview {
+        background: linear-gradient(135deg, #020617 0%, #1e1b4b 100%);
+        aspect-ratio: 1.414/1;
+        position: relative;
+        overflow: hidden;
+    }
+    .cert-border {
+        position: absolute; inset: 20px;
+        border: 2px solid rgba(255,255,255,0.1);
+    }
+</style>
+</head>
+
+<body class="bg-slate-50 text-slate-800 selection:bg-violet-200">
+
+<main class="min-h-screen p-8 lg:p-12 space-y-12 max-w-[1600px] mx-auto">
+    
+    <!-- HEADER -->
+    <header class="flex flex-col md:flex-row md:items-center justify-between gap-8 mb-12">
+        <div>
+            <h2 class="text-4xl font-black text-slate-800 tracking-tight leading-none">Certification Desk</h2>
+            <p class="text-slate-500 font-medium mt-3">Official verification of your academic and technical milestones.</p>
+        </div>
+        <div class="bg-indigo-50 px-6 py-3 rounded-2xl border border-indigo-100 flex items-center gap-3">
+             <span class="material-symbols-outlined text-indigo-500">verified_user</span>
+             <span class="text-[10px] font-black text-indigo-600 uppercase tracking-widest">Secured by Junospace Auth</span>
+        </div>
+    </header>
+
+    <div id="cert-list" class="grid grid-cols-1 md:grid-cols-2 gap-10">
+        <!-- Injected by JS -->
+         <div class="col-span-full py-32 text-center bg-white rounded-[3rem] border-2 border-dashed border-slate-100">
+            <span class="material-symbols-outlined text-slate-200 text-5xl mb-4">history_edu</span>
+            <h4 class="text-lg font-black text-slate-400 uppercase tracking-widest">Registry Initializing</h4>
+            <p class="text-xs text-slate-400 mt-2 font-medium">Validating completion of all curriculum and evaluation nodes.</p>
+         </div>
+    </div>
+
+</main>
+
+<script src="./env.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script>
+  const { createClient } = supabase
+  const db = createClient(ENV.SUPABASE_URL, ENV.SUPABASE_ANON_KEY)
+  
+  async function loadCerts() {
+    const { data: { user } } = await db.auth.getUser();
+    const listEl = document.getElementById('cert-list');
+
+    // Logic: Cert is available if a course is 100% complete OR manually issued.
+    // For Phase 1, we show available certs based on enrollments.
+    const { data: enrollments } = await db.from('enrollments').select('*, batches(*, courses(*))').eq('student_id', user.id);
+    
+    if (!enrollments || enrollments.length === 0) {
+      listEl.innerHTML = '<div class="col-span-full py-32 text-center"><p class="text-slate-400 font-bold">No certifications issued yet.</p></div>';
+      return;
+    }
+
+    listEl.innerHTML = enrollments.map((e, idx) => {
+      const c = e.batches.courses;
+      return `
+      <div class="cert-card bg-white p-6 rounded-[3rem] shadow-2xl shadow-slate-200/50 border border-slate-100 group overflow-hidden" style="animation-delay: ${idx * 0.2}s">
+          <div class="certificate-preview rounded-[2rem] p-10 flex flex-col items-center justify-center text-center text-white mb-8">
+              <div class="cert-border rounded-[1.5rem]"></div>
+              <img src="logo.png" class="w-12 h-12 mb-6 opacity-80" />
+              <p class="text-[8px] font-black uppercase tracking-[0.4em] text-indigo-400 mb-2">Certificate of Excellence</p>
+              <h4 class="text-2xl font-black mb-4 tracking-tighter">${c.title}</h4>
+              <div class="w-12 h-[1px] bg-white/20 mb-4"></div>
+              <p class="text-[10px] text-slate-400 font-medium italic">Verified Achievement in Technical Mastery</p>
+          </div>
+          
+          <div class="px-4 pb-4">
+              <div class="flex justify-between items-end">
+                  <div>
+                      <p class="text-[9px] font-black text-slate-400 uppercase tracking-widest mb-1">Issued Date</p>
+                      <p class="text-sm font-black text-slate-800">${new Date().toLocaleDateString()}</p>
+                  </div>
+                  <button class="bg-slate-900 text-white px-8 py-3 rounded-2xl text-[9px] font-black uppercase tracking-widest shadow-xl hover:scale-105 active:scale-95 transition-all">Download PDF</button>
+              </div>
+          </div>
+      </div>
+      `;
+    }).join('');
+  }
+
+  loadCerts();
+</script>
+</body>
+</html>

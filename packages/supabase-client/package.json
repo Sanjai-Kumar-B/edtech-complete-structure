@@ -1,0 +1,8 @@
+{
+  "name": "@junospace/supabase-client",
+  "version": "0.0.1",
+  "main": "src/index.js",
+  "peerDependencies": {
+    "@supabase/supabase-js": "*"
+  }
+}

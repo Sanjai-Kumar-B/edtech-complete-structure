@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Junospace - Mobile Preview</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background: #0f172a;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            font-family: sans-serif;
+            color: #fff;
+        }
+        .device-frame {
+            width: 375px;
+            height: 812px;
+            background: #fff;
+            border: 12px solid #1e293b;
+            border-radius: 40px;
+            overflow: hidden;
+            box-shadow: 0 40px 100px rgba(0,0,0,0.5);
+            position: relative;
+        }
+        iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+        .info {
+            margin-top: 20px;
+            text-align: center;
+            opacity: 0.7;
+        }
+        .info h1 { margin: 0; font-size: 1.2rem; }
+        .info p { margin: 5px 0; font-size: 0.9rem; }
+    </style>
+</head>
+<body>
+    <div class="device-frame">
+        <iframe src="index.html" title="Junospace Mobile View"></iframe>
+    </div>
+    <div class="info">
+        <h1>Junospace Mobile Preview</h1>
+        <p>Simulation: iPhone 12 Pro (375x812)</p>
+    </div>
+
+<script src="./env.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script>
+  const { createClient } = supabase
+  const db = createClient(ENV.SUPABASE_URL, ENV.SUPABASE_ANON_KEY)
+  window.db = db
+</script>
+</body>
+</html>
+

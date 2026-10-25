@@ -1,0 +1,246 @@
+<!-- Dashboard Canvas -->
+<div class="pt-24 pb-12 px-8 max-w-[1600px] mx-auto space-y-8">
+    <!-- Top Section: Welcome & High-level Stats -->
+    <section class="grid grid-cols-1 lg:grid-cols-12 gap-6">
+        <!-- Welcome Card (Pill Shape) -->
+        <div class="lg:col-span-7 bg-white p-10 rounded-[3rem] relative overflow-hidden group shadow-lg flex items-center justify-between border border-violet-100">
+            <div class="absolute top-0 right-0 w-64 h-64 bg-violet-50 rounded-full -mr-20 -mt-20 blur-3xl transition-all group-hover:bg-violet-100"></div>
+            <div class="relative z-10 w-full flex flex-col md:flex-row md:items-center justify-between gap-6">
+                <div>
+                    <span class="bg-violet-100 text-violet-600 text-[10px] font-bold px-4 py-1.5 rounded-full tracking-widest uppercase">Welcome back, Alex</span>
+                    <h2 class="text-4xl font-extrabold text-slate-800 mt-5 tracking-tight">Designing the Future <br/><span class="text-violet-500">of Urban Living.</span></h2>
+                    <p class="text-slate-500 mt-4 max-w-sm text-sm leading-relaxed">You've completed 72% of this week's milestones. Keep up the momentum!</p>
+                </div>
+                <div class="flex-shrink-0 relative">
+                    <img class="w-24 h-24 rounded-full border-4 border-violet-50 object-cover shadow-xl shadow-violet-200" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBMUNOA_JYlU8tYWUwCNwgdbyzaOAEgHoKPqYmSXxZMzgqg6cWHnlw0wKdwhazuPwmXrRPJa3zuoih2PTSZZzn0-OatenB93wAUtji6K_h-FwrblfRo5dgoWdQTmy4YH7YLmYpaQFNvsh7f0WWq4ixLJXl__qRzH-TqAQIALni0r0WiEynF-n2iXJK9EXhCIXFPaTh5KYZJCxrVRi0F9IEvdcq38Si_CrEfg6tie98tOx5gzUpu7-8nehZRXlq4DOu7fFzKbs3KmP8" alt="Alex Profile"/>
+                    <div class="absolute bottom-0 right-0 w-8 h-8 bg-violet-500 rounded-full border-4 border-white flex items-center justify-center">
+                        <span class="material-symbols-outlined text-white text-sm" data-icon="star">star</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Quick Stats Grid (Pale Green Progress & Red Attendance Circumference) -->
+        <div class="lg:col-span-5 grid grid-cols-2 gap-4">
+            <!-- Progress Card -->
+            <div class="bg-white p-6 rounded-[2rem] flex flex-col justify-between border-4 border-emerald-200 shadow-sm shadow-emerald-50">
+                <div class="flex items-center justify-between">
+                    <span class="material-symbols-outlined text-emerald-500 p-2 bg-emerald-50 rounded-full" data-icon="trending_up">trending_up</span>
+                    <span class="text-[10px] text-emerald-600 font-bold bg-emerald-50 px-2 py-1 rounded-full">+4%</span>
+                </div>
+                <div class="mt-4">
+                    <p class="text-3xl font-bold text-slate-800 tracking-tighter">88.4%</p>
+                    <p class="text-xs text-slate-500 font-bold uppercase tracking-wider mt-1">Course Progress</p>
+                </div>
+            </div>
+            <!-- Attendance Card (Red Circumference for Low Attendance) -->
+            <div class="bg-white p-6 rounded-[2rem] flex flex-col justify-between border-4 border-red-300 shadow-sm shadow-red-50">
+                <div class="flex items-center justify-between">
+                    <span class="material-symbols-outlined text-red-500 p-2 bg-red-50 rounded-full" data-icon="how_to_reg">how_to_reg</span>
+                    <span class="text-[10px] text-red-600 font-bold bg-red-50 px-2 py-1 rounded-full">Requires Attention</span>
+                </div>
+                <div class="mt-4">
+                    <p class="text-3xl font-bold text-slate-800 tracking-tighter">64%</p>
+                    <p class="text-xs text-slate-500 font-bold uppercase tracking-wider mt-1">Attendance</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Middle Section: Skills, Modules & Pending -->
+    <section class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+        
+        <!-- Skill Analytics - 4 Core Competencies -->
+        <div class="lg:col-span-4 space-y-6">
+            <div class="bg-white p-8 rounded-[2rem] border border-violet-100 shadow-sm shadow-violet-50">
+                <div class="flex items-center justify-between mb-8">
+                    <h3 class="text-base font-bold text-slate-800 tracking-tight">Skill Analytics</h3>
+                    <button class="flex items-center justify-center p-2 rounded-full bg-violet-50 text-violet-500 hover:bg-violet-100 transition-colors">
+                        <span class="material-symbols-outlined text-sm" data-icon="insights">insights</span>
+                    </button>
+                </div>
+                <div class="space-y-6">
+                    <!-- Creativity -->
+                    <div class="space-y-2">
+                        <div class="flex justify-between items-center text-xs">
+                            <span class="text-slate-600 font-semibold flex items-center gap-2"><span class="w-2 h-2 rounded-full bg-violet-500"></span> Creativity</span>
+                            <span class="text-slate-800 font-bold bg-violet-50 px-2 py-0.5 rounded">95%</span>
+                        </div>
+                        <div class="h-2 w-full bg-slate-100 rounded-full overflow-hidden">
+                            <div class="h-full bg-violet-500 w-[95%] rounded-full shadow-[0_0_10px_rgba(139,92,246,0.6)]"></div>
+                        </div>
+                    </div>
+                    <!-- Execution -->
+                    <div class="space-y-2">
+                        <div class="flex justify-between items-center text-xs">
+                            <span class="text-slate-600 font-semibold flex items-center gap-2"><span class="w-2 h-2 rounded-full bg-blue-500"></span> Execution</span>
+                            <span class="text-slate-800 font-bold bg-blue-50 px-2 py-0.5 rounded">82%</span>
+                        </div>
+                        <div class="h-2 w-full bg-slate-100 rounded-full overflow-hidden">
+                            <div class="h-full bg-blue-500 w-[82%] rounded-full shadow-[0_0_10px_rgba(59,130,246,0.6)]"></div>
+                        </div>
+                    </div>
+                    <!-- Understanding -->
+                    <div class="space-y-2">
+                        <div class="flex justify-between items-center text-xs">
+                            <span class="text-slate-600 font-semibold flex items-center gap-2"><span class="w-2 h-2 rounded-full bg-emerald-500"></span> Understanding</span>
+                            <span class="text-slate-800 font-bold bg-emerald-50 px-2 py-0.5 rounded">88%</span>
+                        </div>
+                        <div class="h-2 w-full bg-slate-100 rounded-full overflow-hidden">
+                            <div class="h-full bg-emerald-500 w-[88%] rounded-full shadow-[0_0_10px_rgba(16,185,129,0.6)]"></div>
+                        </div>
+                    </div>
+                    <!-- Communicating -->
+                    <div class="space-y-2">
+                        <div class="flex justify-between items-center text-xs">
+                            <span class="text-slate-600 font-semibold flex items-center gap-2"><span class="w-2 h-2 rounded-full bg-orange-500"></span> Communicating</span>
+                            <span class="text-slate-800 font-bold bg-orange-50 px-2 py-0.5 rounded">75%</span>
+                        </div>
+                        <div class="h-2 w-full bg-slate-100 rounded-full overflow-hidden">
+                            <div class="h-full bg-orange-500 w-[75%] rounded-full shadow-[0_0_10px_rgba(249,115,22,0.6)]"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Modules & Tasks -->
+        <div class="lg:col-span-8 flex flex-col gap-6">
+            
+            <!-- Modules Row: Today vs Previous -->
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <!-- Today's Module -->
+                <div class="bg-white rounded-[2rem] p-8 border border-violet-200 shadow-sm shadow-violet-100 relative group overflow-hidden">
+                    <div class="absolute top-0 left-0 w-full h-2 bg-gradient-to-r from-violet-400 to-pink-400"></div>
+                    <div class="flex justify-between items-start mb-6">
+                        <h3 class="text-2xl font-black text-slate-800 tracking-tight">Today</h3>
+                        <span class="bg-violet-100 text-violet-600 text-[10px] font-bold px-3 py-1 rounded-full flex items-center gap-1"><span class="w-1.5 h-1.5 rounded-full bg-violet-500 animate-pulse"></span> ACTIVE</span>
+                    </div>
+                    <div>
+                        <p class="text-[10px] font-bold text-slate-500 uppercase tracking-widest">Current Module</p>
+                        <h4 class="text-xl font-bold text-slate-700 mt-2">Spatial Design & Perception</h4>
+                        <p class="text-sm text-slate-500 mt-3 line-clamp-2">Deep dive into how human psychology influences architectural flow.</p>
+                    </div>
+                    <button class="mt-8 w-full bg-violet-500 hover:bg-violet-600 text-white py-3 rounded-full text-sm font-bold transition-all shadow-lg shadow-violet-500/20 active:scale-95">Enter Class</button>
+                </div>
+                
+                <!-- Previous Module -->
+                <div class="bg-white rounded-[2rem] p-8 border border-slate-200 shadow-sm relative group">
+                    <div class="flex justify-between items-start mb-6">
+                        <h3 class="text-2xl font-black text-slate-400 tracking-tight">Previous</h3>
+                        <span class="bg-slate-100 text-slate-500 text-[10px] font-bold px-3 py-1 rounded-full"><span class="material-symbols-outlined text-[10px]" data-icon="check">check</span> COMPLETED</span>
+                    </div>
+                    <div>
+                        <p class="text-[10px] font-bold text-slate-400 uppercase tracking-widest">Past Module</p>
+                        <h4 class="text-xl font-bold text-slate-600 mt-2">Sustainable Materials</h4>
+                        <p class="text-sm text-slate-400 mt-3 line-clamp-2">Review 101: Integrating green certifications in modern urban spaces.</p>
+                    </div>
+                    <button class="mt-8 w-full border-2 border-slate-200 text-slate-500 hover:border-slate-300 hover:text-slate-600 py-3 rounded-full text-sm font-bold transition-all active:scale-95">Review Materials</button>
+                </div>
+            </div>
+
+            <!-- Pending Tasks -->
+            <div class="bg-white p-8 rounded-[2rem] border border-red-100 shadow-sm shadow-red-50">
+                <div class="flex items-center gap-3 mb-6">
+                    <div class="p-2 bg-red-50 rounded-full text-red-500">
+                        <span class="material-symbols-outlined text-lg" data-icon="warning">warning</span>
+                    </div>
+                    <h3 class="text-lg font-bold text-slate-800">Pending Actions Required</h3>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <div class="flex items-center gap-4 p-4 bg-orange-50/50 border border-orange-100 rounded-[1.5rem] hover:bg-orange-50 transition-colors">
+                        <div class="flex-1">
+                            <span class="text-[10px] font-black text-orange-600 uppercase tracking-widest">Assignment</span>
+                            <p class="text-sm font-bold text-slate-700 mt-1">Urban Planning Essay</p>
+                            <p class="text-xs text-slate-500 mt-1">Due in 2 days</p>
+                        </div>
+                        <button class="p-3 bg-white rounded-full shadow-sm text-orange-500 hover:bg-orange-500 hover:text-white transition-all"><span class="material-symbols-outlined text-sm" data-icon="upload">upload</span></button>
+                    </div>
+                    <div class="flex items-center gap-4 p-4 bg-red-50/50 border border-red-100 rounded-[1.5rem] hover:bg-red-50 transition-colors">
+                        <div class="flex-1">
+                            <span class="text-[10px] font-black text-red-600 uppercase tracking-widest">Assessment</span>
+                            <p class="text-sm font-bold text-slate-700 mt-1">Final Portfolio Review</p>
+                            <p class="text-xs text-red-400 font-semibold mt-1">Due tonight, 11:59 PM!</p>
+                        </div>
+                        <button class="p-3 bg-white rounded-full shadow-sm text-red-500 hover:bg-red-500 hover:text-white transition-all"><span class="material-symbols-outlined text-sm" data-icon="play_arrow">play_arrow</span></button>
+                    </div>
+                </div>
+            </div>
+            
+        </div>
+    </section>
+
+    <!-- Bottom Section: Weekly Schedule (1 Hour Daily Admin Tasks) -->
+    <section class="bg-white rounded-[2rem] p-8 border border-violet-100 shadow-sm shadow-violet-50">
+        <div class="flex flex-col md:flex-row md:items-center justify-between mb-8 gap-4 border-b border-slate-100 pb-6">
+            <div>
+                <h3 class="text-xl font-extrabold text-slate-800 tracking-tight font-['Plus_Jakarta_Sans']">Your Weekly Roadmap</h3>
+                <p class="text-sm text-slate-500 mt-1">Admin scheduled 1-hour focus topics for the week.</p>
+            </div>
+            <div class="flex items-center gap-4 text-sm font-bold text-slate-700 bg-slate-50 px-4 py-2 rounded-full">
+                <button class="material-symbols-outlined hover:text-violet-600 transition-colors">chevron_left</button>
+                <span>Oct 14 - Oct 20</span>
+                <button class="material-symbols-outlined hover:text-violet-600 transition-colors">chevron_right</button>
+            </div>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-4">
+            <!-- Monday -->
+            <div class="bg-violet-50 border border-violet-200 p-5 rounded-[1.5rem] relative">
+                <div class="absolute top-0 right-0 w-12 h-12 bg-white/50 rounded-bl-[1.5rem] rounded-tr-[1.5rem] flex items-center justify-center">
+                    <span class="text-[10px] font-bold text-violet-600 uppercase tracking-widest">1 HR</span>
+                </div>
+                <h4 class="text-lg font-black text-violet-900">Monday</h4>
+                <p class="text-xs font-bold text-violet-500 mt-4 mb-1">THEORY REVIEW</p>
+                <p class="text-sm text-slate-700 font-medium">Read Chapter 4: Structural Integrity and formulate notes.</p>
+            </div>
+            <!-- Tuesday -->
+            <div class="bg-slate-50 border border-slate-200 p-5 rounded-[1.5rem] relative">
+                <div class="absolute top-0 right-0 w-12 h-12 bg-white rounded-bl-[1.5rem] rounded-tr-[1.5rem] flex items-center justify-center shadow-sm">
+                    <span class="text-[10px] font-bold text-slate-500 uppercase tracking-widest">1 HR</span>
+                </div>
+                <h4 class="text-lg font-black text-slate-800">Tuesday</h4>
+                <p class="text-xs font-bold text-slate-500 mt-4 mb-1">PRACTICE EXERCISE</p>
+                <p class="text-sm text-slate-700 font-medium">Complete mock exam on Spatial Formations.</p>
+            </div>
+            <!-- Wednesday -->
+            <div class="bg-slate-50 border border-slate-200 p-5 rounded-[1.5rem] relative">
+                <div class="absolute top-0 right-0 w-12 h-12 bg-white rounded-bl-[1.5rem] rounded-tr-[1.5rem] flex items-center justify-center shadow-sm">
+                    <span class="text-[10px] font-bold text-slate-500 uppercase tracking-widest">1 HR</span>
+                </div>
+                <h4 class="text-lg font-black text-slate-800">Wednesday</h4>
+                <p class="text-xs font-bold text-slate-500 mt-4 mb-1">GROUP WORK</p>
+                <p class="text-sm text-slate-700 font-medium">Coordinate presentation slides with Studio C.</p>
+            </div>
+            <!-- Thursday -->
+            <div class="bg-slate-50 border border-slate-200 p-5 rounded-[1.5rem] relative">
+                <div class="absolute top-0 right-0 w-12 h-12 bg-white rounded-bl-[1.5rem] rounded-tr-[1.5rem] flex items-center justify-center shadow-sm">
+                    <span class="text-[10px] font-bold text-slate-500 uppercase tracking-widest">1 HR</span>
+                </div>
+                <h4 class="text-lg font-black text-slate-800">Thursday</h4>
+                <p class="text-xs font-bold text-slate-500 mt-4 mb-1">ASSIGNMENT PREP</p>
+                <p class="text-sm text-slate-700 font-medium">Draft outline for Urban Planning essay.</p>
+            </div>
+            <!-- Friday -->
+            <div class="bg-slate-50 border border-slate-200 p-5 rounded-[1.5rem] relative">
+                <div class="absolute top-0 right-0 w-12 h-12 bg-white rounded-bl-[1.5rem] rounded-tr-[1.5rem] flex items-center justify-center shadow-sm">
+                    <span class="text-[10px] font-bold text-slate-500 uppercase tracking-widest">1 HR</span>
+                </div>
+                <h4 class="text-lg font-black text-slate-800">Friday</h4>
+                <p class="text-xs font-bold text-slate-500 mt-4 mb-1">REVIEW SESSION</p>
+                <p class="text-sm text-slate-700 font-medium">Watch recorded lecture on Rendering Basics.</p>
+            </div>
+            <!-- Weekend -->
+            <div class="bg-violet-600 border border-violet-700 p-5 rounded-[1.5rem] relative md:col-span-2 xl:col-span-3">
+                <div class="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/diagonal-stripes.png')] opacity-20"></div>
+                <div class="relative z-10 flex items-center justify-between h-full">
+                    <div>
+                        <h4 class="text-lg font-black text-white">Weekend Challenge</h4>
+                        <p class="text-sm text-violet-100 font-medium mt-1">Free-form creative exploration and portfolio refinement.</p>
+                    </div>
+                    <span class="material-symbols-outlined text-4xl text-violet-300">auto_awesome</span>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>

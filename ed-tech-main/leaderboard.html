@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Junospace Portal</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+
+    <style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        body { font-family: 'Inter', sans-serif; font-weight: 300; }
+        h1, h2, h3, h4, .font-headline { font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 900; }
+        
+        /* Premium Dark Mode Overrides */
+        .dark body { background-color: #000000; color: #ffffff; }
+        .dark .bg-white { background-color: #0a0a0a !important; }
+        .dark .text-slate-800, .dark .text-slate-700, .dark .text-slate-900 { color: #ffffff !important; }
+        .dark .text-slate-600, .dark .text-slate-500 { color: #cbd5e1 !important; }
+        .dark .text-slate-400 { color: #94a3b8 !important; }
+        .dark .border-slate-100, .dark .border-violet-100 { border-color: rgba(139, 92, 246, 0.2) !important; }
+        .dark .border-violet-300 { border-color: rgba(139, 92, 246, 0.4) !important; }
+        .dark .bg-slate-50 { background-color: #000000 !important; }
+        .dark .bg-violet-50 { background-color: #1e1b4b !important; }
+        .dark .shadow-sm { box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.4) !important; }
+
+        /* Theme Utilities */
+        :root { --on-background: #1e293b; --outline: #94a3b8; }
+        .dark { --on-background: #f1f5f9; --outline: #64748b; }
+        .text-on-background { color: var(--on-background) !important; }
+        .text-outline { color: var(--outline) !important; }
+    </style>
+    <script>
+        function applyTheme() {
+            const theme = localStorage.getItem('junospace-theme') || 'light';
+            document.documentElement.classList.toggle('dark', theme === 'dark');
+        }
+        window.addEventListener('storage', applyTheme);
+        window.addEventListener('message', (e) => {
+            if (e.data.action === 'themeUpdate') applyTheme();
+        });
+        applyTheme();
+    </script>
+</head>
+<script>/* In-frame sidebar suppression */
+(function(){
+  if(window.self!==window.top){
+    document.documentElement.classList.add('in-frame');
+    // inject override styles immediately
+    var s=document.createElement('style');
+    s.textContent='html.in-frame aside,html.in-frame [class*="w-64"][class*="fixed"],html.in-frame [class*="w-72"][class*="fixed"]{display:none!important;}html.in-frame main,[class*="ml-64"],[class*="ml-72"]{margin-left:0!important;}html.in-frame header,html.in-frame .fixed.top-0{display:none!important;}html.in-frame [class*="md:pl-"]{padding-left:1.5rem!important;}html.in-frame [class*="md:ml-"]{margin-left:0!important;}html.in-frame nav.fixed.bottom-0, html.in-frame button.fixed.bottom-8, html.in-frame nav.md\\:hidden{display:none!important;}html.in-frame [class*="pt-"]{padding-top:1.5rem!important;}';
+    document.head.appendChild(s);
+  }
+})();
+</script>
+<body class="bg-slate-50 font-body text-slate-800">
+<!-- SideNavBar (Authority Source: Shared Components JSON) -->
+<aside class="fixed left-0 top-0 h-screen w-72 bg-slate-50 flex flex-col py-8 px-4 space-y-2 rounded-r-[2rem] z-50">
+<div class="px-4 mb-8">
+<div class="flex items-center gap-3">
+    <img src="logo.png" class="w-8 h-8 object-contain drop-shadow-md" alt="Junospace Logo" />
+    <h1 class="text-xl font-bold text-violet-700 tracking-tighter">Junospace</h1>
+</div>
+<p class="text-xs font-['Plus_Jakarta_Sans'] font-semibold tracking-tight text-slate-500 mt-1 uppercase">Command Center</p>
+</div>
+<nav class="flex-1 space-y-1">
+<a class="flex items-center gap-3 px-4 py-3 rounded-xl text-slate-500 hover:text-violet-600 hover:bg-slate-200/50 transition-all duration-200 group" href="#" onclick="window.parent.postMessage({action:'navigate', page:'dashboard'}, '*')">
+<span class="material-symbols-outlined">dashboard</span>
+<span class="font-['Plus_Jakarta_Sans'] font-semibold tracking-tight text-sm">Dashboard</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 rounded-xl text-slate-500 hover:text-violet-600 hover:bg-slate-200/50 transition-all duration-200 group" href="#" onclick="window.parent.postMessage({action:'navigate', page:'courses'}, '*')">
+<span class="material-symbols-outlined">school</span>
+<span class="font-['Plus_Jakarta_Sans'] font-semibold tracking-tight text-sm">My Courses</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 rounded-xl text-violet-700 font-bold border-r-4 border-violet-600 bg-violet-50/50 transition-all duration-200 group" href="#">
+<span class="material-symbols-outlined">lightbulb</span>
+<span class="font-['Plus_Jakarta_Sans'] font-semibold tracking-tight text-sm">Innovation Board</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 rounded-xl text-slate-500 hover:text-violet-600 hover:bg-slate-200/50 transition-all duration-200 group" href="#" onclick="window.parent.postMessage({action:'navigate', page:'analytics'}, '*')">
+<span class="material-symbols-outlined">analytics</span>
+<span class="font-['Plus_Jakarta_Sans'] font-semibold tracking-tight text-sm">Analytics</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 rounded-xl text-slate-500 hover:text-violet-600 hover:bg-slate-200/50 transition-all duration-200 group" href="#" onclick="window.parent.postMessage({action:'navigate', page:'profile'}, '*')">
+<span class="material-symbols-outlined">person</span>
+<span class="font-['Plus_Jakarta_Sans'] font-semibold tracking-tight text-sm">Profile</span>
+</a>
+</nav>
+<div class="mt-auto flex flex-col gap-1 border-t border-violet-300 shadow-sm shadow-violet-100 pt-6">
+<a class="flex items-center gap-3 text-slate-500  p-3 hover:bg-white/50 :bg-slate-50/50 transition-all cursor-pointer" onclick="window.parent.doLogout&&window.parent.postMessage({action:'logout'},'*');return false;" href="#">
+<span class="material-symbols-outlined">logout</span>
+<span>Sign Out</span>
+</a>
+</div>
+</aside>
+<!-- Main Content Canvas -->
+<main class="ml-64 min-h-screen relative overflow-hidden">
+<header class="w-full sticky top-0 z-40 bg-white/80 backdrop-blur-xl flex items-center justify-between px-8 py-4 w-full border-b border-violet-100">
+    <div class="flex items-center gap-4">
+        <h2 class="text-2xl font-black tracking-tighter text-slate-800">Leaderboard</h2>
+        <div class="h-6 w-[1px] bg-slate-200 mx-2"></div>
+        <div class="flex gap-2 p-1 bg-slate-100 rounded-xl">
+            <button class="duration-tab px-4 py-1.5 bg-white shadow-sm text-violet-600 text-xs font-bold rounded-lg transition-all" onclick="filterDuration('overall', this)">Overall</button>
+            <button class="duration-tab px-4 py-1.5 text-slate-500 text-xs font-bold rounded-lg hover:bg-white/50 transition-all" onclick="filterDuration('weekly', this)">Weekly</button>
+        </div>
+    </div>
+    <div class="flex items-center gap-6">
+        <select id="course-filter" class="bg-slate-50 border-none rounded-xl text-xs font-bold text-slate-600 focus:ring-2 focus:ring-violet-500/20 px-4 py-2 cursor-pointer">
+            <option value="all">All Courses</option>
+            <!-- Injected by JS -->
+        </select>
+        <div class="flex items-center gap-3">
+            <button class="p-2 text-slate-400 hover:text-violet-600 transition-colors"><span class="material-symbols-outlined">search</span></button>
+            <button class="p-2 text-slate-400 hover:text-violet-600 transition-colors"><span class="material-symbols-outlined">notifications</span></button>
+        </div>
+    </div>
+</header>
+
+<div class="px-12 py-12 pb-40">
+    <!-- Podium Section -->
+    <section id="leaderboard-podium" class="mb-20 grid grid-cols-1 md:grid-cols-12 items-end gap-8 md:h-[450px]">
+        <!-- Injected by JS -->
+    </section>
+
+    <!-- List View -->
+    <section class="max-w-5xl mx-auto mb-16">
+        <div class="space-y-4">
+            <!-- Table Header -->
+            <div class="grid grid-cols-12 px-10 py-3 text-[10px] font-black uppercase tracking-widest text-slate-400">
+                <div class="col-span-2 md:col-span-1">Rank</div>
+                <div class="col-span-7 md:col-span-6">Student Athlete</div>
+                <div class="col-span-3 md:col-span-5 text-right">Performance Score</div>
+            </div>
+            
+            <div id="leaderboard-list" class="space-y-3">
+                <!-- Injected by JS -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Detailed Table View -->
+    <section class="max-w-5xl mx-auto">
+        <div class="bg-white/80 backdrop-blur-md rounded-[2rem] border border-slate-100 shadow-xl shadow-slate-200/40 overflow-hidden">
+            <div class="px-8 py-6 border-b border-slate-100 flex items-center justify-between bg-white/50">
+                <div>
+                    <h3 class="text-xl font-black text-slate-800 tracking-tight">Comprehensive Rankings</h3>
+                    <p class="text-xs font-bold text-slate-400 uppercase tracking-widest mt-1">Detailed Performance Metrics</p>
+                </div>
+                <button class="px-4 py-2 bg-slate-100 hover:bg-violet-100 text-slate-600 hover:text-violet-700 text-xs font-bold rounded-xl transition-all flex items-center gap-2">
+                    <span class="material-symbols-outlined text-sm">download</span> Export
+                </button>
+            </div>
+            <div class="overflow-x-auto">
+                <table class="w-full text-left border-collapse" id="leaderboard-table">
+                    <!-- Injected by JS -->
+                </table>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Sticky Current User Rank -->
+    <div id="leaderboard-me" class="fixed bottom-0 left-72 right-0 bg-slate-900 text-white p-8 shadow-[0_-20px_50px_rgba(15,23,42,0.3)] flex items-center justify-between z-50 transform translate-y-0 transition-transform duration-500 in-frame-me">
+        <style>.in-frame .in-frame-me{left:0!important;}</style>
+        <!-- Injected by JS -->
+    </div>
+</div>
+
+</main>
+
+<script src="env.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script>
+  const { createClient } = supabase
+  const db = createClient(ENV.SUPABASE_URL, ENV.SUPABASE_ANON_KEY)
+  window.db = db
+</script>
+<script src="js/auth.js"></script>
+<script src="js/leaderboard.js"></script>
+</body></html>
+
+
+
+
+
+
+

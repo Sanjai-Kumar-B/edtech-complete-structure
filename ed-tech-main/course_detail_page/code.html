@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Junospace Portal</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700;800&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        body { font-family: 'Inter', sans-serif; font-weight: 300; }
+        h1, h2, h3, h4 { font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 900; }
+        
+        /* Premium Dark Mode Overrides */
+        .dark body { background-color: #000000; color: #ffffff; }
+        .dark .bg-white { background-color: #0a0a0a !important; }
+        .dark .text-slate-800, .dark .text-slate-700, .dark .text-slate-900 { color: #ffffff !important; }
+        .dark .text-slate-600, .dark .text-slate-500 { color: #cbd5e1 !important; }
+        .dark .text-slate-400 { color: #94a3b8 !important; }
+        .dark .border-slate-100, .dark .border-violet-100 { border-color: rgba(139, 92, 246, 0.2) !important; }
+        .dark .border-violet-300 { border-color: rgba(139, 92, 246, 0.4) !important; }
+        .dark .bg-slate-50 { background-color: #000000 !important; }
+        .dark .bg-violet-50 { background-color: #1e1b4b !important; }
+        .dark .shadow-sm, .dark .shadow-xl { box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.5) !important; }
+    </style>
+    <script>
+        function applyTheme() {
+            const theme = localStorage.getItem('junospace-theme') || 'light';
+            document.documentElement.classList.toggle('dark', theme === 'dark');
+        }
+        window.addEventListener('storage', applyTheme);
+        window.addEventListener('message', (e) => {
+            if (e.data.action === 'themeUpdate') applyTheme();
+        });
+        applyTheme();
+    </script>
+<style>
+        .editorial-gap { gap: 1.5rem; }
+    </style>
+</head>
+<script>/* In-frame sidebar suppression */
+(function(){
+  if(window.self!==window.top){
+    document.documentElement.classList.add('in-frame');
+    // inject override styles immediately
+    var s=document.createElement('style');
+    s.textContent='html.in-frame aside,html.in-frame [class*="w-64"][class*="fixed"],html.in-frame [class*="w-72"][class*="fixed"]{display:none!important;}html.in-frame main,[class*="ml-64"],[class*="ml-72"]{margin-left:0!important;}html.in-frame header,html.in-frame .fixed.top-0{display:none!important;}html.in-frame [class*="md:pl-"]{padding-left:1.5rem!important;}html.in-frame [class*="md:ml-"]{margin-left:0!important;}html.in-frame nav.fixed.bottom-0, html.in-frame button.fixed.bottom-8, html.in-frame nav.md\\:hidden{display:none!important;}html.in-frame [class*="pt-"]{padding-top:1.5rem!important;}';
+    document.head.appendChild(s);
+  }
+})();
+</script>
+<body class="bg-slate-50 text-slate-800">
+<!-- SideNavBar Component -->
+<aside class="h-screen w-64 fixed left-0 top-0 border-r-0 bg-slate-50 flex flex-col py-8 z-50">
+<div class="px-6 mb-10">
+<h1 class="text-xl font-extrabold text-violet-700 tracking-tight">Junospace</h1>
+<p class="text-[11px] uppercase tracking-widest text-slate-500 mt-1">Graduate Program</p>
+</div>
+<nav class="flex-1 px-4 space-y-1">
+<a class="flex items-center px-4 py-3 rounded-lg text-slate-500 hover:bg-violet-50 hover:text-violet-600 transition-colors group cursor-pointer" onclick="window.parent.postMessage({action:'navigate',page:'dashboard'},'*');return false;" href="#">
+<span class="material-symbols-outlined mr-3">dashboard</span>
+<span class="text-sm font-medium">Dashboard</span>
+</a>
+<a class="flex items-center px-4 py-3 rounded-lg text-violet-700 font-bold border-r-4 border-violet-700 bg-violet-50/50" href="#" onclick="return false;">
+<span class="material-symbols-outlined mr-3">school</span>
+<span class="text-sm font-medium">My Courses</span>
+</a>
+<a class="flex items-center px-4 py-3 rounded-lg text-slate-500 hover:bg-violet-50 hover:text-violet-600 transition-colors group cursor-pointer" onclick="window.parent.postMessage({action:'navigate',page:'leaderboard'},'*');return false;" href="#">
+<span class="material-symbols-outlined mr-3">lightbulb</span>
+<span class="text-sm font-medium">Innovation Board</span>
+</a>
+<a class="flex items-center px-4 py-3 rounded-lg text-slate-500 hover:bg-violet-50 hover:text-violet-600 transition-colors group cursor-pointer" onclick="window.parent.postMessage({action:'navigate',page:'analytics'},'*');return false;" href="#">
+<span class="material-symbols-outlined mr-3">analytics</span>
+<span class="text-sm font-medium">Analytics</span>
+</a>
+<a class="flex items-center px-4 py-3 rounded-lg text-slate-500 hover:bg-violet-50 hover:text-violet-600 transition-colors group cursor-pointer" onclick="window.parent.postMessage({action:'navigate',page:'profile'},'*');return false;" href="#">
+<span class="material-symbols-outlined mr-3">person</span>
+<span class="text-sm font-medium">Profile</span>
+</a>
+</nav>
+<div class="px-4 mt-auto">
+<button class="w-full bg-gradient-to-br from-primary to-primary-container text-white py-3 rounded-full text-sm font-bold shadow-lg shadow-blue-200 hover:opacity-90 transition-all">
+                Upgrade Plan
+            </button>
+</div>
+</aside>
+<!-- TopAppBar Component -->
+<header class="fixed top-0 right-0 w-[calc(100%-16rem)] h-16 bg-white/80 backdrop-blur-xl z-40 flex justify-between items-center px-8 border-b border-violet-300 shadow-sm shadow-violet-100/15 shadow-sm ml-64 in-frame-header">
+<style>.in-frame .in-frame-header{left:0!important;width:100%!important;margin-left:0!important;right:0!important;}</style>
+<div class="flex items-center space-x-4">
+<div class="relative">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-slate-400 text-lg">search</span>
+<input class="pl-10 pr-4 py-2 bg-slate-50 border-none rounded-full text-sm focus:ring-2 focus:ring-primary/20 w-64 transition-all" placeholder="Search lessons, files..." type="text"/>
+</div>
+</div>
+<div class="flex items-center space-x-6">
+<div class="flex items-center space-x-6">
+    <!-- Clean Internal Header (Navigation handled by Parent) -->
+</div>
+</div>
+</header>
+<!-- Main Content Stage -->
+<main class="ml-64 pt-16 min-h-screen bg-slate-50 pb-20 in-frame-main">
+<style>.in-frame .in-frame-main{margin-left:0!important;}</style>
+<!-- Course Header Section -->
+<section class="px-10 py-12 flex flex-col lg:flex-row editorial-gap items-start">
+<div class="flex-1 space-y-6">
+<h1 class="text-5xl font-extrabold text-slate-800 tracking-tight leading-tight">Advanced Machine Learning</h1>
+<div class="flex items-center gap-2 mt-4">
+    <span class="px-3 py-1 bg-violet-50 text-violet-600 font-bold text-[10px] rounded-full uppercase tracking-widest border border-violet-100 italic">October 2023 - March 2024</span>
+    <span class="text-slate-400 text-xs">• Course Duration</span>
+</div>
+<p class="text-lg text-slate-500 max-w-2xl font-body leading-relaxed mt-4">
+    Master the complexities of deep learning architectures, reinforcement learning paradigms, and the mathematical foundations of large-scale neural systems. This course bridges academic theory with industry-scale implementation.
+</p>
+<div class="flex flex-wrap gap-2 pt-2">
+<span class="px-4 py-1.5 bg-slate-100 text-violet-600 font-manrope font-semibold text-xs rounded-full">Neural Networks</span>
+<span class="px-4 py-1.5 bg-slate-100 text-violet-600 font-manrope font-semibold text-xs rounded-full">PyTorch</span>
+<span class="px-4 py-1.5 bg-slate-100 text-violet-600 font-manrope font-semibold text-xs rounded-full">Linear Algebra</span>
+</div>
+</div>
+<div class="w-full lg:w-80 bg-white p-6 rounded-xl shadow-sm border border-outline-variant/10">
+<div class="flex items-center space-x-4 mb-6">
+<div class="w-14 h-14 rounded-full overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="Professional portrait of Dr. Emily Chen, a senior female professor in a modern academic setting with soft natural light" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCHf9apLJjB-DSxoZoZKR4iU-wuGcnChNsTs0oznVK7coi68frKOA139-GzWXHHwFshcUOewnhs1kIewuFWEXxAfBIEowIL-JulwMnWoFnIMlSAr2Ei4m4Jumwq6pjx_qy4J7uEBOw3u3YVDohG7-d6u6QnAHefoJ_7xsRYC41fxfEzeVAsvM9AgNyhdQIGeJl1gRYob6T_wXOKnOAily6II9U3B-aBrO432fdjzXtiCmqlqqw7-5XMq7CvvHL00XjEdkjUbdSbO_g"/>
+</div>
+<div>
+<h4 class="font-bold text-slate-800">Dr. Emily Chen</h4>
+<p class="text-xs text-slate-500 uppercase tracking-wider">Course Instructor</p>
+</div>
+</div>
+<div class="space-y-4">
+<div class="flex justify-between text-sm">
+<span class="text-slate-500">Class Capacity</span>
+<span class="font-bold">45 / 50</span>
+</div>
+<div class="w-full h-2 bg-slate-50 rounded-full overflow-hidden">
+<div class="h-full bg-secondary w-[90%] rounded-full"></div>
+</div>
+<button onclick="window.parent.postMessage({action:'navigate',page:'profile'},'*')" class="w-full py-3 border border-violet-600 text-violet-600 font-bold rounded-lg hover:bg-violet-600/5 transition-colors cursor-pointer">
+                        View Profile
+                    </button>
+</div>
+</div>
+</section>
+<!-- Tabs Navigation -->
+<section class="px-10 border-b border-outline-variant/15">
+<div class="flex space-x-10">
+<button class="pb-4 border-b-2 border-violet-600 text-violet-600 font-bold text-sm tracking-wide" onclick="return false;">Live Classes</button>
+<button class="pb-4 border-b-2 border-transparent text-slate-500 hover:text-violet-600 font-semibold text-sm tracking-wide transition-all" onclick="window.parent.postMessage({action:'navigate',page:'assignments'},'*')">Assignments</button>
+<button class="pb-4 border-b-2 border-transparent text-slate-500 hover:text-violet-600 font-semibold text-sm tracking-wide transition-all" onclick="window.parent.postMessage({action:'navigate',page:'materials'},'*')">Materials</button>
+<button class="pb-4 border-b-2 border-transparent text-slate-500 hover:text-violet-600 font-semibold text-sm tracking-wide transition-all" onclick="window.parent.postMessage({action:'navigate',page:'assessment'},'*')">Assessments</button>
+<button class="pb-4 border-b-2 border-transparent text-slate-500 hover:text-violet-600 font-semibold text-sm tracking-wide transition-all" onclick="window.parent.postMessage({action:'navigate',page:'roadmap'},'*')">AI Roadmap</button>
+</div>
+</section>
+<!-- Tab Content: Live Classes Full Width -->
+<section class="px-10 py-10">
+<!-- Schedule & Assignments Section -->
+<div class="space-y-12">
+<div class="flex items-center justify-between">
+<h3 class="text-xl font-extrabold tracking-tight">Upcoming Schedule</h3>
+<div class="flex space-x-2">
+<button class="p-2 bg-slate-100 rounded-lg hover:bg-slate-100-high transition-colors">
+<span class="material-symbols-outlined">chevron_left</span>
+</button>
+<button class="p-2 bg-slate-100 rounded-lg hover:bg-slate-100-high transition-colors">
+<span class="material-symbols-outlined">chevron_right</span>
+</button>
+</div>
+</div>
+<!-- Timeline Element -->
+<div class="relative space-y-6 before:absolute before:left-[11px] before:top-2 before:bottom-2 before:w-[2px] before:bg-outline-variant/20">
+<!-- Event 1 -->
+<div class="relative pl-10">
+<div class="absolute left-0 top-1.5 w-6 h-6 rounded-full bg-violet-600 flex items-center justify-center border-4 border-background">
+<span class="w-1.5 h-1.5 rounded-full bg-white"></span>
+</div>
+<div class="bg-white p-6 rounded-xl shadow-sm border border-outline-variant/5 flex items-center justify-between">
+<div>
+<p class="text-xs font-bold text-violet-600 uppercase tracking-widest mb-1">Today • 14:00 PM</p>
+<h4 class="text-lg font-bold text-slate-800">Convolutional Architectures in Practice</h4>
+<p class="text-sm text-slate-500 mt-1">Deep dive into ResNet and EfficientNet implementations.</p>
+</div>
+<button class="px-6 py-2.5 bg-violet-600 text-white font-bold rounded-full shadow-md shadow-primary/20 hover:-translate-y-0.5 transition-all">
+                                Join Now
+                            </button>
+</div>
+</div>
+<!-- Event 2 -->
+<div class="relative pl-10">
+<div class="absolute left-0 top-1.5 w-6 h-6 rounded-full bg-outline-variant/40 flex items-center justify-center border-4 border-background">
+<span class="w-1.5 h-1.5 rounded-full bg-white"></span>
+</div>
+<div class="bg-white p-6 rounded-xl shadow-sm border border-outline-variant/5 flex items-center justify-between opacity-80">
+<div>
+<p class="text-xs font-bold text-slate-500 uppercase tracking-widest mb-1">Tomorrow • 10:00 AM</p>
+<h4 class="text-lg font-bold text-slate-800">Recurrent Units &amp; LSTMs</h4>
+<p class="text-sm text-slate-500 mt-1">Foundational sequences for NLP and time-series data.</p>
+</div>
+<button class="px-6 py-2.5 bg-slate-100-high text-slate-500 font-bold rounded-full cursor-not-allowed">
+                                Locked
+                            </button>
+</div>
+</div>
+</div>
+<!-- Assignments Status Section -->
+<div class="pt-10">
+<h3 class="text-xl font-extrabold tracking-tight mb-6">Recent Assignments</h3>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+<div class="bg-white p-5 rounded-xl border-l-4 border-error shadow-sm">
+<p class="text-[10px] uppercase font-bold text-error tracking-widest mb-2">Pending</p>
+<h5 class="font-bold text-sm">Gradient Descent Lab</h5>
+<p class="text-xs text-slate-500 mt-2">Due in 2 days</p>
+</div>
+<div class="bg-white p-5 rounded-xl border-l-4 border-secondary shadow-sm">
+<p class="text-[10px] uppercase font-bold text-secondary tracking-widest mb-2">Submitted</p>
+<h5 class="font-bold text-sm">Linear Algebra Review</h5>
+<p class="text-xs text-slate-500 mt-2">Under review</p>
+</div>
+<div class="bg-white p-5 rounded-xl border-l-4 border-violet-600 shadow-sm">
+<p class="text-[10px] uppercase font-bold text-violet-600 tracking-widest mb-2">Reviewed</p>
+<h5 class="font-bold text-sm">Calculus for ML</h5>
+<p class="text-xs text-slate-500 mt-2">Score: 98/100</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+</main>
+
+<script src="../env.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script>
+  const { createClient } = supabase
+  const db = createClient(ENV.SUPABASE_URL, ENV.SUPABASE_ANON_KEY)
+  window.db = db
+</script>
+<script src="../js/auth.js"></script>
+<script src="../js/course-detail.js"></script>
+</body></html>
+
+
+
+

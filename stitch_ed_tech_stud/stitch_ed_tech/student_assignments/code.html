@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Assignments | Architect Ed</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700;800&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .tonal-shift { transition: background-color 0.2s ease; }
+    </style>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary-container": "#4f46e5",
+                        "surface-bright": "#f7f9fb",
+                        "on-primary": "#ffffff",
+                        "on-secondary-fixed": "#111c2d",
+                        "surface": "#f7f9fb",
+                        "on-tertiary": "#ffffff",
+                        "on-background": "#191c1e",
+                        "on-primary-container": "#dad7ff",
+                        "tertiary-container": "#006e4b",
+                        "inverse-surface": "#2d3133",
+                        "primary": "#3525cd",
+                        "tertiary": "#005338",
+                        "on-secondary-container": "#586377",
+                        "primary-fixed": "#e2dfff",
+                        "surface-container": "#eceef0",
+                        "tertiary-fixed": "#6ffbbe",
+                        "secondary-fixed": "#d8e3fb",
+                        "on-error-container": "#93000a",
+                        "outline": "#777587",
+                        "surface-container-low": "#f2f4f6",
+                        "surface-container-highest": "#e0e3e5",
+                        "primary-fixed-dim": "#c3c0ff",
+                        "on-tertiary-container": "#67f4b7",
+                        "on-secondary": "#ffffff",
+                        "secondary": "#545f73",
+                        "on-tertiary-fixed": "#002113",
+                        "on-surface-variant": "#464555",
+                        "surface-tint": "#4d44e3",
+                        "surface-variant": "#e0e3e5",
+                        "background": "#f7f9fb",
+                        "outline-variant": "#c7c4d8",
+                        "on-surface": "#191c1e",
+                        "inverse-on-surface": "#eff1f3",
+                        "on-tertiary-fixed-variant": "#005236",
+                        "error": "#ba1a1a",
+                        "on-error": "#ffffff",
+                        "inverse-primary": "#c3c0ff",
+                        "error-container": "#ffdad6",
+                        "on-primary-fixed": "#0f0069",
+                        "on-primary-fixed-variant": "#3323cc",
+                        "on-secondary-fixed-variant": "#3c475a",
+                        "secondary-container": "#d5e0f8",
+                        "surface-dim": "#d8dadc",
+                        "surface-container-lowest": "#ffffff",
+                        "secondary-fixed-dim": "#bcc7de",
+                        "tertiary-fixed-dim": "#4edea3",
+                        "surface-container-high": "#e6e8ea"
+                    },
+                    fontFamily: {
+                        "headline": ["Manrope"],
+                        "body": ["Inter"],
+                        "label": ["Inter"]
+                    },
+                    borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+                },
+            },
+        }
+    </script>
+</head>
+<body class="bg-surface font-body text-on-surface antialiased">
+<!-- SideNavBar Shell -->
+<aside class="fixed left-0 top-0 h-screen flex flex-col z-40 h-full w-64 border-r-0 bg-slate-50/80 dark:bg-slate-900/80 backdrop-blur-xl">
+<div class="px-6 py-8">
+<div class="flex items-center gap-3 mb-10">
+<div class="w-8 h-8 rounded-lg bg-gradient-to-br from-primary to-primary-container flex items-center justify-center">
+<span class="material-symbols-outlined text-white text-lg" style="font-variation-settings: 'FILL' 1;">architecture</span>
+</div>
+<div>
+<h1 class="text-xl font-bold tracking-tight text-slate-900 dark:text-slate-50 font-headline leading-none">Architect Ed</h1>
+<p class="text-[10px] text-slate-500 font-medium tracking-widest uppercase mt-1">Intellectual Atelier</p>
+</div>
+</div>
+<nav class="space-y-1">
+<!-- Dashboard -->
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-slate-500 hover:bg-slate-200/50 transition-colors duration-200 group" href="#">
+<span class="material-symbols-outlined text-[20px]">dashboard</span>
+<span class="text-xs font-semibold tracking-wider uppercase">Dashboard</span>
+</a>
+<!-- Courses -->
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-slate-500 hover:bg-slate-200/50 transition-colors duration-200 group" href="#">
+<span class="material-symbols-outlined text-[20px]">school</span>
+<span class="text-xs font-semibold tracking-wider uppercase">Courses</span>
+</a>
+<!-- Assignments (ACTIVE) -->
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-indigo-700 font-bold border-r-4 border-indigo-600 bg-indigo-50/50 translate-x-1 transition-transform group" href="#">
+<span class="material-symbols-outlined text-[20px]" style="font-variation-settings: 'FILL' 1;">assignment</span>
+<span class="text-xs font-semibold tracking-wider uppercase">Assignments</span>
+</a>
+<!-- Materials -->
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-slate-500 hover:bg-slate-200/50 transition-colors duration-200 group" href="#">
+<span class="material-symbols-outlined text-[20px]">menu_book</span>
+<span class="text-xs font-semibold tracking-wider uppercase">Materials</span>
+</a>
+<!-- Roadmap -->
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-slate-500 hover:bg-slate-200/50 transition-colors duration-200 group" href="#">
+<span class="material-symbols-outlined text-[20px]">timeline</span>
+<span class="text-xs font-semibold tracking-wider uppercase">Roadmap</span>
+</a>
+<!-- Analytics -->
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-slate-500 hover:bg-slate-200/50 transition-colors duration-200 group" href="#">
+<span class="material-symbols-outlined text-[20px]">analytics</span>
+<span class="text-xs font-semibold tracking-wider uppercase">Analytics</span>
+</a>
+</nav>
+</div>
+<div class="mt-auto px-6 py-8 border-t border-slate-100">
+<button class="w-full mb-6 bg-gradient-to-br from-primary to-primary-container text-white py-2.5 rounded-md font-semibold text-xs tracking-wide shadow-lg shadow-primary/20 hover:opacity-90 transition-opacity">
+                New Inquiry
+            </button>
+<nav class="space-y-1">
+<a class="flex items-center gap-3 px-3 py-2 rounded-lg text-slate-500 hover:bg-slate-200/50 transition-colors" href="#">
+<span class="material-symbols-outlined text-[20px]">settings</span>
+<span class="text-xs font-semibold tracking-wider uppercase">Settings</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 rounded-lg text-slate-500 hover:bg-slate-200/50 transition-colors" href="#">
+<span class="material-symbols-outlined text-[20px]">help_outline</span>
+<span class="text-xs font-semibold tracking-wider uppercase">Support</span>
+</a>
+</nav>
+</div>
+</aside>
+<!-- TopNavBar Shell -->
+<header class="fixed top-0 right-0 left-64 h-16 flex justify-between items-center px-8 z-30 bg-white/70 backdrop-blur-md shadow-sm">
+<div class="flex items-center flex-1 max-w-xl">
+<div class="relative w-full group">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-slate-400 group-focus-within:text-primary transition-colors text-xl">search</span>
+<input class="w-full bg-slate-50 border-none rounded-lg py-2 pl-10 pr-4 text-sm focus:ring-2 focus:ring-indigo-500/20 text-on-surface" placeholder="Search inquiries, materials, or feedback..." type="text"/>
+</div>
+</div>
+<div class="flex items-center gap-8 ml-8">
+<nav class="hidden md:flex items-center gap-6">
+<a class="text-slate-600 hover:text-indigo-500 text-sm font-medium transition-opacity" href="#">Overview</a>
+<a class="text-slate-600 hover:text-indigo-500 text-sm font-medium transition-opacity" href="#">Schedule</a>
+<a class="text-indigo-600 border-b-2 border-indigo-600 pb-1 text-sm font-medium" href="#">Resources</a>
+</nav>
+<div class="flex items-center gap-4">
+<button class="w-10 h-10 flex items-center justify-center text-slate-600 hover:bg-slate-100 rounded-full transition-colors relative">
+<span class="material-symbols-outlined">notifications</span>
+<span class="absolute top-2 right-2 w-2 h-2 bg-primary rounded-full ring-2 ring-white"></span>
+</button>
+<button class="w-10 h-10 flex items-center justify-center text-slate-600 hover:bg-slate-100 rounded-full transition-colors">
+<span class="material-symbols-outlined">chat_bubble_outline</span>
+</button>
+<div class="h-8 w-px bg-slate-200 mx-2"></div>
+<img alt="User Profile" class="w-9 h-9 rounded-full object-cover ring-2 ring-slate-100" data-alt="Close-up portrait of a young professional with clean aesthetic lighting and a minimal studio background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDBKFBHrg_BXJZzA-cl4-OgkhOPCeHrIOrJhzmbKGNSpRoMfsv1PyKXHsUD3fh8fmy465fB5IxljzUvhkoudNBnOUg9AOsbDyFi-zoCNZvKBGTuHW20thBZNPgI6rvdAJ825-BKp295vquHlNfh-Eg9tln5j3-uKsmbjJjL-wGeinroEwdSzbOwG5KT_b8EuMjnTTlmKJ3C04xCRJ_j7wHiGfd9zh8RQ0nmxzakQJUperGEyzLoNpce5Oi8k0GVzOEglUZBlK0hrgM"/>
+</div>
+</div>
+</header>
+<!-- Main Content Canvas -->
+<main class="ml-64 pt-16 h-screen flex">
+<!-- Assignments List -->
+<section class="flex-1 overflow-y-auto p-10 bg-surface">
+<div class="max-w-4xl mx-auto">
+<header class="mb-10">
+<span class="text-[11px] font-bold tracking-[0.2em] text-primary uppercase block mb-2">Academic Ledger</span>
+<h2 class="text-3xl font-extrabold text-on-surface font-headline tracking-tight">Active Assignments</h2>
+</header>
+<div class="grid grid-cols-1 gap-6">
+<!-- Assignment Card: Neural Networks Lab -->
+<div class="group relative bg-white p-6 rounded-xl shadow-sm hover:shadow-md transition-all duration-300 flex items-center justify-between cursor-pointer border-l-4 border-primary">
+<div class="flex items-center gap-6">
+<div class="w-14 h-14 rounded-lg bg-surface-container-low flex items-center justify-center">
+<span class="material-symbols-outlined text-primary text-2xl">neurology</span>
+</div>
+<div>
+<h3 class="text-lg font-bold text-on-surface font-headline mb-1">Neural Networks Lab</h3>
+<div class="flex items-center gap-4">
+<div class="flex items-center gap-1.5 text-on-surface-variant text-xs">
+<span class="material-symbols-outlined text-sm">event</span>
+<span>Oct 25, 2023</span>
+</div>
+<div class="flex items-center gap-1.5 text-on-surface-variant text-xs">
+<span class="material-symbols-outlined text-sm">schedule</span>
+<span>11:59 PM</span>
+</div>
+</div>
+</div>
+</div>
+<div class="flex items-center gap-8">
+<div class="text-right">
+<span class="block text-[10px] font-bold uppercase tracking-wider text-outline mb-1">Status</span>
+<span class="inline-flex items-center gap-1 px-2.5 py-1 rounded-full bg-indigo-50 text-primary text-xs font-semibold">
+<span class="w-1.5 h-1.5 bg-primary rounded-full animate-pulse"></span>
+                                    Pending
+                                </span>
+</div>
+<span class="material-symbols-outlined text-outline group-hover:text-primary group-hover:translate-x-1 transition-all">chevron_right</span>
+</div>
+</div>
+<!-- Assignment Card: Architectural History -->
+<div class="group relative bg-white p-6 rounded-xl shadow-sm hover:shadow-md transition-all duration-300 flex items-center justify-between cursor-pointer border-l-4 border-transparent">
+<div class="flex items-center gap-6">
+<div class="w-14 h-14 rounded-lg bg-surface-container-low flex items-center justify-center">
+<span class="material-symbols-outlined text-slate-500 text-2xl">museum</span>
+</div>
+<div>
+<h3 class="text-lg font-bold text-on-surface font-headline mb-1">Post-Modernist Critique</h3>
+<div class="flex items-center gap-4">
+<div class="flex items-center gap-1.5 text-on-surface-variant text-xs">
+<span class="material-symbols-outlined text-sm">event</span>
+<span>Oct 28, 2023</span>
+</div>
+<span class="text-outline text-xs">•</span>
+<span class="text-xs text-on-surface-variant">Arch-204</span>
+</div>
+</div>
+</div>
+<div class="flex items-center gap-8">
+<div class="text-right">
+<span class="block text-[10px] font-bold uppercase tracking-wider text-outline mb-1">Status</span>
+<span class="inline-flex items-center gap-1 px-2.5 py-1 rounded-full bg-slate-50 text-slate-500 text-xs font-semibold">
+                                    Not Started
+                                </span>
+</div>
+<span class="material-symbols-outlined text-outline group-hover:text-primary group-hover:translate-x-1 transition-all">chevron_right</span>
+</div>
+</div>
+<!-- Assignment Card: Urban Planning -->
+<div class="group relative bg-white p-6 rounded-xl shadow-sm hover:shadow-md transition-all duration-300 flex items-center justify-between cursor-pointer border-l-4 border-tertiary-container/30">
+<div class="flex items-center gap-6">
+<div class="w-14 h-14 rounded-lg bg-surface-container-low flex items-center justify-center">
+<span class="material-symbols-outlined text-tertiary text-2xl">location_city</span>
+</div>
+<div>
+<h3 class="text-lg font-bold text-on-surface font-headline mb-1">Urban Mobility Analysis</h3>
+<div class="flex items-center gap-4">
+<div class="flex items-center gap-1.5 text-on-surface-variant text-xs">
+<span class="material-symbols-outlined text-sm">event</span>
+<span>Oct 30, 2023</span>
+</div>
+<span class="text-outline text-xs">•</span>
+<span class="text-xs text-on-surface-variant">Planning Dept.</span>
+</div>
+</div>
+</div>
+<div class="flex items-center gap-8">
+<div class="text-right">
+<span class="block text-[10px] font-bold uppercase tracking-wider text-outline mb-1">Status</span>
+<span class="inline-flex items-center gap-1 px-2.5 py-1 rounded-full bg-emerald-50 text-tertiary text-xs font-semibold">
+                                    Submitted
+                                </span>
+</div>
+<span class="material-symbols-outlined text-outline group-hover:text-primary group-hover:translate-x-1 transition-all">chevron_right</span>
+</div>
+</div>
+</div>
+<!-- Recent Feedback Section (Asymmetric teaser) -->
+<div class="mt-16 bg-gradient-to-br from-slate-900 to-indigo-950 rounded-xl p-8 text-white flex gap-10 items-center">
+<div class="flex-1">
+<span class="text-[10px] font-bold tracking-[0.2em] text-indigo-300 uppercase block mb-3">Academic Recognition</span>
+<h3 class="text-2xl font-bold font-headline mb-4">Latest Achievement</h3>
+<p class="text-indigo-100/70 text-sm leading-relaxed max-w-md">
+                            Your submission for "Structural Integrity 101" received an exceptional score of 98/100. Dr. Aris noted your "innovative use of lightweight composites."
+                        </p>
+</div>
+<div class="w-32 h-32 rounded-full border-4 border-indigo-500/30 flex items-center justify-center bg-white/5 backdrop-blur-sm">
+<div class="text-center">
+<span class="block text-3xl font-bold font-headline tracking-tighter">98</span>
+<span class="text-[10px] uppercase font-bold text-indigo-400">Score</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Assignment Detail View (Split Sidebar) -->
+<aside class="w-[450px] bg-white border-l border-outline-variant/10 shadow-2xl z-20 flex flex-col">
+<div class="p-8 border-b border-slate-50">
+<div class="flex items-center justify-between mb-6">
+<button class="text-slate-400 hover:text-primary transition-colors">
+<span class="material-symbols-outlined">close</span>
+</button>
+<span class="px-3 py-1 rounded-md bg-indigo-50 text-primary text-[10px] font-bold uppercase tracking-wider">Module 4.2</span>
+</div>
+<h2 class="text-2xl font-bold font-headline text-on-surface mb-2">Neural Networks Lab</h2>
+<p class="text-sm text-on-surface-variant leading-relaxed">Implement a multilayer perceptron from scratch using standard matrix libraries. Focus on backpropagation efficiency.</p>
+</div>
+<div class="flex-1 overflow-y-auto p-8 space-y-10">
+<!-- Instructions -->
+<div class="space-y-4">
+<h4 class="text-xs font-bold text-outline uppercase tracking-widest">Instructions</h4>
+<ul class="space-y-3">
+<li class="flex gap-3 text-sm text-on-surface-variant">
+<span class="text-primary font-bold">01.</span>
+<span>Define the activation functions (Sigmoid, ReLU) and their derivatives.</span>
+</li>
+<li class="flex gap-3 text-sm text-on-surface-variant">
+<span class="text-primary font-bold">02.</span>
+<span>Create a weights initialization routine based on He or Xavier methods.</span>
+</li>
+<li class="flex gap-3 text-sm text-on-surface-variant">
+<span class="text-primary font-bold">03.</span>
+<span>Document the training convergence with at least 3 distinct learning rates.</span>
+</li>
+</ul>
+</div>
+<!-- Submission Area -->
+<div class="space-y-4">
+<div class="flex items-center justify-between">
+<h4 class="text-xs font-bold text-outline uppercase tracking-widest">Submission</h4>
+<span class="text-[10px] text-error font-semibold">2 days remaining</span>
+</div>
+<div class="border-2 border-dashed border-outline-variant rounded-xl p-8 text-center bg-surface-container-lowest hover:border-primary/50 transition-colors cursor-pointer group">
+<div class="w-12 h-12 bg-indigo-50 rounded-full flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined text-primary">upload_file</span>
+</div>
+<p class="text-sm font-bold text-on-surface mb-1">Drop your archive here</p>
+<p class="text-[11px] text-outline">Supporting PDF, ZIP or IPYNB (Max 20MB)</p>
+</div>
+</div>
+<!-- Feedback Section (Placeholder) -->
+<div class="bg-surface-container-low rounded-xl p-6 space-y-4">
+<h4 class="text-xs font-bold text-outline uppercase tracking-widest">Academic Feedback</h4>
+<div class="flex items-center gap-4 text-outline py-4">
+<span class="material-symbols-outlined text-3xl">pending_actions</span>
+<div class="space-y-1">
+<p class="text-sm font-medium">Evaluation in progress</p>
+<p class="text-[11px]">Professor Julian will publish results within 48h.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="p-8 bg-surface-container-lowest border-t border-slate-50 mt-auto">
+<button class="w-full bg-gradient-to-r from-primary to-primary-container text-white py-4 rounded-lg font-bold text-sm tracking-wide shadow-xl shadow-primary/20 hover:shadow-primary/30 transition-all flex items-center justify-center gap-2">
+                    Submit Final Draft
+                    <span class="material-symbols-outlined text-lg">arrow_forward</span>
+</button>
+</div>
+</aside>
+</main>
+</body></html>

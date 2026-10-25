@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Junospace Portal</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        body { font-family: 'Inter', sans-serif; font-weight: 300; }
+        h1, h2, h3, h4, .font-headline { font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 900; }
+        
+        /* Premium Dark Mode Overrides */
+        .dark body { background-color: #000000; color: #ffffff; }
+        .dark .bg-white { background-color: #0a0a0a !important; }
+        .dark .text-slate-800, .dark .text-slate-700, .dark .text-slate-900 { color: #ffffff !important; }
+        .dark .text-slate-600, .dark .text-slate-500 { color: #cbd5e1 !important; }
+        .dark .text-slate-400 { color: #94a3b8 !important; }
+        .dark .border-slate-100, .dark .border-violet-100 { border-color: rgba(139, 92, 246, 0.2) !important; }
+        .dark .border-violet-300 { border-color: rgba(139, 92, 246, 0.4) !important; }
+        .dark .bg-slate-50 { background-color: #000000 !important; }
+        .dark .bg-violet-50 { background-color: #1e1b4b !important; }
+        .dark .shadow-sm { box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.4) !important; }
+
+        /* Theme Utilities */
+        :root { --on-background: #1e293b; --outline: #94a3b8; }
+        .dark { --on-background: #f1f5f9; --outline: #64748b; }
+        .text-on-background { color: var(--on-background) !important; }
+        .text-outline { color: var(--outline) !important; }
+    </style>
+    <script>
+        function applyTheme() {
+            const theme = localStorage.getItem('junospace-theme') || 'light';
+            document.documentElement.classList.toggle('dark', theme === 'dark');
+        }
+        window.addEventListener('storage', applyTheme);
+        window.addEventListener('message', (e) => {
+            if (e.data.action === 'themeUpdate') applyTheme();
+        });
+        applyTheme();
+    </script>
+</head>
+<script>/* In-frame sidebar suppression */
+(function(){
+  if(window.self!==window.top){
+    document.documentElement.classList.add('in-frame');
+    // inject override styles immediately
+    var s=document.createElement('style');
+    s.textContent='html.in-frame aside,html.in-frame [class*="w-64"][class*="fixed"],html.in-frame [class*="w-72"][class*="fixed"]{display:none!important;}html.in-frame main,[class*="ml-64"],[class*="ml-72"]{margin-left:0!important;}html.in-frame header,html.in-frame .fixed.top-0{display:none!important;}html.in-frame [class*="md:pl-"]{padding-left:1.5rem!important;}html.in-frame [class*="md:ml-"]{margin-left:0!important;}html.in-frame nav.fixed.bottom-0, html.in-frame button.fixed.bottom-8, html.in-frame nav.md\\:hidden{display:none!important;}html.in-frame [class*="pt-"]{padding-top:1.5rem!important;}';
+    document.head.appendChild(s);
+  }
+})();
+</script>
+<body class="bg-white text-slate-800 min-h-screen selection:bg-violet-200">
+<!-- SideNavBar (Execution from JSON) -->
+<aside class="fixed left-0 top-0 hidden md:flex flex-col h-screen w-72 rounded-r-[2rem] bg-white  py-8 px-4 space-y-2 z-50">
+<div class="px-4 mb-8">
+<div class="flex items-center gap-3"><img src="logo.png" class="w-8 h-8 object-contain drop-shadow-md" alt="Junospace Logo" /><h1 class="text-xl font-bold text-violet-700  tracking-tighter">Junospace</h1></div>
+<p class="text-xs font-['Plus_Jakarta_Sans'] font-semibold tracking-tight text-slate-500  uppercase">Command Center</p>
+</div>
+<nav class="flex-1 space-y-1">
+<!-- Analytics is ACTIVE -->
+<a class="flex items-center gap-3 px-4 py-3 text-slate-500  hover:text-violet-600 :text-violet-300 hover:bg-slate-200/50 :bg-white transition-all duration-200 cursor-pointer" href="dashboard.html">
+<span class="material-symbols-outlined">dashboard</span>
+<span class="font-['Plus_Jakarta_Sans'] font-semibold tracking-tight text-sm">Dashboard</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-slate-500  hover:text-violet-600 :text-violet-300 hover:bg-slate-200/50 :bg-white transition-all duration-200 cursor-pointer" href="courses.html">
+<span class="material-symbols-outlined">school</span>
+<span class="font-['Plus_Jakarta_Sans'] font-semibold tracking-tight text-sm">My Courses</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-slate-500  hover:text-violet-600 :text-violet-300 hover:bg-slate-200/50 :bg-white transition-all duration-200 cursor-pointer" href="leaderboard.html">
+<span class="material-symbols-outlined">lightbulb</span>
+<span class="font-['Plus_Jakarta_Sans'] font-semibold tracking-tight text-sm">Innovation Board</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-violet-700  font-bold border-r-4 border-violet-600  bg-violet-50/50  transition-all duration-200" href="#" onclick="return false;">
+<span class="material-symbols-outlined">analytics</span>
+<span class="font-['Plus_Jakarta_Sans'] font-semibold tracking-tight text-sm">Analytics</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-slate-500  hover:text-violet-600 :text-violet-300 hover:bg-slate-200/50 :bg-white transition-all duration-200 cursor-pointer" href="profile.html">
+<span class="material-symbols-outlined">person</span>
+<span class="font-['Plus_Jakarta_Sans'] font-semibold tracking-tight text-sm">Profile</span>
+</a>
+</nav>
+<div class="pt-4 border-t border-violet-300 shadow-sm shadow-violet-100  shadow-sm shadow-violet-100 mt-auto">
+<div class="flex items-center gap-3 px-4">
+<div class="w-10 h-10 rounded-full bg-violet-100  overflow-hidden">
+<img class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAcXtHthxxUtSOVrwX31NbMOWWoCmjNaMchNx6n4Ep0vYnWIAFNJrPCYk5YHEyGCo6WE8OwqSLNKJCR-Gm5O3rSo-3roZ9Hig-1t4F9U096RdohwM0dTeB-ERYIXIJCpy2OHagmR45DYHowKAd3OpcS3KuNlEzk0Y_bGF8GyrqvgViSHmomQoOx1fnhXc_KEe2m9nsA25GnAicFfryUJmQQ-gHSJsgjtEA9GZnus23dzYlTAujmVxqRu8KVkFZIAa7yUECBupas3E0"/>
+</div>
+<div>
+<p class="text-sm font-bold text-slate-700 ">Alex Chen</p>
+<p class="text-[10px] text-slate-500">Tier: Elite Learner</p>
+</div>
+</div>
+</div>
+</aside>
+<!-- TopNavBar (Execution from JSON) -->
+<header class="fixed top-0 right-0 left-0 md:left-72 z-40 h-16 flex items-center justify-between px-8 bg-white/80 backdrop-blur-xl border-b border-slate-100 shadow-sm">
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined text-violet-600 md:hidden">menu</span>
+<h2 class="text-xl font-extrabold tracking-tight text-violet-700">Skill Intelligence</h2>
+</div>
+<div class="flex items-center gap-6">
+<div class="flex items-center gap-4">
+<button class="relative hover:bg-slate-50 p-2 rounded-full transition-colors transition-opacity">
+<span class="material-symbols-outlined text-slate-400">notifications</span>
+<span class="absolute top-2 right-2 w-2 h-2 bg-red-500 rounded-full border-2 border-white"></span>
+</button>
+<button class="hover:bg-slate-50 p-2 rounded-full transition-colors transition-opacity">
+<span class="material-symbols-outlined text-slate-400">settings</span>
+</button>
+<div class="w-8 h-8 rounded-lg bg-violet-600 flex items-center justify-center text-white font-bold text-xs shadow-md shadow-violet-100">AC</div>
+</div>
+</div>
+</header>
+<!-- Main Content Canvas -->
+<main class="pt-24 pb-12 px-6 md:pl-80 md:pr-8 min-h-screen">
+<!-- Bento Grid Layout -->
+<div class="grid grid-cols-12 gap-8">
+<!-- Core Competency Matrix (Modern Grid) -->
+<div class="col-span-12 lg:col-span-8 bg-white border border-slate-100 rounded-3xl p-8 shadow-xl">
+<div class="flex items-center justify-between mb-8">
+<div>
+<h3 class="text-2xl font-black tracking-tight text-slate-800">Core Competency Matrix</h3>
+<p class="text-sm text-slate-500 font-medium">Global proficiency verification across quadrants.</p>
+</div>
+<span class="px-4 py-1.5 bg-violet-50 text-violet-600 rounded-full text-[10px] font-black uppercase tracking-widest border border-violet-100">Live Feedback</span>
+</div>
+<div class="grid grid-cols-2 gap-4">
+<!-- Logic & Algorithm -->
+<div class="bg-slate-50 p-6 rounded-2xl border border-slate-100 group hover:border-violet-300 hover:shadow-lg transition-all">
+<div class="flex justify-between items-center mb-4">
+<span class="material-symbols-outlined text-violet-600 bg-white p-3 rounded-xl shadow-sm">psychology</span>
+<span class="text-2xl font-black text-slate-800">88%</span>
+</div>
+<h4 class="font-bold text-slate-800 tracking-tight">Logic & Algorithms</h4>
+<div class="mt-4 h-2 bg-white rounded-full overflow-hidden">
+<div class="h-full bg-violet-600 rounded-full" style="width: 88%"></div>
+</div>
+</div>
+<!-- Technical Stack -->
+<div class="bg-slate-50 p-6 rounded-2xl border border-slate-100 group hover:border-emerald-300 hover:shadow-lg transition-all">
+<div class="flex justify-between items-center mb-4">
+<span class="material-symbols-outlined text-emerald-600 bg-white p-3 rounded-xl shadow-sm">code</span>
+<span class="text-2xl font-black text-slate-800">92%</span>
+</div>
+<h4 class="font-bold text-slate-800 tracking-tight">Technical Stack</h4>
+<div class="mt-4 h-2 bg-white rounded-full overflow-hidden">
+<div class="h-full bg-emerald-500 rounded-full" style="width: 92%"></div>
+</div>
+</div>
+<!-- Speed & Efficiency -->
+<div class="bg-slate-50 p-6 rounded-2xl border border-slate-100 group hover:border-amber-300 hover:shadow-lg transition-all">
+<div class="flex justify-between items-center mb-4">
+<span class="material-symbols-outlined text-amber-600 bg-white p-3 rounded-xl shadow-sm">bolt</span>
+<span class="text-2xl font-black text-slate-800">74%</span>
+</div>
+<h4 class="font-bold text-slate-800 tracking-tight">Speed & Efficiency</h4>
+<div class="mt-4 h-2 bg-white rounded-full overflow-hidden">
+<div class="h-full bg-amber-500 rounded-full" style="width: 74%"></div>
+</div>
+</div>
+<!-- Collaboration -->
+<div class="bg-slate-50 p-6 rounded-2xl border border-slate-100 group hover:border-blue-300 hover:shadow-lg transition-all">
+<div class="flex justify-between items-center mb-4">
+<span class="material-symbols-outlined text-blue-600 bg-white p-3 rounded-xl shadow-sm">hub</span>
+<span class="text-2xl font-black text-slate-800">95%</span>
+</div>
+<h4 class="font-bold text-slate-800 tracking-tight">Collaboration Score</h4>
+<div class="mt-4 h-2 bg-white rounded-full overflow-hidden">
+<div class="h-full bg-blue-500 rounded-full" style="width: 95%"></div>
+</div>
+</div>
+</div>
+</div>
+<div class="col-span-12 lg:col-span-4 bg-violet-600 text-white rounded-3xl p-8 relative overflow-hidden flex flex-col justify-between shadow-2xl shadow-violet-200">
+<div class="absolute -right-12 -top-12 w-48 h-48 bg-white/10 rounded-full blur-3xl"></div>
+<div>
+<h3 class="text-2xl font-black tracking-tight mb-2">Efficiency</h3>
+<p class="text-violet-100 text-sm font-medium">Real-time learning velocity and outcome mapping.</p>
+</div>
+<div class="my-8 flex items-center justify-center relative h-32">
+<svg class="w-full h-full" viewbox="0 0 100 40">
+<path d="M0 35 Q 20 32, 40 25 T 80 10 T 100 5" fill="none" stroke="white" stroke-opacity="0.5" stroke-width="2"></path>
+<circle cx="100" cy="5" fill="white" r="4" shadow="0 0 10px white"></circle>
+<path d="M0 35 Q 20 32, 40 25 T 80 10 T 100 5 V 40 H 0 Z" fill="url(#gradient-efficiency)" fill-opacity="0.2"></path>
+<defs>
+<linearGradient id="gradient-efficiency" x1="0%" x2="0%" y1="0%" y2="100%">
+<stop offset="0%" stop-color="white"></stop>
+<stop offset="100%" stop-color="transparent"></stop>
+</linearGradient>
+</defs>
+</svg>
+<div class="absolute top-0 right-0 flex flex-col items-end">
+<span class="text-5xl font-black leading-none tracking-tighter">94.2%</span>
+<span class="text-[10px] font-black bg-white/20 px-3 py-1 rounded-full uppercase tracking-widest mt-2">Peak Form</span>
+</div>
+</div>
+<div class="bg-white/10 rounded-2xl p-4 backdrop-blur-md border border-white/10">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-white">verified</span>
+<p class="text-xs font-medium leading-tight">Projected to reach <span class="font-black text-white underline">Senior Voyager</span> status by Mid-October.</p>
+</div>
+</div>
+</div>
+<!-- Knowledge Growth (Line Chart Card) -->
+<div class="col-span-12 lg:col-span-8 bg-white border border-slate-100 rounded-3xl p-8 shadow-xl flex flex-col h-[450px]">
+    <div class="flex items-center justify-between mb-8">
+        <div>
+            <h3 class="text-2xl font-black text-slate-800">Learning Curve</h3>
+            <p class="text-sm text-slate-500 font-medium">Performance trends over time</p>
+        </div>
+    </div>
+    <div class="flex-1 min-h-0">
+        <canvas id="lineChart"></canvas>
+    </div>
+</div>
+
+<!-- Skill Distribution (Pie Chart Card) -->
+<div class="col-span-12 lg:col-span-4 bg-white border border-slate-100 rounded-3xl p-8 shadow-xl flex flex-col h-[450px]">
+    <h3 class="text-xl font-black text-slate-800 text-center mb-6">Effort Distribution</h3>
+    <div class="flex-1 min-h-0">
+        <canvas id="pieChart"></canvas>
+    </div>
+    <div id="pie-legend" class="mt-4 space-y-2"></div>
+</div>
+<!-- Detailed Stats Table (Modern approach) -->
+<div class="col-span-12 bg-white border border-violet-300 shadow-sm shadow-violet-100  rounded-lg overflow-hidden shadow-sm">
+<div class="p-6 border-b border-violet-300 shadow-sm shadow-violet-100 flex justify-between items-center">
+<h3 class="font-bold">Recent Learning Milestones</h3>
+<button class="text-xs text-violet-400 font-bold hover:text-violet-300">Export PDF Report</button>
+</div>
+<div class="overflow-x-auto">
+<table class="w-full text-left">
+<thead>
+<tr class="bg-white/50 text-[10px] font-bold text-slate-500 uppercase tracking-widest">
+<th class="px-6 py-4">Module Name</th>
+<th class="px-6 py-4">Performance</th>
+<th class="px-6 py-4">Time Spent</th>
+<th class="px-6 py-4">Feedback</th>
+<th class="px-6 py-4 text-right">Action</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-slate-700/30">
+<tr class="hover:bg-slate-700/20 transition-colors">
+<td class="px-6 py-4">
+<div class="flex items-center gap-3">
+<div class="w-2 h-2 rounded-full bg-teal-500"></div>
+<span class="text-sm font-semibold">Graph Algorithms III</span>
+</div>
+</td>
+<td class="px-6 py-4">
+<div class="flex gap-1">
+<span class="material-symbols-outlined text-xs text-amber-400" data-weight="fill">star</span>
+<span class="material-symbols-outlined text-xs text-amber-400" data-weight="fill">star</span>
+<span class="material-symbols-outlined text-xs text-amber-400" data-weight="fill">star</span>
+<span class="material-symbols-outlined text-xs text-amber-400" data-weight="fill">star</span>
+<span class="material-symbols-outlined text-xs text-slate-600">star</span>
+</div>
+</td>
+<td class="px-6 py-4 text-xs font-mono">12h 45m</td>
+<td class="px-6 py-4 text-xs text-slate-500">Excellent spatial reasoning.</td>
+<td class="px-6 py-4 text-right">
+<button class="material-symbols-outlined text-slate-500 hover:text-slate-800 transition-colors">more_horiz</button>
+</td>
+</tr>
+<tr class="hover:bg-slate-700/20 transition-colors">
+<td class="px-6 py-4">
+<div class="flex items-center gap-3">
+<div class="w-2 h-2 rounded-full bg-violet-500"></div>
+<span class="text-sm font-semibold">Neural Network Basics</span>
+</div>
+</td>
+<td class="px-6 py-4">
+<div class="flex gap-1">
+<span class="material-symbols-outlined text-xs text-amber-400" data-weight="fill">star</span>
+<span class="material-symbols-outlined text-xs text-amber-400" data-weight="fill">star</span>
+<span class="material-symbols-outlined text-xs text-amber-400" data-weight="fill">star</span>
+<span class="material-symbols-outlined text-xs text-amber-400" data-weight="fill">star</span>
+<span class="material-symbols-outlined text-xs text-amber-400" data-weight="fill">star</span>
+</div>
+</td>
+<td class="px-6 py-4 text-xs font-mono">08h 12m</td>
+<td class="px-6 py-4 text-xs text-slate-500">Flawless execution in backprop.</td>
+<td class="px-6 py-4 text-right">
+<button class="material-symbols-outlined text-slate-500 hover:text-slate-800 transition-colors">more_horiz</button>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+</main>
+<!-- BottomNavBar (Mobile Only Execution) -->
+<nav class="md:hidden fixed bottom-0 left-0 right-0 h-16 bg-white  flex items-center justify-around z-50 border-t border-violet-300 shadow-sm shadow-violet-100  shadow-sm shadow-violet-100">
+<a class="flex flex-col items-center gap-1 text-slate-500" href="#">
+<span class="material-symbols-outlined">dashboard</span>
+<span class="text-[10px]">Home</span>
+</a>
+<a class="flex flex-col items-center gap-1 text-violet-600 " href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">analytics</span>
+<span class="text-[10px] font-bold">Stats</span>
+</a>
+<a class="flex flex-col items-center gap-1 text-slate-500" href="#">
+<span class="material-symbols-outlined">school</span>
+<span class="text-[10px]">Learn</span>
+</a>
+<a class="flex flex-col items-center gap-1 text-slate-500" href="#">
+<span class="material-symbols-outlined">person</span>
+<span class="text-[10px]">Profile</span>
+</a>
+</nav>
+
+<script src="env.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script>
+  const { createClient } = supabase
+  const db = createClient(ENV.SUPABASE_URL, ENV.SUPABASE_ANON_KEY)
+  window.db = db
+</script>
+<script src="js/auth.js"></script>
+<script src="js/analytics.js"></script>
+</body></html>
+
+
+
+
+
+
+
+
+
+

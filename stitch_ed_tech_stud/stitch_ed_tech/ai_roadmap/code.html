@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700;800&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            "background": "#faf8ff",
+            "inverse-on-surface": "#eef0ff",
+            "inverse-surface": "#283044",
+            "tertiary": "#943700",
+            "on-surface": "#131b2e",
+            "surface-container-high": "#e2e7ff",
+            "secondary": "#006b5f",
+            "outline": "#737686",
+            "inverse-primary": "#b4c5ff",
+            "error-container": "#ffdad6",
+            "on-error-container": "#93000a",
+            "secondary-fixed": "#71f8e4",
+            "surface-tint": "#0053db",
+            "surface": "#faf8ff",
+            "surface-variant": "#dae2fd",
+            "secondary-fixed-dim": "#4fdbc8",
+            "on-surface-variant": "#434655",
+            "on-primary-container": "#eeefff",
+            "on-secondary-fixed": "#00201c",
+            "on-error": "#ffffff",
+            "tertiary-container": "#bc4800",
+            "on-tertiary": "#ffffff",
+            "on-secondary": "#ffffff",
+            "tertiary-fixed-dim": "#ffb596",
+            "on-primary-fixed": "#00174b",
+            "on-tertiary-fixed": "#360f00",
+            "on-background": "#131b2e",
+            "primary-container": "#2563eb",
+            "on-primary": "#ffffff",
+            "on-secondary-container": "#006f64",
+            "surface-dim": "#d2d9f4",
+            "error": "#ba1a1a",
+            "primary": "#004ac6",
+            "surface-container-low": "#f2f3ff",
+            "surface-bright": "#faf8ff",
+            "on-primary-fixed-variant": "#003ea8",
+            "primary-fixed-dim": "#b4c5ff",
+            "surface-container": "#eaedff",
+            "on-secondary-fixed-variant": "#005048",
+            "tertiary-fixed": "#ffdbcd",
+            "on-tertiary-fixed-variant": "#7d2d00",
+            "surface-container-highest": "#dae2fd",
+            "outline-variant": "#c3c6d7",
+            "secondary-container": "#6df5e1",
+            "surface-container-lowest": "#ffffff",
+            "on-tertiary-container": "#ffede6",
+            "primary-fixed": "#dbe1ff"
+          },
+          fontFamily: {
+            "headline": ["Manrope"],
+            "body": ["Inter"],
+            "label": ["Inter"]
+          },
+          borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+        },
+      },
+    }
+  </script>
+<style>
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+    }
+    .scrollbar-hide::-webkit-scrollbar { display: none; }
+  </style>
+</head>
+<body class="bg-background text-on-surface font-body antialiased">
+<!-- SideNavBar Anchor -->
+<aside class="h-screen w-64 fixed left-0 top-0 border-r-0 bg-slate-50 dark:bg-slate-950 flex flex-col h-full py-8 z-50">
+<div class="px-6 mb-10">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-lg bg-primary-container flex items-center justify-center">
+<span class="material-symbols-outlined text-white" style="font-variation-settings: 'FILL' 1;">architecture</span>
+</div>
+<div>
+<h1 class="text-xl font-extrabold text-blue-700 dark:text-blue-400 font-headline tracking-tight">Atelier Academy</h1>
+<p class="text-[11px] uppercase tracking-widest text-slate-500 font-label">Graduate Program</p>
+</div>
+</div>
+</div>
+<nav class="flex-1 px-4 space-y-1 overflow-y-auto scrollbar-hide">
+<a class="flex items-center gap-3 px-4 py-3 rounded-lg text-slate-500 dark:text-slate-400 hover:text-blue-600 hover:bg-blue-50 dark:hover:bg-blue-900/20 transition-colors group" href="#">
+<span class="material-symbols-outlined">dashboard</span>
+<span class="font-label text-[11px] uppercase tracking-widest">Dashboard</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 rounded-lg text-slate-500 dark:text-slate-400 hover:text-blue-600 hover:bg-blue-50 dark:hover:bg-blue-900/20 transition-colors group" href="#">
+<span class="material-symbols-outlined">school</span>
+<span class="font-label text-[11px] uppercase tracking-widest">My Courses</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 rounded-lg text-slate-500 dark:text-slate-400 hover:text-blue-600 hover:bg-blue-50 dark:hover:bg-blue-900/20 transition-colors group" href="#">
+<span class="material-symbols-outlined">assignment</span>
+<span class="font-label text-[11px] uppercase tracking-widest">Assignments</span>
+</a>
+<!-- Active Tab: AI Roadmap -->
+<a class="flex items-center gap-3 px-4 py-3 rounded-lg text-blue-700 dark:text-blue-400 font-bold border-r-4 border-blue-700 bg-blue-50 dark:bg-blue-900/20 transition-colors group" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">psychology</span>
+<span class="font-label text-[11px] uppercase tracking-widest">AI Roadmap</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 rounded-lg text-slate-500 dark:text-slate-400 hover:text-blue-600 hover:bg-blue-50 dark:hover:bg-blue-900/20 transition-colors group" href="#">
+<span class="material-symbols-outlined">leaderboard</span>
+<span class="font-label text-[11px] uppercase tracking-widest">Skill Analytics</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 rounded-lg text-slate-500 dark:text-slate-400 hover:text-blue-600 hover:bg-blue-50 dark:hover:bg-blue-900/20 transition-colors group" href="#">
+<span class="material-symbols-outlined">work</span>
+<span class="font-label text-[11px] uppercase tracking-widest">Career Track</span>
+</a>
+</nav>
+<div class="px-4 mt-auto pt-8 space-y-1">
+<button class="w-full mb-6 bg-primary-container text-white py-3 rounded-full font-headline font-bold text-sm hover:opacity-90 transition-all shadow-md">
+        Upgrade Plan
+      </button>
+<a class="flex items-center gap-3 px-4 py-3 rounded-lg text-slate-500 hover:text-blue-600 hover:bg-blue-50 transition-colors" href="#">
+<span class="material-symbols-outlined">help</span>
+<span class="font-label text-[11px] uppercase tracking-widest">Support</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 rounded-lg text-slate-500 hover:text-blue-600 hover:bg-blue-50 transition-colors" href="#">
+<span class="material-symbols-outlined">settings</span>
+<span class="font-label text-[11px] uppercase tracking-widest">Settings</span>
+</a>
+</div>
+</aside>
+<!-- TopAppBar Anchor -->
+<header class="fixed top-0 right-0 w-[calc(100%-16rem)] z-40 bg-white/80 dark:bg-slate-900/80 backdrop-blur-xl border-b border-slate-200/15 shadow-sm flex justify-between items-center h-16 px-8">
+<div class="flex items-center gap-8">
+<span class="text-lg font-black text-slate-900 dark:text-slate-100 font-headline">The Digital Atelier</span>
+<div class="relative hidden lg:block">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-slate-400 text-lg">search</span>
+<input class="bg-surface-container-low border-none rounded-full py-1.5 pl-10 pr-4 text-sm w-64 focus:ring-2 focus:ring-primary/20 transition-all font-body" placeholder="Search roadmap nodes..." type="text"/>
+</div>
+</div>
+<div class="flex items-center gap-4">
+<button class="text-slate-600 hover:text-blue-600 transition-all">
+<span class="material-symbols-outlined">notifications</span>
+</button>
+<div class="h-8 w-[1px] bg-outline-variant/20 mx-2"></div>
+<button class="bg-surface-container-high text-primary px-4 py-1.5 rounded-full text-sm font-manrope font-semibold hover:opacity-80 transition-all">
+        View Assignments
+      </button>
+<button class="bg-gradient-to-br from-primary to-primary-container text-white px-6 py-1.5 rounded-full text-sm font-manrope font-semibold hover:opacity-90 transition-all shadow-sm">
+        Join Class
+      </button>
+<img alt="Student Profile Photo" class="w-10 h-10 rounded-full border-2 border-primary/10 object-cover ml-2" data-alt="Close-up portrait of a professional student looking focused in a modern library with warm bokeh lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBuhamWIq6XL_dvrH6fH37ngNXTQKxK2xECufYodGkQ4bllhaN8xPrQU8wjbMvOhsTzf99sZnbztsyyQuuVVtnr7DfWtqlWbiJxJY5xsb4Hy8_ENLji5lJQxqohn3UwhCIpdiJnNs0mKb7vE6XWQikkEgPxyiB568ATO_DuwX1BKUN8wZbC9PZnHszG-Fj0nZxM2AI3FEQHYu_lTe1TZc4RKuEsfwBBt0BkZGfMxWY-d2lh30Xm6KnShQsbMrpESEaxXU29iz0pT9U"/>
+</div>
+</header>
+<!-- Main Content Canvas -->
+<main class="ml-64 pt-16 min-h-screen">
+<div class="p-10 max-w-[1400px] mx-auto grid grid-cols-12 gap-10">
+<!-- Roadmap Main Column -->
+<div class="col-span-8">
+<header class="mb-12">
+<span class="font-label text-[11px] uppercase tracking-[0.15em] text-primary font-bold">Intelligent Curriculum</span>
+<h2 class="text-4xl font-headline font-extrabold text-on-surface tracking-tight mt-2">AI Roadmap: Core Engineering</h2>
+<p class="text-on-surface-variant mt-4 max-w-2xl leading-relaxed">A structured path from fundamental mathematics to deploying large-scale neural architectures. Master the underlying mechanics of modern artificial intelligence.</p>
+</header>
+<!-- Vertical Timeline Container -->
+<div class="relative pl-8">
+<!-- Timeline Stem -->
+<div class="absolute left-0 top-2 bottom-0 w-[2px] bg-outline-variant/15"></div>
+<!-- Timeline Items -->
+<div class="space-y-12">
+<!-- Week 01: Completed -->
+<div class="relative group">
+<!-- Node Dot -->
+<div class="absolute -left-10 top-0 w-4 h-4 rounded-full bg-secondary ring-4 ring-secondary-container flex items-center justify-center">
+<span class="material-symbols-outlined text-[10px] text-white" style="font-variation-settings: 'wght' 700;">check</span>
+</div>
+<div class="bg-surface-container-lowest rounded-xl p-6 shadow-sm border-l-4 border-secondary/40 transition-all hover:translate-x-1">
+<div class="flex justify-between items-start mb-4">
+<div>
+<span class="font-label text-[10px] uppercase font-bold tracking-widest text-secondary">Week 01 - Foundations</span>
+<h3 class="text-xl font-headline font-bold text-on-surface mt-1">Linear Algebra</h3>
+</div>
+<span class="bg-secondary-container text-on-secondary-container text-[10px] px-2 py-1 rounded font-bold uppercase tracking-wider">Completed</span>
+</div>
+<div class="flex flex-wrap gap-2 mb-4">
+<span class="text-xs bg-surface-container-low px-3 py-1 rounded-full text-on-surface-variant font-medium">Vector Projections</span>
+<span class="text-xs bg-surface-container-low px-3 py-1 rounded-full text-on-surface-variant font-medium">Matrix Multiplication</span>
+<span class="text-xs bg-surface-container-low px-3 py-1 rounded-full text-on-surface-variant font-medium">Eigenvalues &amp; Eigenvectors</span>
+</div>
+</div>
+</div>
+<!-- Week 02: Completed -->
+<div class="relative group">
+<div class="absolute -left-10 top-0 w-4 h-4 rounded-full bg-secondary ring-4 ring-secondary-container flex items-center justify-center">
+<span class="material-symbols-outlined text-[10px] text-white" style="font-variation-settings: 'wght' 700;">check</span>
+</div>
+<div class="bg-surface-container-lowest rounded-xl p-6 shadow-sm border-l-4 border-secondary/40 transition-all hover:translate-x-1">
+<div class="flex justify-between items-start mb-4">
+<div>
+<span class="font-label text-[10px] uppercase font-bold tracking-widest text-secondary">Week 02 - Statistical Analysis</span>
+<h3 class="text-xl font-headline font-bold text-on-surface mt-1">Probability Theory</h3>
+</div>
+<span class="bg-secondary-container text-on-secondary-container text-[10px] px-2 py-1 rounded font-bold uppercase tracking-wider">Completed</span>
+</div>
+<div class="flex flex-wrap gap-2 mb-4">
+<span class="text-xs bg-surface-container-low px-3 py-1 rounded-full text-on-surface-variant font-medium">Bayesian Inference</span>
+<span class="text-xs bg-surface-container-low px-3 py-1 rounded-full text-on-surface-variant font-medium">Gaussian Distributions</span>
+<span class="text-xs bg-surface-container-low px-3 py-1 rounded-full text-on-surface-variant font-medium">Likelihood Estimation</span>
+</div>
+</div>
+</div>
+<!-- Week 03: Active (Highlighted) -->
+<div class="relative">
+<!-- Active Glow -->
+<div class="absolute -left-[3.5rem] -top-10 bottom-0 w-24 bg-primary/5 blur-3xl -z-10 rounded-full"></div>
+<!-- Active Dot -->
+<div class="absolute -left-10 top-0 w-4 h-4 rounded-full bg-primary ring-4 ring-primary-fixed flex items-center justify-center">
+<div class="w-1.5 h-1.5 rounded-full bg-white animate-pulse"></div>
+</div>
+<div class="bg-gradient-to-br from-primary to-primary-container rounded-xl p-8 shadow-xl text-white transform scale-105 origin-left border-0 relative overflow-hidden">
+<!-- Decorative Grid Pattern -->
+<div class="absolute inset-0 opacity-10" style="background-image: radial-gradient(circle at 2px 2px, white 1px, transparent 0); background-size: 24px 24px;"></div>
+<div class="relative z-10">
+<div class="flex justify-between items-start mb-6">
+<div>
+<span class="font-label text-[10px] uppercase font-bold tracking-[0.2em] text-primary-fixed">Active Module</span>
+<h3 class="text-2xl font-headline font-extrabold mt-1">Week 03: Neural Networks</h3>
+</div>
+<div class="bg-white/20 backdrop-blur-md px-4 py-2 rounded-lg border border-white/10">
+<p class="text-[10px] uppercase font-bold tracking-widest text-primary-fixed">Time Estimate</p>
+<p class="text-lg font-headline font-bold">12h 45m</p>
+</div>
+</div>
+<div class="grid grid-cols-2 gap-6 mb-8">
+<div>
+<p class="text-xs uppercase font-bold text-primary-fixed mb-3 tracking-widest">Active Tasks</p>
+<ul class="space-y-2">
+<li class="flex items-center gap-2 text-sm font-medium">
+<span class="material-symbols-outlined text-sm">radio_button_checked</span>
+                          Forward Propagation Logic
+                        </li>
+<li class="flex items-center gap-2 text-sm font-medium">
+<span class="material-symbols-outlined text-sm">radio_button_unchecked</span>
+                          Backpropagation Calculus
+                        </li>
+<li class="flex items-center gap-2 text-sm font-medium">
+<span class="material-symbols-outlined text-sm">radio_button_unchecked</span>
+                          Activation Functions (ReLU, Sigmoid)
+                        </li>
+</ul>
+</div>
+<div class="flex flex-col justify-end">
+<button class="bg-white text-primary w-full py-4 rounded-xl font-headline font-extrabold text-sm shadow-lg hover:bg-surface-container-lowest transition-all flex items-center justify-center gap-2 group">
+                        Launch Lab
+                        <span class="material-symbols-outlined text-sm group-hover:translate-x-1 transition-transform">bolt</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Week 04: Upcoming -->
+<div class="relative opacity-60">
+<div class="absolute -left-10 top-0 w-4 h-4 rounded-full bg-outline-variant ring-4 ring-surface-container flex items-center justify-center"></div>
+<div class="bg-surface-container-low rounded-xl p-6 shadow-sm">
+<div class="flex justify-between items-start mb-4">
+<div>
+<span class="font-label text-[10px] uppercase font-bold tracking-widest text-on-surface-variant">Week 04 - Deep Learning</span>
+<h3 class="text-xl font-headline font-bold text-on-surface mt-1">Convolutional Architectures</h3>
+</div>
+<span class="bg-surface-container-high text-on-surface-variant text-[10px] px-2 py-1 rounded font-bold uppercase tracking-wider">Locked</span>
+</div>
+<div class="flex flex-wrap gap-2">
+<span class="text-xs bg-white/50 px-3 py-1 rounded-full text-on-surface-variant font-medium">Computer Vision</span>
+<span class="text-xs bg-white/50 px-3 py-1 rounded-full text-on-surface-variant font-medium">Kernel Operations</span>
+<span class="text-xs bg-white/50 px-3 py-1 rounded-full text-on-surface-variant font-medium">Pooling Layers</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Sidebar Column -->
+<div class="col-span-4 space-y-8">
+<!-- Overall Progress Card -->
+<section class="bg-surface-container-lowest rounded-xl p-8 shadow-sm">
+<h4 class="font-headline font-bold text-lg text-on-surface mb-6">Program Progress</h4>
+<div class="flex items-end gap-2 mb-2">
+<span class="text-5xl font-headline font-extrabold text-primary">64</span>
+<span class="text-xl font-headline font-bold text-on-surface-variant mb-1">%</span>
+</div>
+<p class="text-sm text-on-surface-variant mb-6">14 of 22 milestones achieved</p>
+<div class="h-2 w-full bg-secondary-container rounded-full overflow-hidden mb-8">
+<div class="h-full bg-secondary w-[64%] rounded-full"></div>
+</div>
+<div class="space-y-4">
+<div class="flex justify-between text-xs font-label uppercase tracking-widest">
+<span class="text-on-surface-variant">Next Review</span>
+<span class="font-bold text-primary">Oct 24, 2023</span>
+</div>
+<div class="flex justify-between text-xs font-label uppercase tracking-widest">
+<span class="text-on-surface-variant">Credits Earned</span>
+<span class="font-bold text-on-surface">18 / 30</span>
+</div>
+</div>
+</section>
+<!-- Mentor Card -->
+<section class="bg-surface-container-lowest rounded-xl p-8 shadow-sm">
+<h4 class="font-headline font-bold text-lg text-on-surface mb-6">Dedicated Mentor</h4>
+<div class="flex items-center gap-4 mb-6">
+<img alt="Prof. Marcus Thorne" class="w-16 h-16 rounded-xl object-cover shadow-md" data-alt="Portrait of an experienced academic mentor with grey beard and glasses, wearing a sharp charcoal blazer in a modern office" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDFzDYks_NpxP6_WfEn6o1Cd3Ml-g5Myyagds9869q3xmzSLuKqTrnFbmWULyXGj4agEmQAyhe--8KcR9YRzEo_iuDBLFpNQHshwnIehieWH-iJNjIqF1JR3KmXzR_wsY1PFStkrPbB4syAGgn0meWaBWhWa7ieEPASH1daPKxk5qsiT2hD_o_EZRmBBNsmiCokel-RAmTOaTNmOUc_hDU9TWZ3Vyf2irbbS0r_DyuuQHpVWbAsdETwi6-9X1IyzBlSCWIS2hgC7ks"/>
+<div>
+<h5 class="font-headline font-bold text-on-surface">Prof. Marcus Thorne</h5>
+<p class="text-xs text-primary font-medium">Head of Applied Mathematics</p>
+<div class="flex items-center gap-1 mt-1">
+<span class="material-symbols-outlined text-[12px] text-tertiary" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="text-[10px] font-bold text-on-surface-variant">TOP MENTOR</span>
+</div>
+</div>
+</div>
+<p class="text-sm text-on-surface-variant leading-relaxed mb-6">Marcus specializes in stochastic processes and neural weight optimization. He is available for 1-on-1 labs every Tuesday.</p>
+<button class="w-full bg-surface-container-high text-primary font-headline font-bold py-3 rounded-lg text-sm hover:bg-surface-container transition-all">
+            Schedule Session
+          </button>
+</section>
+<!-- Upcoming Deadlines -->
+<section class="bg-surface-container-low rounded-xl p-6">
+<h4 class="font-headline font-bold text-sm uppercase tracking-widest text-on-surface-variant mb-6">Critical Paths</h4>
+<div class="space-y-6">
+<div class="flex gap-4">
+<div class="flex-shrink-0 w-10 h-10 bg-error-container rounded-lg flex flex-col items-center justify-center">
+<span class="text-[10px] font-bold text-on-error-container font-headline">OCT</span>
+<span class="text-sm font-bold text-on-error-container font-headline">18</span>
+</div>
+<div>
+<p class="text-sm font-bold text-on-surface">Neural Lab Submission</p>
+<p class="text-xs text-error font-medium">Due in 2 days</p>
+</div>
+</div>
+<div class="flex gap-4">
+<div class="flex-shrink-0 w-10 h-10 bg-surface-container-high rounded-lg flex flex-col items-center justify-center">
+<span class="text-[10px] font-bold text-on-surface-variant font-headline">OCT</span>
+<span class="text-sm font-bold text-on-surface font-headline">21</span>
+</div>
+<div>
+<p class="text-sm font-bold text-on-surface">Linear Algebra Exam</p>
+<p class="text-xs text-on-surface-variant font-medium">Academic Hall A</p>
+</div>
+</div>
+</div>
+</section>
+</div>
+</div>
+</main>
+</body></html>

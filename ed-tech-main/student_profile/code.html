@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Profile - Junospace</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=Plus+Jakarta+Sans:wght@700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+
+    <style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        body { font-family: 'Inter', sans-serif; font-weight: 300; }
+        h1, h2, h3, h4, .font-headline { font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 900; }
+        
+        /* Premium Dark Mode Overrides */
+        .dark body { background-color: #000000; color: #ffffff; }
+        .dark .bg-white { background-color: #0a0a0a !important; }
+        .dark .text-slate-800, .dark .text-slate-700, .dark .text-slate-900 { color: #ffffff !important; }
+        .dark .text-slate-600, .dark .text-slate-500 { color: #cbd5e1 !important; }
+        .dark .text-slate-400 { color: #94a3b8 !important; }
+        .dark .border-slate-100, .dark .border-violet-100 { border-color: rgba(139, 92, 246, 0.2) !important; }
+        .dark .border-violet-300 { border-color: rgba(139, 92, 246, 0.4) !important; }
+        .dark .bg-slate-50 { background-color: #000000 !important; }
+        .dark .bg-violet-50 { background-color: #1e1b4b !important; }
+        .dark .shadow-sm, .dark .shadow-xl { box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.5) !important; }
+    </style>
+    <script>
+        function applyTheme() {
+            const theme = localStorage.getItem('junospace-theme') || 'light';
+            document.documentElement.classList.toggle('dark', theme === 'dark');
+        }
+        window.addEventListener('storage', applyTheme);
+        window.addEventListener('message', (e) => {
+            if (e.data.action === 'themeUpdate') applyTheme();
+        });
+        applyTheme();
+    </script>
+</head>
+<script>/* In-frame sidebar suppression */
+(function(){
+  if(window.self!==window.top){
+    document.documentElement.classList.add('in-frame');
+    // inject override styles immediately
+    var s=document.createElement('style');
+    s.textContent='html.in-frame aside,html.in-frame [class*="w-64"][class*="fixed"],html.in-frame [class*="w-72"][class*="fixed"]{display:none!important;}html.in-frame main,[class*="ml-64"],[class*="ml-72"]{margin-left:0!important;}html.in-frame header,html.in-frame .fixed.top-0{display:none!important;}html.in-frame [class*="md:pl-"]{padding-left:1.5rem!important;}html.in-frame [class*="md:ml-"]{margin-left:0!important;}html.in-frame nav.fixed.bottom-0, html.in-frame button.fixed.bottom-8, html.in-frame nav.md\\:hidden{display:none!important;}html.in-frame [class*="pt-"]{padding-top:1.5rem!important;}';
+    document.head.appendChild(s);
+  }
+})();
+</script>
+<body class="bg-slate-50 font-body text-slate-800 antialiased">
+<!-- SideNavBar -->
+<aside class="fixed left-0 top-0 h-screen w-72 bg-slate-50 flex flex-col py-8 px-4 space-y-2 rounded-r-[2rem] z-50">
+<div class="px-4 mb-8">
+<div class="flex items-center gap-3"><img src="../logo.png" class="w-8 h-8 object-contain drop-shadow-md" alt="Junospace Logo" /><h1 class="text-xl font-bold text-violet-700 tracking-tighter">Junospace</h1></div>
+<p class="text-xs font-['Plus_Jakarta_Sans'] font-semibold tracking-tight text-slate-500 mt-1 uppercase">Command Center</p>
+</div>
+<nav class="flex-1 flex flex-col gap-1">
+<a class="flex items-center gap-3 text-slate-500  p-3 hover:bg-white/50 :bg-slate-50/50 transition-all duration-150 cursor-pointer" onclick="window.parent.postMessage({action:'navigate',page:'dashboard'},'*');return false;" href="#">
+<span class="material-symbols-outlined">dashboard</span>
+Dashboard
+</a>
+<a class="flex items-center gap-3 text-slate-500  p-3 hover:bg-white/50 :bg-slate-50/50 transition-all duration-150 cursor-pointer" onclick="window.parent.postMessage({action:'navigate',page:'courses'},'*');return false;" href="#">
+<span class="material-symbols-outlined">school</span>
+My Courses
+</a>
+<a class="flex items-center gap-3 text-slate-500  p-3 hover:bg-white/50 :bg-slate-50/50 transition-all duration-150 cursor-pointer" onclick="window.parent.postMessage({action:'navigate',page:'leaderboard'},'*');return false;" href="#">
+<span class="material-symbols-outlined">lightbulb</span>
+Innovation Board
+</a>
+<a class="flex items-center gap-3 text-slate-500  p-3 hover:bg-white/50 :bg-slate-50/50 transition-all duration-150 cursor-pointer" onclick="window.parent.postMessage({action:'navigate',page:'analytics'},'*');return false;" href="#">
+<span class="material-symbols-outlined">analytics</span>
+Analytics
+</a>
+<a class="flex items-center gap-3 bg-white  text-violet-600  rounded-2xl p-3 shadow-sm duration-150" href="#" onclick="return false;">
+<span class="material-symbols-outlined">person</span>
+Profile
+</a>
+</nav>
+<button class="mt-6 bg-violet-600 text-white py-3 px-4 rounded-xl font-bold flex items-center justify-center gap-2 hover:opacity-90 transition-opacity">
+<span class="material-symbols-outlined text-sm" data-icon="bolt">bolt</span>
+            Start Study Session
+        </button>
+<div class="mt-auto pt-6 border-t border-violet-300 shadow-sm shadow-violet-100 flex flex-col gap-1">
+<a class="flex items-center gap-3 text-slate-500  p-3 hover:bg-white/50 transition-all" href="#">
+<span class="material-symbols-outlined" data-icon="help_outline">help_outline</span>
+                Help Center
+            </a>
+<a class="flex items-center gap-3 text-slate-500  p-3 hover:bg-white/50 transition-all" href="#">
+<span class="material-symbols-outlined" data-icon="logout">logout</span>
+                Sign Out
+            </a>
+</div>
+</aside>
+<!-- Main Content Area -->
+<main class="ml-64 min-h-screen pb-20">
+<!-- TopNavBar -->
+<header class="fixed top-0 right-0 left-0 md:left-72 z-40 h-16 flex items-center justify-between px-8 bg-white/80 backdrop-blur-xl border-b border-slate-100 shadow-sm">
+<div class="flex items-center gap-4 flex-1">
+<h2 class="text-xl font-extrabold tracking-tight text-violet-700">Learner Profile</h2>
+</div>
+<div class="flex items-center gap-6">
+<div class="flex items-center gap-4 border-r border-slate-100 pr-6">
+<button class="p-2 rounded-full hover:bg-slate-50 text-slate-400">
+<span class="material-symbols-outlined" data-icon="notifications">notifications</span>
+</button>
+<button class="p-2 rounded-full hover:bg-slate-50 text-slate-400">
+<span class="material-symbols-outlined" data-icon="settings">settings</span>
+</button>
+</div>
+<div class="flex items-center gap-3">
+<div class="text-right">
+<p id="header-name" class="text-sm font-bold text-slate-800">Student Name</p>
+<p id="header-role" class="text-[10px] text-violet-600 font-black uppercase tracking-widest">Master Scholar</p>
+</div>
+<img id="header-avatar" alt="Student Avatar" class="w-10 h-10 rounded-full object-cover border-2 border-violet-100 shadow-sm" src=""/>
+</div>
+</div>
+</header>
+<div class="max-w-7xl mx-auto px-8 pt-24 space-y-8">
+<!-- Hero Stats Section -->
+<section class="grid grid-cols-12 gap-8">
+<!-- Profile Card -->
+<div class="col-span-12 lg:col-span-8 bg-white rounded-lg p-8 shadow-[0_20px_40px_rgba(71,70,85,0.06)] flex flex-col md:flex-row items-center md:items-start gap-8 relative overflow-hidden">
+<div class="absolute top-0 right-0 w-64 h-64 bg-violet-600/5 rounded-full -mr-32 -mt-32"></div>
+<div class="relative">
+<div class="w-32 h-32 rounded-xl overflow-hidden border-4 border-surface shadow-lg bg-white">
+<img id="main-avatar" alt="Student Profile" class="w-full h-full object-cover" src=""/>
+</div>
+<div class="absolute -bottom-2 -right-2 bg-secondary text-on-secondary w-10 h-10 rounded-full flex items-center justify-center border-4 border-surface">
+<span class="material-symbols-outlined text-sm" data-icon="verified" style="font-variation-settings: 'FILL' 1;">verified</span>
+</div>
+</div>
+<div class="flex-1 text-center md:text-left">
+<div class="flex flex-col md:flex-row md:items-center gap-3 mb-2">
+<h2 id="main-name" class="text-3xl font-black text-slate-800 font-headline tracking-tight">Student Name</h2>
+<span id="main-role" class="inline-flex items-center px-3 py-1 bg-violet-600 text-white text-xs font-bold rounded-full shadow-sm">MASTER SCHOLAR</span>
+</div>
+<p class="text-slate-500 max-w-xl mb-6">Passionate about Human-Computer Interaction and Generative Design. Currently exploring the intersection of AI and modern education systems.</p>
+<div class="grid grid-cols-3 gap-4">
+<div class="bg-slate-50 p-4 rounded-lg text-center">
+<p class="text-[10px] uppercase tracking-wider text-slate-500 font-bold mb-1">Level</p>
+<p id="stat-level" class="text-2xl font-black text-violet-600 font-headline leading-none">--</p>
+</div>
+<div class="bg-slate-50 p-4 rounded-lg text-center">
+<p class="text-[10px] uppercase tracking-wider text-slate-500 font-bold mb-1">Streak</p>
+<p id="stat-streak" class="text-2xl font-black text-emerald-500 font-headline leading-none">--<span class="text-sm ml-1 text-slate-500 font-medium">days</span></p>
+</div>
+<div class="bg-slate-50 p-4 rounded-lg text-center">
+<p class="text-[10px] uppercase tracking-wider text-slate-500 font-bold mb-1">Rank</p>
+<p id="stat-rank" class="text-2xl font-black text-amber-500 font-headline leading-none">#--</p>
+</div>
+</div>
+</div>
+</div>
+<!-- XP Progress Card -->
+<div class="col-span-12 lg:col-span-4 bg-white rounded-lg p-8 shadow-[0_20px_40px_rgba(71,70,85,0.06)] flex flex-col justify-between">
+<div>
+<div class="flex justify-between items-center mb-6">
+<h3 class="text-lg font-black font-headline">Experience</h3>
+<span id="xp-text" class="text-xs font-bold text-slate-500">-- / -- XP</span>
+</div>
+<div class="w-full h-4 bg-slate-100 rounded-full overflow-hidden mb-4">
+<div id="xp-bar" class="h-full bg-violet-600 rounded-full shadow-[0_0_12px_rgba(53,37,205,0.4)] transition-all duration-1000" style="width: 0%"></div>
+</div>
+<p class="text-xs text-slate-500">Only <span id="xp-remaining" class="text-violet-600 font-bold">-- XP</span> more to reach next level!</p>
+</div>
+<div class="mt-8 space-y-4">
+<div class="flex items-center gap-3 p-3 bg-secondary-container/20 rounded-xl">
+<div class="w-8 h-8 rounded-full bg-secondary-container flex items-center justify-center text-on-secondary-container">
+<span class="material-symbols-outlined text-sm" data-icon="trending_up">trending_up</span>
+</div>
+<p class="text-xs font-semibold text-on-secondary-container">+15% productivity this week</p>
+</div>
+</div>
+</div>
+</section>
+<!-- Achievements & Badges -->
+<section>
+<div class="flex justify-between items-end mb-6">
+<div>
+<h2 class="text-2xl font-black font-headline tracking-tight">Achievements</h2>
+<p class="text-sm text-slate-500">Showcasing your academic milestones and special skills.</p>
+</div>
+<button class="text-violet-600 text-sm font-bold hover:underline">View All Badges</button>
+</div>
+<div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-8">
+<!-- Achievement Circular Badges -->
+<div class="flex flex-col items-center group cursor-pointer">
+<div class="w-24 h-24 rounded-full bg-gradient-to-br from-amber-400 to-orange-600 flex items-center justify-center text-white shadow-xl shadow-orange-200 group-hover:scale-110 transition-transform duration-300 p-0.5">
+<div class="w-full h-full rounded-full border-4 border-white/20 flex items-center justify-center">
+<span class="material-symbols-outlined text-4xl" data-icon="local_fire_department" style="font-variation-settings: 'FILL' 1;">local_fire_department</span>
+</div>
+</div>
+<h4 class="text-sm font-black text-slate-800 mt-4 leading-none">Fire Scholar</h4>
+<p class="text-[10px] text-slate-500 font-bold uppercase tracking-widest mt-2">30 Day Streak</p>
+</div>
+<div class="flex flex-col items-center group cursor-pointer">
+<div class="w-24 h-24 rounded-full bg-gradient-to-br from-violet-500 to-purple-800 flex items-center justify-center text-white shadow-xl shadow-violet-200 group-hover:scale-110 transition-transform duration-300 p-0.5">
+<div class="w-full h-full rounded-full border-4 border-white/20 flex items-center justify-center">
+<span class="material-symbols-outlined text-4xl" data-icon="auto_awesome" style="font-variation-settings: 'FILL' 1;">auto_awesome</span>
+</div>
+</div>
+<h4 class="text-sm font-black text-slate-800 mt-4 leading-none">Polymathematic</h4>
+<p class="text-[10px] text-slate-500 font-bold uppercase tracking-widest mt-2">Aced 5 Subjects</p>
+</div>
+<div class="flex flex-col items-center group cursor-pointer">
+<div class="w-24 h-24 rounded-full bg-gradient-to-br from-emerald-400 to-teal-700 flex items-center justify-center text-white shadow-xl shadow-emerald-200 group-hover:scale-110 transition-transform duration-300 p-0.5">
+<div class="w-full h-full rounded-full border-4 border-white/20 flex items-center justify-center">
+<span class="material-symbols-outlined text-4xl" data-icon="groups" style="font-variation-settings: 'FILL' 1;">groups</span>
+</div>
+</div>
+<h4 class="text-sm font-black text-slate-800 mt-4 leading-none">Lab Leader</h4>
+<p class="text-[10px] text-slate-500 font-bold uppercase tracking-widest mt-2">Led 10 Sessions</p>
+</div>
+<div class="flex flex-col items-center group opacity-40 grayscale hover:grayscale-0 hover:opacity-100 transition-all">
+<div class="w-24 h-24 rounded-full bg-slate-200 flex items-center justify-center text-slate-500 shadow-inner p-0.5">
+<div class="w-full h-full rounded-full border-4 border-slate-300 flex items-center justify-center border-dashed">
+<span class="material-symbols-outlined text-4xl" data-icon="emoji_events">emoji_events</span>
+</div>
+</div>
+<h4 class="text-sm font-black text-slate-400 mt-4 leading-none text-center">Grand Prix</h4>
+<p class="text-[10px] text-slate-400 font-bold uppercase tracking-widest mt-2">Locked</p>
+</div>
+<div class="flex flex-col items-center group opacity-40 grayscale hover:grayscale-0 hover:opacity-100 transition-all">
+<div class="w-24 h-24 rounded-full bg-slate-200 flex items-center justify-center text-slate-500 shadow-inner p-0.5">
+<div class="w-full h-full rounded-full border-4 border-slate-300 flex items-center justify-center border-dashed">
+<span class="material-symbols-outlined text-4xl" data-icon="menu_book">menu_book</span>
+</div>
+</div>
+<h4 class="text-sm font-black text-slate-400 mt-4 leading-none text-center">Lore Seeker</h4>
+<p class="text-[10px] text-slate-400 font-bold uppercase tracking-widest mt-2">Locked</p>
+</div>
+<div class="flex flex-col items-center group opacity-40 grayscale hover:grayscale-0 hover:opacity-100 transition-all">
+<div class="w-24 h-24 rounded-full bg-slate-200 flex items-center justify-center text-slate-500 shadow-inner p-0.5">
+<div class="w-full h-full rounded-full border-4 border-slate-300 flex items-center justify-center border-dashed">
+<span class="material-symbols-outlined text-4xl" data-icon="military_tech">military_tech</span>
+</div>
+</div>
+<h4 class="text-sm font-black text-slate-400 mt-4 leading-none text-center">Titan</h4>
+<p class="text-[10px] text-slate-400 font-bold uppercase tracking-widest mt-2">Locked</p>
+</div>
+</div>
+</section>
+<!-- Project Portfolio Grid -->
+<section class="pb-12">
+<div class="flex justify-between items-end mb-6">
+<div>
+<h2 class="text-2xl font-black font-headline tracking-tight">Project Portfolio</h2>
+<p class="text-sm text-slate-500">A curated showcase of your best academic work and creative output.</p>
+</div>
+</div>
+<div class="grid grid-cols-12 gap-6">
+<!-- Main Featured Project (Expanded) -->
+<div class="col-span-12 group relative overflow-hidden rounded-[2rem] bg-white shadow-xl h-[500px] border border-slate-100">
+<img alt="Neural Networks Project" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" data-alt="vibrant abstract visualization of neural network data flows" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDc7QJRMWii9jzmRznIp3vgDTBGoOimm7Zwj5FAc4nUR44-zmslw95NQjtU6sSZT0pqEtnCV0GC3NU_PiekdpyVJ9AihgsIIWxAEwvsSzVXUMDqreYlyOM9cUsJtTMLyyYJSHXciWlhtthjosbUgfZJuWsVBZ5VzUNCzNf4tJPelB4_pjuRIHXnySZUEzb4JvSWnKSXhAZ3SCMdq_v_4Ct8Z18RrN9ui0GJlIJSdA6F6a_7FN6lzP9GxIP-h7I-X1O_2G0stOrUF0g"/>
+<div class="absolute inset-0 bg-gradient-to-t from-slate-900/90 via-slate-900/40 to-transparent p-12 flex flex-col justify-end">
+<div class="flex gap-3 mb-4">
+<span class="bg-amber-400 text-slate-900 px-4 py-1.5 rounded-full text-[10px] font-black uppercase tracking-widest">CS Capstone</span>
+<span class="bg-white/20 backdrop-blur-md text-white px-4 py-1.5 rounded-full text-[10px] font-black uppercase tracking-widest">Machine Learning</span>
+</div>
+<h3 class="text-4xl font-black text-white font-headline mb-4">Neural Synergy V2.0</h3>
+<p class="text-white/80 max-w-2xl mb-8 text-lg font-medium leading-relaxed">An experimental study on decentralized neural weight distribution across low-power edge devices. Achieving 94% efficiency in distributed node synchronization.</p>
+<div class="flex items-center gap-6">
+<button class="bg-violet-600 text-white px-10 py-4 rounded-full font-black text-sm shadow-xl shadow-violet-500/30 hover:bg-violet-500 transition-all active:scale-95">Open Case Study</button>
+<div class="flex items-center gap-4 text-white/70 text-sm font-bold">
+<span class="flex items-center gap-1"><span class="material-symbols-outlined text-[18px]" data-icon="favorite">favorite</span> 124</span>
+<span class="flex items-center gap-1"><span class="material-symbols-outlined text-[18px]" data-icon="visibility">visibility</span> 1.2k</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+</div>
+</main>
+<!-- Text Me FAB (Profile Page) -->
+<button onclick="window.parent.postMessage({action:'navigate',page:'textme'},'*')" style="position:fixed;bottom:2rem;right:2rem;background:linear-gradient(135deg,#8b5cf6,#8b5cf6);color:#fff;font-family:'Plus Jakarta Sans',sans-serif;font-weight:700;font-size:0.9rem;padding:14px 26px;border-radius:99px;border:none;cursor:pointer;z-index:9999;display:flex;align-items:center;gap:8px;box-shadow:0 12px 36px rgba(139,92,246,0.45);transition:transform 0.2s,box-shadow 0.2s;" onmouseenter="this.style.transform='translateY(-3px)';this.style.boxShadow='0 20px 48px rgba(139,92,246,0.6)'" onmouseleave="this.style.transform='';this.style.boxShadow='0 12px 36px rgba(139,92,246,0.45)'">
+  💬 Text Me
+</button>
+
+<script src="../env.js"></script>
+<script src="../js/auth.js"></script>
+<script>
+  window.db = window.db || {};
+  
+  async function loadProfile() {
+      const userStr = localStorage.getItem('mock_user');
+      if(!userStr) return;
+      const student = JSON.parse(userStr);
+      
+      document.getElementById('header-name').innerText = student.full_name;
+      document.getElementById('main-name').innerText = student.full_name;
+      
+      const initials = student.avatar_initials || student.full_name.substring(0, 2).toUpperCase();
+      const color = student.avatar_color || '#8b5cf6';
+      
+      const avatarSvg = `data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><rect width="100%" height="100%" fill="${color.replace('#', '%23')}"/><text x="50" y="55" font-family="Arial" font-size="35" font-weight="bold" fill="white" text-anchor="middle" dominant-baseline="middle">${initials}</text></svg>`;
+      
+      document.getElementById('header-avatar').src = avatarSvg;
+      document.getElementById('main-avatar').src = avatarSvg;
+      
+      // Calculate rank and scores
+      const { data: students } = await window.db.from('users').select('*').eq('role', 'student');
+      const { data: aSubs } = await window.db.from('assignment_submissions').select('*');
+      const { data: eSubs } = await window.db.from('assessment_submissions').select('*');
+      
+      const leaderboard = (students || []).map(s => {
+          let as = (aSubs||[]).filter(sub => sub.student_id === s.id);
+          let es = (eSubs||[]).filter(sub => sub.student_id === s.id);
+          const avgA = as.length ? as.reduce((sum, curr) => sum + curr.score, 0) / as.length : 0;
+          const avgE = es.length ? es.reduce((sum, curr) => sum + curr.score, 0) / es.length : 0;
+          let total = Math.round((avgA * 0.4) + (avgE * 0.6) + ((as.length+es.length)*5));
+          return { id: s.id, score: total };
+      });
+      leaderboard.sort((a,b) => b.score - a.score);
+      
+      const myRank = leaderboard.findIndex(s => s.id === student.id) + 1;
+      const myData = leaderboard.find(s => s.id === student.id);
+      const score = myData ? myData.score : 50;
+      
+      const level = Math.floor(score / 10) || 1;
+      const nextLevelScore = level * 10 + 10;
+      const xp = score * 10;
+      const nextXp = nextLevelScore * 10;
+      const progress = Math.min((xp / nextXp) * 100, 100);
+      
+      document.getElementById('stat-level').innerText = level;
+      document.getElementById('stat-rank').innerText = '#' + (myRank || '--');
+      
+      document.getElementById('xp-text').innerText = `${xp.toLocaleString()} / ${nextXp.toLocaleString()} XP`;
+      setTimeout(() => { document.getElementById('xp-bar').style.width = `${progress}%`; }, 100);
+      document.getElementById('xp-remaining').innerText = `${(nextXp - xp).toLocaleString()} XP`;
+      
+      const { data: skills } = await window.db.from('student_skills').select('*').eq('student_id', student.id).single();
+      const streak = skills ? Math.round(skills.consistency / 4) : 5;
+      document.getElementById('stat-streak').innerHTML = `${streak}<span class="text-sm ml-1 text-slate-500 font-medium">days</span>`;
+      
+      const title = myRank === 1 ? 'Current Champion' : (level > 5 ? 'Elite Innovator' : 'Apprentice');
+      document.getElementById('header-role').innerText = title;
+      document.getElementById('main-role').innerText = title.toUpperCase();
+  }
+  
+  loadProfile();
+</script>
+</body></html>
+
+
+
+
+

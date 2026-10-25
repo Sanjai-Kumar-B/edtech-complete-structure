@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700;800&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "outline-variant": "#c4c5d5",
+                        "secondary-container": "#d5e3fc",
+                        "on-primary-container": "#a8b8ff",
+                        "on-background": "#191c1e",
+                        "on-secondary-container": "#57657a",
+                        "on-secondary-fixed-variant": "#3a485b",
+                        "on-primary-fixed-variant": "#173bab",
+                        "on-surface": "#191c1e",
+                        "on-tertiary-fixed-variant": "#802a00",
+                        "surface-variant": "#e0e3e5",
+                        "on-tertiary-fixed": "#380d00",
+                        "surface-container-lowest": "#ffffff",
+                        "secondary-fixed": "#d5e3fc",
+                        "tertiary-fixed": "#ffdbce",
+                        "secondary-fixed-dim": "#b9c7df",
+                        "tertiary-container": "#872d00",
+                        "on-surface-variant": "#444653",
+                        "surface-dim": "#d8dadc",
+                        "surface": "#f7f9fb",
+                        "outline": "#757684",
+                        "background": "#f7f9fb",
+                        "on-error-container": "#93000a",
+                        "inverse-surface": "#2d3133",
+                        "surface-container-low": "#f2f4f6",
+                        "tertiary": "#611e00",
+                        "surface-tint": "#3755c3",
+                        "on-error": "#ffffff",
+                        "primary-fixed": "#dde1ff",
+                        "primary": "#00288e",
+                        "primary-fixed-dim": "#b8c4ff",
+                        "on-primary": "#ffffff",
+                        "tertiary-fixed-dim": "#ffb59a",
+                        "surface-container": "#eceef0",
+                        "surface-bright": "#f7f9fb",
+                        "error": "#ba1a1a",
+                        "on-secondary": "#ffffff",
+                        "on-tertiary-container": "#ffa583",
+                        "on-secondary-fixed": "#0d1c2e",
+                        "surface-container-high": "#e6e8ea",
+                        "surface-container-highest": "#e0e3e5",
+                        "error-container": "#ffdad6",
+                        "secondary": "#515f74",
+                        "inverse-on-surface": "#eff1f3",
+                        "on-tertiary": "#ffffff",
+                        "inverse-primary": "#b8c4ff",
+                        "primary-container": "#1e40af",
+                        "on-primary-fixed": "#001453"
+                    },
+                    fontFamily: {
+                        "headline": ["Manrope"],
+                        "body": ["Inter"],
+                        "label": ["Inter"]
+                    },
+                    borderRadius: {"DEFAULT": "0.125rem", "lg": "0.25rem", "xl": "0.5rem", "full": "0.75rem"},
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            vertical-align: middle;
+        }
+        body { font-family: 'Inter', sans-serif; }
+        h1, h2, h3, .brand-logo { font-family: 'Manrope', sans-serif; }
+    </style>
+</head>
+<body class="bg-surface text-on-surface min-h-screen">
+<!-- SideNavBar Shell -->
+<aside class="flex flex-col h-screen fixed left-0 w-64 z-40 bg-slate-900 dark:bg-slate-950">
+<div class="p-6">
+<div class="text-xl font-bold text-white tracking-tight">Scholar Command</div>
+<div class="text-[10px] uppercase tracking-widest text-indigo-400 mt-1 font-semibold">Expert Console</div>
+</div>
+<nav class="flex-1 mt-4">
+<!-- Active: Dashboard -->
+<a class="flex items-center gap-3 px-4 py-3 text-indigo-200 border-l-4 border-indigo-400 bg-white/10" href="#">
+<span class="material-symbols-outlined" data-icon="dashboard">dashboard</span>
+<span class="text-[12px] font-medium">Dashboard</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-slate-400 hover:text-white hover:bg-slate-800 transition-colors duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="groups">groups</span>
+<span class="text-[12px] font-medium">My Batches</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-slate-400 hover:text-white hover:bg-slate-800 transition-colors duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="assignment_late">assignment_late</span>
+<span class="text-[12px] font-medium">Assignments</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-slate-400 hover:text-white hover:bg-slate-800 transition-colors duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="how_to_reg">how_to_reg</span>
+<span class="text-[12px] font-medium">Attendance</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-slate-400 hover:text-white hover:bg-slate-800 transition-colors duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="person">person</span>
+<span class="text-[12px] font-medium">Students</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-slate-400 hover:text-white hover:bg-slate-800 transition-colors duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="event_note">event_note</span>
+<span class="text-[12px] font-medium">Mentor Notes</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-slate-400 hover:text-white hover:bg-slate-800 transition-colors duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="analytics">analytics</span>
+<span class="text-[12px] font-medium">Analytics</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-slate-400 hover:text-white hover:bg-slate-800 transition-colors duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="account_circle">account_circle</span>
+<span class="text-[12px] font-medium">Profile</span>
+</a>
+</nav>
+<div class="p-4 mt-auto">
+<div class="flex items-center gap-3 p-3 rounded-lg bg-white/5">
+<img alt="User profile" class="w-8 h-8 rounded-full object-cover" data-alt="professional headshot of an older male academic with grey hair and glasses in a library setting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBhMzGH1L-kb_5gA29ErHvs1JwGS70_btdp9qNgOaq5W8Gd1STr0Zp_o0dBMgJ91UNk8vsz4aZvgX3I1RI6fnDF3DupkweimEgxmjHAIw9LQ3Qt9H_Q6iICvEZq8gDPJ2SZBRzmX-AtmGJ5tGKpI5L1T4KXYA6p-crkOyyeLdWTKkLstoNXLSyjdf9BGNLpr08gwCHYKF_Cajbl6lIw-akBSIuMTTxQbVWwqEcRje8ItIin79nqik116wofnWqxRJwY9MwfOjSjDwI"/>
+<div class="overflow-hidden">
+<p class="text-xs font-semibold text-white truncate">Dr. Aris Thorne</p>
+<p class="text-[10px] text-slate-400 truncate">Senior Fellow</p>
+</div>
+</div>
+</div>
+</aside>
+<!-- TopNavBar Shell -->
+<header class="flex justify-between items-center px-8 w-[calc(100%-16rem)] h-16 z-30 ml-64 fixed top-0 right-0 bg-white/80 dark:bg-slate-900/80 backdrop-blur-md shadow-sm dark:shadow-none">
+<div class="flex items-center flex-1 max-w-xl">
+<div class="relative w-full group">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-slate-400 text-sm" data-icon="search">search</span>
+<input class="w-full bg-surface-container-highest border-none rounded-lg pl-10 pr-4 py-2 text-sm focus:ring-2 focus:ring-primary/40 placeholder:text-slate-500 transition-all" placeholder="Search students, batches, or records..." type="text"/>
+</div>
+</div>
+<div class="flex items-center gap-6 ml-8">
+<div class="flex items-center gap-4">
+<button class="relative text-slate-500 hover:text-primary transition-colors">
+<span class="material-symbols-outlined" data-icon="notifications">notifications</span>
+<span class="absolute -top-1 -right-1 w-2 h-2 bg-error rounded-full"></span>
+</button>
+</div>
+<div class="flex items-center gap-3">
+<button class="px-4 py-2 text-sm font-semibold text-secondary hover:bg-slate-50 transition-colors">Review Assignments</button>
+<button class="px-5 py-2 text-sm font-bold text-white bg-gradient-to-br from-primary to-primary-container rounded shadow-md hover:shadow-lg transition-all">Start Class</button>
+</div>
+</div>
+</header>
+<!-- Main Content Canvas -->
+<main class="ml-64 pt-20 p-8 space-y-8">
+<!-- Welcome Header -->
+<header class="flex flex-col md:flex-row md:items-end justify-between gap-4">
+<div>
+<h1 class="text-3xl font-extrabold text-on-surface tracking-tight">Welcome back, Professor</h1>
+<p class="text-secondary font-medium mt-1">You have 4 sessions scheduled for today, October 24th.</p>
+</div>
+<div class="flex items-center gap-2 px-4 py-2 bg-surface-container-low rounded-lg text-sm font-medium text-on-surface-variant">
+<span class="material-symbols-outlined text-[18px]" data-icon="calendar_today">calendar_today</span>
+<span>Thursday, Oct 24, 2024</span>
+</div>
+</header>
+<!-- Summary Cards Bento Grid -->
+<section class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+<div class="bg-surface-container-lowest p-6 rounded-xl shadow-[0px_4px_20px_rgba(25,28,30,0.04),0px_8px_40px_rgba(25,28,30,0.02)]">
+<div class="flex justify-between items-start">
+<div>
+<p class="text-[12px] font-semibold text-secondary uppercase tracking-wider mb-1">Active Batches</p>
+<h2 class="text-3xl font-bold text-on-surface">12</h2>
+</div>
+<div class="p-2 bg-primary-fixed rounded-lg text-primary">
+<span class="material-symbols-outlined" data-icon="hub">hub</span>
+</div>
+</div>
+<div class="mt-4 flex items-center gap-2 text-[12px] font-medium text-emerald-600">
+<span class="material-symbols-outlined text-[16px]" data-icon="trending_up">trending_up</span>
+<span>+2 from last month</span>
+</div>
+</div>
+<div class="bg-surface-container-lowest p-6 rounded-xl shadow-[0px_4px_20px_rgba(25,28,30,0.04),0px_8px_40px_rgba(25,28,30,0.02)]">
+<div class="flex justify-between items-start">
+<div>
+<p class="text-[12px] font-semibold text-secondary uppercase tracking-wider mb-1">Total Students</p>
+<h2 class="text-3xl font-bold text-on-surface">428</h2>
+</div>
+<div class="p-2 bg-secondary-fixed rounded-lg text-secondary">
+<span class="material-symbols-outlined" data-icon="school">school</span>
+</div>
+</div>
+<div class="mt-4 flex items-center gap-2 text-[12px] font-medium text-on-surface-variant">
+<span>98% engagement rate</span>
+</div>
+</div>
+<div class="bg-surface-container-lowest p-6 rounded-xl shadow-[0px_4px_20px_rgba(25,28,30,0.04),0px_8px_40px_rgba(25,28,30,0.02)]">
+<div class="flex justify-between items-start">
+<div>
+<p class="text-[12px] font-semibold text-secondary uppercase tracking-wider mb-1">Pending Review</p>
+<h2 class="text-3xl font-bold text-primary">34</h2>
+</div>
+<div class="p-2 bg-error-container rounded-lg text-error">
+<span class="material-symbols-outlined" data-icon="rate_review">rate_review</span>
+</div>
+</div>
+<div class="mt-4 flex items-center gap-2 text-[12px] font-medium text-error">
+<span class="material-symbols-outlined text-[16px]" data-icon="priority_high">priority_high</span>
+<span>12 Overdue (48h+)</span>
+</div>
+</div>
+<div class="bg-surface-container-lowest p-6 rounded-xl shadow-[0px_4px_20px_rgba(25,28,30,0.04),0px_8px_40px_rgba(25,28,30,0.02)]">
+<div class="flex justify-between items-start">
+<div>
+<p class="text-[12px] font-semibold text-secondary uppercase tracking-wider mb-1">Scheduled Sessions</p>
+<h2 class="text-3xl font-bold text-on-surface">04</h2>
+</div>
+<div class="p-2 bg-tertiary-fixed rounded-lg text-tertiary">
+<span class="material-symbols-outlined" data-icon="videocam">videocam</span>
+</div>
+</div>
+<div class="mt-4 flex items-center gap-2 text-[12px] font-medium text-on-surface-variant">
+<span>Next: 02:00 PM (Batch 24A)</span>
+</div>
+</div>
+</section>
+<!-- Main Data Section -->
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+<!-- Left Column: Batch Overview -->
+<section class="lg:col-span-8 bg-surface-container-lowest rounded-xl shadow-[0px_4px_20px_rgba(25,28,30,0.04),0px_8px_40px_rgba(25,28,30,0.02)] overflow-hidden">
+<div class="px-8 py-6 flex justify-between items-center">
+<h3 class="text-lg font-bold text-on-surface">Active Batch Progress</h3>
+<button class="text-primary text-sm font-semibold hover:underline">View All Batches</button>
+</div>
+<div class="overflow-x-auto">
+<table class="w-full text-left">
+<thead class="bg-surface-container-low border-none">
+<tr>
+<th class="px-8 py-4 text-[11px] font-bold text-on-surface-variant uppercase tracking-widest">Batch Identity</th>
+<th class="px-6 py-4 text-[11px] font-bold text-on-surface-variant uppercase tracking-widest text-center">Progress</th>
+<th class="px-6 py-4 text-[11px] font-bold text-on-surface-variant uppercase tracking-widest">Next Session</th>
+<th class="px-8 py-4 text-[11px] font-bold text-on-surface-variant uppercase tracking-widest text-right">Action</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-transparent">
+<tr class="hover:bg-surface-container-low transition-colors group">
+<td class="px-8 py-5">
+<div class="flex flex-col">
+<span class="text-sm font-bold text-on-surface">Data Architecture 24A</span>
+<span class="text-[11px] text-secondary">32 Students • Advanced Tier</span>
+</div>
+</td>
+<td class="px-6 py-5">
+<div class="flex flex-col gap-1.5 items-center">
+<div class="w-full max-w-[120px] h-1.5 bg-surface-container-highest rounded-full overflow-hidden">
+<div class="bg-primary h-full w-[78%]"></div>
+</div>
+<span class="text-[11px] font-medium text-on-surface-variant">78% Complete</span>
+</div>
+</td>
+<td class="px-6 py-5">
+<div class="flex items-center gap-2">
+<div class="w-2 h-2 rounded-full bg-primary animate-pulse"></div>
+<span class="text-sm font-medium text-on-surface">Today, 02:00 PM</span>
+</div>
+</td>
+<td class="px-8 py-5 text-right">
+<button class="px-4 py-1.5 text-[12px] font-bold border-2 border-primary text-primary hover:bg-primary hover:text-white rounded transition-all">Open</button>
+</td>
+</tr>
+<tr class="hover:bg-surface-container-low transition-colors group">
+<td class="px-8 py-5">
+<div class="flex flex-col">
+<span class="text-sm font-bold text-on-surface">Systemic Logic v.2</span>
+<span class="text-[11px] text-secondary">45 Students • Core Series</span>
+</div>
+</td>
+<td class="px-6 py-5">
+<div class="flex flex-col gap-1.5 items-center">
+<div class="w-full max-w-[120px] h-1.5 bg-surface-container-highest rounded-full overflow-hidden">
+<div class="bg-primary h-full w-[45%]"></div>
+</div>
+<span class="text-[11px] font-medium text-on-surface-variant">45% Complete</span>
+</div>
+</td>
+<td class="px-6 py-5">
+<div class="flex items-center gap-2 text-on-surface">
+<span class="text-sm font-medium">Oct 25, 10:00 AM</span>
+</div>
+</td>
+<td class="px-8 py-5 text-right">
+<button class="px-4 py-1.5 text-[12px] font-bold border-2 border-primary text-primary hover:bg-primary hover:text-white rounded transition-all">Open</button>
+</td>
+</tr>
+<tr class="hover:bg-surface-container-low transition-colors group">
+<td class="px-8 py-5">
+<div class="flex flex-col">
+<span class="text-sm font-bold text-on-surface">Quantum Analytics</span>
+<span class="text-[11px] text-secondary">18 Students • Research</span>
+</div>
+</td>
+<td class="px-6 py-5">
+<div class="flex flex-col gap-1.5 items-center">
+<div class="w-full max-w-[120px] h-1.5 bg-surface-container-highest rounded-full overflow-hidden">
+<div class="bg-primary h-full w-[92%]"></div>
+</div>
+<span class="text-[11px] font-medium text-on-surface-variant">92% Complete</span>
+</div>
+</td>
+<td class="px-6 py-5">
+<div class="flex items-center gap-2 text-on-surface">
+<span class="text-sm font-medium">Today, 04:30 PM</span>
+</div>
+</td>
+<td class="px-8 py-5 text-right">
+<button class="px-4 py-1.5 text-[12px] font-bold border-2 border-primary text-primary hover:bg-primary hover:text-white rounded transition-all">Open</button>
+</td>
+</tr>
+<tr class="hover:bg-surface-container-low transition-colors group">
+<td class="px-8 py-5">
+<div class="flex flex-col">
+<span class="text-sm font-bold text-on-surface">Algorithmic Ethics</span>
+<span class="text-[11px] text-secondary">112 Students • Seminar</span>
+</div>
+</td>
+<td class="px-6 py-5">
+<div class="flex flex-col gap-1.5 items-center">
+<div class="w-full max-w-[120px] h-1.5 bg-surface-container-highest rounded-full overflow-hidden">
+<div class="bg-primary h-full w-[12%]"></div>
+</div>
+<span class="text-[11px] font-medium text-on-surface-variant">12% Complete</span>
+</div>
+</td>
+<td class="px-6 py-5">
+<div class="flex items-center gap-2 text-on-surface">
+<span class="text-sm font-medium">Oct 26, 09:00 AM</span>
+</div>
+</td>
+<td class="px-8 py-5 text-right">
+<button class="px-4 py-1.5 text-[12px] font-bold border-2 border-primary text-primary hover:bg-primary hover:text-white rounded transition-all">Open</button>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<!-- Right Column: Pending Tasks & Flags -->
+<section class="lg:col-span-4 space-y-6">
+<!-- Tasks Panel -->
+<div class="bg-surface-container-lowest rounded-xl shadow-[0px_4px_20px_rgba(25,28,30,0.04),0px_8px_40px_rgba(25,28,30,0.02)]">
+<div class="p-6 border-b border-transparent">
+<div class="flex justify-between items-center">
+<h3 class="text-lg font-bold text-on-surface">Critical Focus</h3>
+<span class="px-2 py-1 bg-error-container text-error text-[10px] font-bold rounded uppercase">Action Required</span>
+</div>
+</div>
+<div class="p-2">
+<!-- Flagged Students -->
+<div class="p-4 bg-surface-container-low rounded-lg mb-4">
+<div class="flex items-center gap-2 mb-3">
+<span class="material-symbols-outlined text-error text-[20px]" data-icon="flag">flag</span>
+<span class="text-xs font-bold text-on-surface uppercase tracking-wide">Attention Flag (3)</span>
+</div>
+<div class="space-y-3">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-3">
+<img alt="Student" class="w-8 h-8 rounded-full object-cover" data-alt="close-up portrait of a young male student looking serious against a plain neutral background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuClXU3DCu2wVpRPknkdwy0q00PykYGLiwdjzbAnEVdtB_omg_--nm83ZdDMz9FdcZI10oqZWs3K0U4A4FY0WP23LGpElmI4lGB9eKPOiNcFXpSZh5JnVvjyJyldf1lruMrE4zSrfgkWSXx9-08YUamyaATwQMNDHeHKEhTRqVuu60aylaldiZLCMCZ_1MNl1sbnOFGJj3RM5hjQ4W274d17RtJjiOmzoJJDBnzZ6fPq2u2HP4p2Sd0sd1W9fWEaqHQzCXJFzVwvo6w"/>
+<div class="flex flex-col">
+<span class="text-xs font-bold">Liam Vance</span>
+<span class="text-[10px] text-secondary">3 days inactive</span>
+</div>
+</div>
+<button class="text-primary hover:text-primary-container"><span class="material-symbols-outlined text-[18px]" data-icon="chat">chat</span></button>
+</div>
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-3">
+<img alt="Student" class="w-8 h-8 rounded-full object-cover" data-alt="close-up portrait of a young female student with thoughtful expression in a bright studio setting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCaBGgYgCVCtq1PPSwh4SpdKPQOvtZc1vyHO8b976ujK-FPz8rlpozQ8p5zdoEs499uloXt7uHwMj9_CJQmuiVncH45JpRNSxQ0f0N2UB3gZi4Tcwb7OHuVSjv_tZ35LiKhd3rVQqA2YaA4AFEqtJp_2bu2vhrZD6dqXkLm5CcIzbYjy_ZAd--_6d4ji96r82XSWH4LQt1FGkFDDK3XZwlHQuos4q97dJzNmNpH2b93OroFrroi4FxjpPeL9JRIqSLfUFJHGbpvds0"/>
+<div class="flex flex-col">
+<span class="text-xs font-bold">Sarah Chen</span>
+<span class="text-[10px] text-secondary">Failed Quiz 4.2</span>
+</div>
+</div>
+<button class="text-primary hover:text-primary-container"><span class="material-symbols-outlined text-[18px]" data-icon="auto_awesome">auto_awesome</span></button>
+</div>
+</div>
+</div>
+<!-- Assignment Queue -->
+<div class="space-y-1">
+<p class="px-4 py-2 text-[11px] font-bold text-secondary uppercase tracking-widest">Pending Assignments</p>
+<a class="flex items-start gap-4 p-4 hover:bg-surface-container transition-colors rounded-lg group" href="#">
+<div class="w-10 h-10 bg-indigo-50 rounded flex items-center justify-center text-primary group-hover:bg-primary group-hover:text-white transition-all shrink-0">
+<span class="material-symbols-outlined" data-icon="description">description</span>
+</div>
+<div class="flex flex-col flex-1">
+<span class="text-sm font-bold text-on-surface">Data Modeling Project</span>
+<span class="text-xs text-secondary">Batch 24A • 18 submissions</span>
+<div class="mt-2 text-[10px] text-error font-bold flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]" data-icon="schedule">schedule</span>
+<span>Expires in 4h</span>
+</div>
+</div>
+</a>
+<a class="flex items-start gap-4 p-4 hover:bg-surface-container transition-colors rounded-lg group" href="#">
+<div class="w-10 h-10 bg-indigo-50 rounded flex items-center justify-center text-primary group-hover:bg-primary group-hover:text-white transition-all shrink-0">
+<span class="material-symbols-outlined" data-icon="code">code</span>
+</div>
+<div class="flex flex-col flex-1">
+<span class="text-sm font-bold text-on-surface">Recursive Algorithms Lab</span>
+<span class="text-xs text-secondary">Core Series • 7 submissions</span>
+<div class="mt-2 text-[10px] text-on-surface-variant font-bold flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]" data-icon="done_all">done_all</span>
+<span>High priority</span>
+</div>
+</div>
+</a>
+</div>
+</div>
+<div class="p-4 border-t border-transparent bg-surface-container-low/30 rounded-b-xl">
+<button class="w-full py-2 bg-white border border-outline-variant text-sm font-bold text-on-surface hover:bg-slate-50 transition-all rounded shadow-sm">View Workload Analytics</button>
+</div>
+</div>
+</section>
+</div>
+</main>
+</body></html>

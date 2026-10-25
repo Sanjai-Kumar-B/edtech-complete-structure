@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Junospace Portal</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&amp;family=Inter:wght@400;500;600;700&amp;family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+
+    <style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        body { font-family: 'Inter', sans-serif; font-weight: 300; }
+        h1, h2, h3, h4, .font-headline { font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 900; }
+        
+        /* Premium Dark Mode Overrides */
+        .dark body { background-color: #000000; color: #ffffff; }
+        .dark .bg-white { background-color: #0a0a0a !important; }
+        .dark .text-slate-800, .dark .text-slate-700, .dark .text-slate-900 { color: #ffffff !important; }
+        .dark .text-slate-600, .dark .text-slate-500 { color: #cbd5e1 !important; }
+        .dark .text-slate-400 { color: #94a3b8 !important; }
+        .dark .border-slate-100, .dark .border-violet-100 { border-color: rgba(139, 92, 246, 0.2) !important; }
+        .dark .border-violet-300 { border-color: rgba(139, 92, 246, 0.4) !important; }
+        .dark .bg-slate-50 { background-color: #000000 !important; }
+        .dark .bg-violet-50 { background-color: #1e1b4b !important; }
+        .dark .shadow-sm, .dark .shadow-xl { box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.5) !important; }
+    </style>
+    <script>
+        function applyTheme() {
+            const theme = localStorage.getItem('junospace-theme') || 'light';
+            document.documentElement.classList.toggle('dark', theme === 'dark');
+        }
+        window.addEventListener('storage', applyTheme);
+        window.addEventListener('message', (e) => {
+            if (e.data.action === 'themeUpdate') applyTheme();
+        });
+        applyTheme();
+    </script>
+</head>
+<script>/* In-frame sidebar suppression */
+(function(){
+  if(window.self!==window.top){
+    document.documentElement.classList.add('in-frame');
+    // inject override styles immediately
+    var s=document.createElement('style');
+    s.textContent='html.in-frame aside,html.in-frame [class*="w-64"][class*="fixed"],html.in-frame [class*="w-72"][class*="fixed"]{display:none!important;}html.in-frame main,[class*="ml-64"],[class*="ml-72"]{margin-left:0!important;}html.in-frame header,html.in-frame .fixed.top-0{display:none!important;}html.in-frame [class*="md:pl-"]{padding-left:1.5rem!important;}html.in-frame [class*="md:ml-"]{margin-left:0!important;}html.in-frame nav.fixed.bottom-0, html.in-frame button.fixed.bottom-8, html.in-frame nav.md\\:hidden{display:none!important;}html.in-frame [class*="pt-"]{padding-top:1.5rem!important;}';
+    document.head.appendChild(s);
+  }
+})();
+</script>
+<body class="bg-slate-50 text-slate-800 min-h-screen">
+<!-- TopNavBar Strategy: Hidden during assessment for focus as per UX rules -->
+<!-- Content: Weekly Assessment Header & Timer -->
+<header class="w-full sticky top-0 z-50 bg-white/80 backdrop-blur-xl border-b border-surface-variant px-8 h-20 flex justify-between items-center">
+<div class="flex items-center gap-4">
+<div class="flex flex-col">
+<h1 class="text-xl font-extrabold text-slate-800 tracking-tight">Algorithm Design</h1>
+</div>
+</div>
+<!-- Central Timer Component -->
+<div class="absolute left-1/2 -translate-x-1/2 flex items-center gap-3 bg-slate-50 px-6 py-2.5 rounded-full shadow-sm border border-outline-variant/20">
+<span class="material-symbols-outlined text-error" data-icon="timer">timer</span>
+<span class="font-mono text-xl font-bold text-slate-800 tabular-nums">00:42:18</span>
+</div>
+<div class="flex items-center gap-4">
+<button class="flex items-center gap-2 px-4 py-2 text-slate-500 font-semibold hover:bg-slate-100 transition-colors rounded-lg">
+<span class="material-symbols-outlined" data-icon="flag">flag</span>
+                Review
+            </button>
+<button onclick="alert('Submitted Successfully!')" class="bg-violet-600 text-white px-8 py-2 rounded-full font-bold shadow-lg hover:shadow-violet-200 active:scale-95 transition-all">
+                Submit
+            </button>
+</div>
+</header>
+<main class="max-w-screen-xl mx-auto px-8 py-12 grid grid-cols-12 gap-8">
+<!-- Question Navigator (Left Rail) -->
+<aside class="col-span-3">
+<div class="bg-slate-50 rounded-lg p-6 sticky top-32">
+<h3 class="text-sm font-bold text-slate-500 mb-6 uppercase tracking-wider">Question Navigator</h3>
+<div class="grid grid-cols-4 gap-3">
+<!-- Dot Logic: Completed, Active, Remaining -->
+<div class="w-10 h-10 rounded-xl flex items-center justify-center bg-secondary text-on-secondary font-bold text-sm cursor-pointer hover:scale-105 transition-transform">1</div>
+<div class="w-10 h-10 rounded-xl flex items-center justify-center bg-secondary text-on-secondary font-bold text-sm cursor-pointer hover:scale-105 transition-transform">2</div>
+<div class="w-10 h-10 rounded-xl flex items-center justify-center bg-violet-600 text-white font-bold text-sm cursor-pointer ring-4 ring-primary-container ring-opacity-30">3</div>
+<div class="w-10 h-10 rounded-xl flex items-center justify-center bg-white text-slate-500 font-bold text-sm cursor-pointer hover:bg-slate-100-highest transition-colors">4</div>
+<div class="w-10 h-10 rounded-xl flex items-center justify-center bg-white text-slate-500 font-bold text-sm cursor-pointer hover:bg-slate-100-highest transition-colors border-2 border-dashed border-outline-variant">5</div>
+<div class="w-10 h-10 rounded-xl flex items-center justify-center bg-white text-slate-500 font-bold text-sm cursor-pointer hover:bg-slate-100-highest transition-colors">6</div>
+<div class="w-10 h-10 rounded-xl flex items-center justify-center bg-white text-slate-500 font-bold text-sm cursor-pointer hover:bg-slate-100-highest transition-colors">7</div>
+<div class="w-10 h-10 rounded-xl flex items-center justify-center bg-white text-slate-500 font-bold text-sm cursor-pointer hover:bg-slate-100-highest transition-colors">8</div>
+</div>
+<div class="mt-10 pt-8 border-t border-outline-variant/30">
+<div class="flex items-center justify-between text-xs font-bold text-slate-500 mb-4">
+<span>OVERALL PROGRESS</span>
+<span>35%</span>
+</div>
+<div class="w-full h-3 bg-slate-100 rounded-full overflow-hidden">
+<div class="w-[35%] h-full bg-violet-600 shadow-[0_0_8px_rgba(53,37,205,0.4)]"></div>
+</div>
+</div>
+</div>
+</aside>
+<!-- Main Content Area: Question & Workspace -->
+<section class="col-span-9 space-y-8">
+<!-- Question Content Card -->
+<div class="bg-white rounded-lg p-10 shadow-[0_20px_40px_rgba(71,70,85,0.06)] relative overflow-hidden">
+<div class="absolute top-0 left-0 w-2 h-full bg-violet-600"></div>
+<div class="flex items-center gap-3 mb-6">
+<span class="px-3 py-1 bg-violet-600-fixed text-white-fixed-variant text-xs font-bold rounded-full">HARD</span>
+<span class="text-slate-500 text-sm font-medium">Topic: Computational Complexity</span>
+</div>
+<h2 class="text-2xl font-bold text-slate-800 mb-6 leading-tight">
+                    Evaluate the following Python function and determine its worst-case time complexity (Big O notation) relative to the input list size <code class="bg-slate-100 px-1.5 rounded">n</code>.
+                </h2>
+<div class="bg-on-surface text-surface-bright rounded-lg p-6 font-mono text-sm mb-8 relative group">
+<div class="absolute top-4 right-4 text-outline-variant text-xs opacity-50">python</div>
+<pre><code>def find_duplicates(data):
+    results = []
+    for i in range(len(data)):
+        for j in range(i + 1, len(data)):
+            if data[i] == data[j] and data[i] not in results:
+                results.append(data[i])
+    return results</code></pre>
+</div>
+<!-- Answer Selection -->
+<div class="space-y-4">
+<label class="group block relative cursor-pointer">
+<input class="hidden peer" name="answer" type="radio"/>
+<div class="flex items-center p-5 rounded-xl border border-surface-variant transition-all peer-checked:bg-secondary-container/20 peer-checked:border-secondary peer-checked:ring-1 peer-checked:ring-secondary hover:bg-slate-50">
+<span class="w-8 h-8 rounded-full border-2 border-outline-variant flex items-center justify-center text-sm font-bold group-hover:border-violet-600 transition-colors peer-checked:bg-secondary peer-checked:border-secondary peer-checked:text-on-secondary">A</span>
+<span class="ml-4 text-lg font-medium">O(n) - Linear Time</span>
+</div>
+</label>
+<label class="group block relative cursor-pointer">
+<input checked="" class="hidden peer" name="answer" type="radio"/>
+<div class="flex items-center p-5 rounded-xl border border-surface-variant transition-all peer-checked:bg-secondary-container/20 peer-checked:border-secondary peer-checked:ring-1 peer-checked:ring-secondary hover:bg-slate-50">
+<span class="w-8 h-8 rounded-full border-2 border-outline-variant flex items-center justify-center text-sm font-bold group-hover:border-violet-600 transition-colors peer-checked:bg-secondary peer-checked:border-secondary peer-checked:text-on-secondary">B</span>
+<span class="ml-4 text-lg font-medium">O(n²) - Quadratic Time</span>
+</div>
+</label>
+<label class="group block relative cursor-pointer">
+<input class="hidden peer" name="answer" type="radio"/>
+<div class="flex items-center p-5 rounded-xl border border-surface-variant transition-all peer-checked:bg-secondary-container/20 peer-checked:border-secondary peer-checked:ring-1 peer-checked:ring-secondary hover:bg-slate-50">
+<span class="w-8 h-8 rounded-full border-2 border-outline-variant flex items-center justify-center text-sm font-bold group-hover:border-violet-600 transition-colors peer-checked:bg-secondary peer-checked:border-secondary peer-checked:text-on-secondary">C</span>
+<span class="ml-4 text-lg font-medium">O(log n) - Logarithmic Time</span>
+</div>
+</label>
+<label class="group block relative cursor-pointer">
+<input class="hidden peer" name="answer" type="radio"/>
+<div class="flex items-center p-5 rounded-xl border border-surface-variant transition-all peer-checked:bg-secondary-container/20 peer-checked:border-secondary peer-checked:ring-1 peer-checked:ring-secondary hover:bg-slate-50">
+<span class="w-8 h-8 rounded-full border-2 border-outline-variant flex items-center justify-center text-sm font-bold group-hover:border-violet-600 transition-colors peer-checked:bg-secondary peer-checked:border-secondary peer-checked:text-on-secondary">D</span>
+<span class="ml-4 text-lg font-medium">O(n log n) - Quasilinear Time</span>
+</div>
+</label>
+</div>
+</div>
+<!-- Footer Navigation -->
+<div class="flex items-center justify-between py-4">
+<button class="flex items-center gap-2 px-8 py-4 rounded-full font-bold text-slate-500 hover:bg-slate-100 transition-all active:scale-95">
+<span class="material-symbols-outlined" data-icon="arrow_back">arrow_back</span>
+                    Previous
+                </button>
+<div class="flex gap-4">
+<button class="flex items-center gap-2 px-8 py-4 bg-slate-100-highest text-slate-500 rounded-full font-bold hover:bg-slate-100 transition-all">
+                        Skip Question
+                    </button>
+<button class="flex items-center gap-2 px-10 py-4 bg-violet-600 text-white rounded-full font-extrabold shadow-xl hover:shadow-primary/30 active:scale-95 transition-all">
+                        Next Question
+                        <span class="material-symbols-outlined" data-icon="arrow_forward">arrow_forward</span>
+</button>
+</div>
+</div>
+</section>
+</main>
+<!-- Side Content / Contextual Stats (Floating Bento) -->
+<div class="fixed right-8 bottom-8 w-72 space-y-4">
+<div class="bg-white p-6 rounded-lg shadow-lg border border-outline-variant/10">
+<div class="flex items-center gap-3 mb-4">
+<div class="p-2 bg-tertiary-fixed rounded-lg text-tertiary">
+<span class="material-symbols-outlined" data-icon="psychology">psychology</span>
+</div>
+<h4 class="font-bold text-sm">Focus Metrics</h4>
+</div>
+<div class="space-y-3">
+<div class="flex justify-between text-xs">
+<span class="text-slate-500">Avg. Time per Question</span>
+<span class="font-bold">2m 14s</span>
+</div>
+<div class="flex justify-between text-xs">
+<span class="text-slate-500">Focus Score</span>
+<span class="font-bold text-secondary">98/100</span>
+</div>
+</div>
+</div>
+<div class="bg-violet-600 p-6 rounded-lg shadow-xl text-white relative overflow-hidden group">
+<div class="absolute -right-4 -bottom-4 opacity-10 group-hover:scale-110 transition-transform duration-500">
+<span class="material-symbols-outlined !text-8xl" data-icon="auto_awesome">auto_awesome</span>
+</div>
+<p class="text-xs font-bold uppercase tracking-widest mb-1 opacity-80">Scholar Bonus</p>
+<h4 class="text-xl font-bold leading-tight">Double XP Session Active</h4>
+<div class="mt-4 flex items-center gap-2">
+<div class="w-full h-1 bg-white/20 rounded-full overflow-hidden">
+<div class="w-1/2 h-full bg-white"></div>
+</div>
+<span class="text-[10px] font-bold">12m</span>
+</div>
+</div>
+</div>
+<!-- BottomNavBar Suppression for focused task mode as per JSON logic -->
+
+<script src="../env.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script>
+  const { createClient } = supabase
+  const db = createClient(ENV.SUPABASE_URL, ENV.SUPABASE_ANON_KEY)
+  window.db = db
+</script>
+<script src="../js/auth.js"></script>
+<script src="../js/assessment.js"></script>
+</body></html>
+
+
+
